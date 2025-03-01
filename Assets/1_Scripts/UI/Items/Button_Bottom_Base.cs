@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Button_Bottom_Base : MonoBehaviour
 {
-    public Button_Bottom_Types buttonType;
+    public SubUIType type;
     public Image iconImg;
 
     private void OnEnable() {
@@ -17,23 +17,8 @@ public class Button_Bottom_Base : MonoBehaviour
     #region public Function
     public void OnClick_Button()
     {   
-        switch(buttonType)
-        {
-            case Button_Bottom_Types.Status:
-                {
-
-                }
-                break;
-            
-            case Button_Bottom_Types.Upgrade:
-                {
-
-                }
-                break;
-            
-            default:
-                break;
-        }
+        GameManager.Instance.SubUI.CloseAllSubUI();
+        GameManager.Instance.SubUI.subUI_Wraps[type].OpenUI(type);
     }
 
     #endregion
@@ -41,7 +26,7 @@ public class Button_Bottom_Base : MonoBehaviour
     #region private Function
     private void Initialize()
     {   
-        iconImg.sprite = GameManager.Instance.Settings.icon_Button_Bottom_Sprite[buttonType];
+        iconImg.sprite = GameManager.Instance.Settings.icon_Button_Bottom_Sprite[type];
     }
 
     #endregion

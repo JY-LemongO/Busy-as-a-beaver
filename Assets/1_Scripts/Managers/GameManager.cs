@@ -21,6 +21,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     //scriptable Object
     [SerializeField] public Settings_UI Settings;
+
+    //GameObject
+    [SerializeField] public Canvas_SubUI SubUI;
     
     #region public Method
     public int GetValue(ValueTypes type)

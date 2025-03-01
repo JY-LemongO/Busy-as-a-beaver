@@ -15,6 +15,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4587102520516054168, guid: b2ac5c8a8bd86684b95a296de36c49ea,
         type: 3}
+      propertyPath: type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587102520516054168, guid: b2ac5c8a8bd86684b95a296de36c49ea,
+        type: 3}
       propertyPath: buttonType
       value: 2
       objectReference: {fileID: 0}
@@ -31,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 6061687549438077527, guid: b2ac5c8a8bd86684b95a296de36c49ea,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 6061687549438077527, guid: b2ac5c8a8bd86684b95a296de36c49ea,
         type: 3}

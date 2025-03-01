@@ -14,6 +14,6 @@ public class Settings_UI : ScriptableObject
     [SerializedDictionary("ValueTypes", "Sprite")]
     public SerializedDictionary<ValueTypes, Sprite> icon_ValueSprite = new SerializedDictionary<ValueTypes, Sprite>();
     [SerializedDictionary]
-    public SerializedDictionary<Button_Bottom_Types, Sprite> icon_Button_Bottom_Sprite = new SerializedDictionary<Button_Bottom_Types, Sprite>();
+    public SerializedDictionary<SubUIType, Sprite> icon_Button_Bottom_Sprite = new SerializedDictionary<SubUIType, Sprite>();
 
 }

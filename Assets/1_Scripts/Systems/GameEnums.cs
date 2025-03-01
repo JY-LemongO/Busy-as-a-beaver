@@ -3,13 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public enum Button_Bottom_Types
-{
-    NONE = 0,
-    Status = 1,
-    Upgrade = 2,
-}
 
 [Serializable]
 public enum ValueTypes
@@ -24,4 +17,12 @@ public enum ScriptableObjectType
 {
     NONE = 0,
     Setting_UI = 1,
+}
+
+[Serializable]
+public enum SubUIType
+{
+    NONE = 0,
+    Status = 1,
+    Upgrade = 2, 
 }
