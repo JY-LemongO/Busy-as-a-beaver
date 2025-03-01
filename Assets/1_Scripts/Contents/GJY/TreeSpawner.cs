@@ -13,14 +13,6 @@ public class TreeSpawner : MonoBehaviour
         SpawnTree();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            _tree.GetDamaged(10f);
-        }
-    }
-
     private void SpawnTree()
     {
         _tree = TreeManager.Instance.SpawnTree(transform);

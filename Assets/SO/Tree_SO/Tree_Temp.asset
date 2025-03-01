@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Tree_Temp
   displayDesc: TEMP
-  hp: 50
+  hp: 10
   wood: 5

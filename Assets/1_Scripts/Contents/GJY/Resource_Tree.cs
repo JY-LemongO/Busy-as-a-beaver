@@ -8,7 +8,9 @@ public class Resource_Tree : MonoBehaviour, IDamagable
     // Status가 아닌 TreeStatus 등 상속구조로 변경 가능
     public Tree_SO TreeSO => _treeSO;
     public Status Status { get; private set; }
-    private bool _isInit = false;    
+
+    private GJY_TestBeaver _lastAttackedBeaver;
+    private bool _isInit = false;
 
     public void Init()
     {
@@ -18,19 +20,22 @@ public class Resource_Tree : MonoBehaviour, IDamagable
         _isInit = true;
         Status = new Status();
         Status.OnDead += OnTreeDestroyed;
-    }   
+    }
 
     public void Setup()
         => Status.Setup(_treeSO);
 
-    public void GetDamaged(float damage)
-        => Status.GetDamaged(damage);
+    public void GetDamaged(float damage, GJY_TestBeaver beaver)
+    {
+        _lastAttackedBeaver = beaver;
+        Status.GetDamaged(damage);
+    }        
 
     private void OnTreeDestroyed()
     {
         // To Do - 재화 획득 및 게임 오브젝트 비활성화
         gameObject.SetActive(false);
-        TreeManager.Instance.DestroyTree(this);
-        Debug.Log("나무 파괴됨.");        
+        TreeManager.Instance.DestroyTree(this, _lastAttackedBeaver);
+        Debug.Log("나무 파괴됨.");
     }
 }
