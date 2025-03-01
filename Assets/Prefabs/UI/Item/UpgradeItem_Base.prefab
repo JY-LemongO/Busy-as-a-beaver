@@ -169,6 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5567f96af827da44398e7cc0f6fd170d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  upgradeIcon: {fileID: 2274472956765862995}
+  upgradeName: {fileID: 7479544191701080923}
+  upgradeDescription: {fileID: 6750625634548442832}
 --- !u!1 &1049275974713875396
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,7 +293,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 744057601956870868}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1736128657702110139}
+        m_TargetAssemblyTypeName: UpgradeItem_Base, Assembly-CSharp
+        m_MethodName: OnClick_Upgarde
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5450495760853052817
 GameObject:
   m_ObjectHideFlags: 0

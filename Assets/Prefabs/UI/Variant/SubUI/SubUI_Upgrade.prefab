@@ -401,6 +401,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91f588ec0d8137348948cd230912f506, type: 3}
+--- !u!114 &5309630505507840094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1736128657702110139, guid: 91f588ec0d8137348948cd230912f506,
+    type: 3}
+  m_PrefabInstance: {fileID: 5888578562871174117}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5567f96af827da44398e7cc0f6fd170d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &8384219837432170319 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2729977994906379434, guid: 91f588ec0d8137348948cd230912f506,
@@ -563,6 +575,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   scrollView: {fileID: 7097500934844976500}
+  upgradeItem:
+  - {fileID: 5309630505507840094}
 --- !u!224 &8610008810597672398 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1269338152858325620, guid: 4a9961569a8f4374fbf6584c32b8d1b1,

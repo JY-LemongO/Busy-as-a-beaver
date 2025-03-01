@@ -13,7 +13,10 @@ public class Settings_UI : ScriptableObject
     //Dictionary
     [SerializedDictionary("ValueTypes", "Sprite")]
     public SerializedDictionary<ValueTypes, Sprite> icon_ValueSprite = new SerializedDictionary<ValueTypes, Sprite>();
-    [SerializedDictionary]
+
+    [SerializedDictionary("ValueTypes", "Sprite")]
     public SerializedDictionary<SubUIType, Sprite> icon_Button_Bottom_Sprite = new SerializedDictionary<SubUIType, Sprite>();
 
+    [SerializedDictionary("ValueTypes", "Sprite")]
+    public SerializedDictionary<string, Sprite> icon_Upgrade_dict = new SerializedDictionary<string, Sprite>();
 }

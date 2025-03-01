@@ -25,3 +25,15 @@ MonoBehaviour:
       Value: {fileID: 0}
     - Key: 2
       Value: {fileID: 0}
+  icon_Upgrade_dict:
+    _serializedList:
+    - Key: Upgrade_Speed
+      Value: {fileID: 0}
+    - Key: Upgrade_Power
+      Value: {fileID: 0}
+    - Key: Upgrade_Income
+      Value: {fileID: 0}
+    - Key: Upgrade_TreeRegen
+      Value: {fileID: 0}
+    - Key: Upgrade_BeaverHP
+      Value: {fileID: 0}
