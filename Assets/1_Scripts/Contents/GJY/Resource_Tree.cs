@@ -4,9 +4,9 @@ public class Resource_Tree : MonoBehaviour, IDamagable
 {
     // To Do - SO 참조시키고 Status에 정보 전달로 사용하기    
     [SerializeField] Tree_SO _treeSO;
+    public Tree_SO TreeSO => _treeSO;
 
     // Status가 아닌 TreeStatus 등 상속구조로 변경 가능
-    public Tree_SO TreeSO => _treeSO;
     public Status Status { get; private set; }
 
     private GJY_TestBeaver _lastAttackedBeaver;
