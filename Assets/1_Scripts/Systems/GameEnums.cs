@@ -31,11 +31,22 @@ public enum IncriseType
 {
     NONE = 0,
     PERCENT = 1,
+    NOMAL = 2,
 }
 
 public enum DataType
 {
     NONE = 0,
     DB_Upgrade = 1,
+    DB_Status = 2,
     
+}
+
+public enum StatusType
+{
+    NONE = 0,
+    HP = 1,
+    AttackSpeed = 2,
+    Income = 3,
+    MoveSpeed = 4,
 }

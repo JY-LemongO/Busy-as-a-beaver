@@ -31,6 +31,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     //Data
     public SerializedDictionary<string, UpgradeData> upgradeData = new SerializedDictionary<string, UpgradeData>();
+    public SerializedDictionary<string, StatusData> statusData =new SerializedDictionary<string, StatusData>();
+
 
     private void OnEnable() {
         foreach(var data in DataSO.Values)

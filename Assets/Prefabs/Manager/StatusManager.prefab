@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4593073485408220365
+--- !u!1 &3818432223188350054
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3130011498784004277}
-  - component: {fileID: 2441869450326905768}
+  - component: {fileID: 301781321557652417}
+  - component: {fileID: 987079979986828567}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: StatusManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3130011498784004277
+--- !u!4 &301781321557652417
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4593073485408220365}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 3818432223188350054}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -32,27 +32,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2441869450326905768
+--- !u!114 &987079979986828567
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4593073485408220365}
+  m_GameObject: {fileID: 3818432223188350054}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21850d0135ce5ed458850f7ae80bad92, type: 3}
+  m_Script: {fileID: 11500000, guid: c2701e0a223f6cd4087cf73dde06c511, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Settings: {fileID: 11400000, guid: 9dd15c382bce99449b07b8e65168003c, type: 2}
-  SubUI: {fileID: 0}
-  DataSO:
-    _serializedList:
-    - Key: 2
-      Value: {fileID: 11400000, guid: efffad51d213d3e459e500400dda06ed, type: 2}
-    - Key: 1
-      Value: {fileID: 11400000, guid: 3511da9aff15451459c5719c28f20e92, type: 2}
-  upgradeData:
-    _serializedList: []
-  statusData:
-    _serializedList: []

@@ -24,7 +24,6 @@ public class DB_Upgrade : ScriptableObjectData
         string[] textLine = CSV.text.Split('\n');
 
         string[] Keys = textLine[0].Split(',');
-        SerializedDictionary<string, UpgradeData> dic_UpgradeData = new SerializedDictionary<string, UpgradeData>();
 
         for(int i = 1; i < textLine.Length; i++)
         {
