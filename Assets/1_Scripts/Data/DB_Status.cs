@@ -47,7 +47,7 @@ public class DB_Status : ScriptableObjectData
             newData.valueType = Enum.Parse<IncriseType>(keyValues[nameof(newData.valueType)]);
             
 
-            GameManager.Instance.statusData.Add(newData.model, newData);
+            GameManager.Instance.statusData.Add(newData.type, newData);
         }
     }
 }
