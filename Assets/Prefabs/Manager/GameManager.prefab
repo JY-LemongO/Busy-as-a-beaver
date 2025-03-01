@@ -45,3 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Settings: {fileID: 11400000, guid: 9dd15c382bce99449b07b8e65168003c, type: 2}
+  SubUI: {fileID: 0}
+  DataSO:
+    _serializedList:
+    - Key: 2
+      Value: {fileID: 11400000, guid: efffad51d213d3e459e500400dda06ed, type: 2}
+  upgradeData:
+    _serializedList: []

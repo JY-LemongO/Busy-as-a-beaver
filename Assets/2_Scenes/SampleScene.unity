@@ -822,11 +822,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 330585545}
+      objectReference: {fileID: 0}
     - target: {fileID: 3366886327674273629, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
         type: 3}
       propertyPath: m_SortingLayerID
-      value: 1103003155
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3885090250505566493, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
         type: 3}

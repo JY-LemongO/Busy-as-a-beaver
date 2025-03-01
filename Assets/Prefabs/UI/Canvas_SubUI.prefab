@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4076463507884810661}
   - component: {fileID: 2078537397539652913}
   - component: {fileID: 6697593507634801408}
+  - component: {fileID: 733301792745632846}
   m_Layer: 0
   m_Name: Canvas_SubUI
   m_TagString: Untagged
@@ -123,6 +124,20 @@ MonoBehaviour:
       Value: {fileID: 6010152887188583604}
     - Key: 2
       Value: {fileID: 3448013739723997829}
+--- !u!114 &733301792745632846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537016185652578779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14287fb2422501047ae4d6154409cefa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cv: {fileID: 3366886327674273629}
+  SortingLayerName: 
 --- !u!1001 &174029446818366221
 PrefabInstance:
   m_ObjectHideFlags: 0

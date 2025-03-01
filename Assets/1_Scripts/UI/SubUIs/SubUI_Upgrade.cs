@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class SubUI_Upgrade : SubUI_Base
 {
     public ScrollRect scrollView;
-
+    
 
     private void OnEnable() 
     {

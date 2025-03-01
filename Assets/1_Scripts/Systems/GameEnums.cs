@@ -26,3 +26,16 @@ public enum SubUIType
     Status = 1,
     Upgrade = 2, 
 }
+
+public enum IncriseType
+{
+    NONE = 0,
+    PERCENT = 1,
+}
+
+public enum DataType
+{
+    NONE = 0,
+    DB_Upgrade = 1,
+    
+}

@@ -24,6 +24,20 @@ public class GameManager : MonoSingleton<GameManager>
 
     //GameObject
     [SerializeField] public Canvas_SubUI SubUI;
+
+
+    //Data List
+    public SerializedDictionary<SubUIType, ScriptableObjectData> DataSO = new SerializedDictionary<SubUIType, ScriptableObjectData>();
+
+    //Data
+    public SerializedDictionary<string, UpgradeData> upgradeData = new SerializedDictionary<string, UpgradeData>();
+
+    private void OnEnable() {
+        foreach(var data in DataSO.Values)
+        {
+            data.SetDictionaryData();
+        }
+    }
     
     #region public Method
     public int GetValue(ValueTypes type)
