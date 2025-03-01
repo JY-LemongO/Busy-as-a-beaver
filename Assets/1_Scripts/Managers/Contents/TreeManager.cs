@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class TreeManager : SingletonBase<TreeManager>
 {
-    #region Events
-    // Temp Code
-    public event Action<int> OnWoodValueChanged;
+    #region Events    
+    public event Action<int> OnWoodValueChanged; // Temp Code
     public event Action<Resource_Tree, GJY_TestBeaver> OnTreeDestroyed;
     #endregion
 
@@ -51,6 +50,7 @@ public class TreeManager : SingletonBase<TreeManager>
 
     public void DestroyTree(Resource_Tree tree, GJY_TestBeaver beaver)
     {
+        PoolManager.Instance.Return(tree.gameObject);
         TreeList.Remove(tree);
         OnWoodValueChanged?.Invoke(tree.TreeSO.wood);
         OnTreeDestroyed?.Invoke(tree, beaver);

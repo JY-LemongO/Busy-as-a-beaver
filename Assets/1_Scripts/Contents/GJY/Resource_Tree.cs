@@ -33,8 +33,7 @@ public class Resource_Tree : MonoBehaviour, IDamagable
 
     private void OnTreeDestroyed()
     {
-        // To Do - 재화 획득 및 게임 오브젝트 비활성화
-        gameObject.SetActive(false);
+        // To Do - 재화 획득 및 게임 오브젝트 비활성화        
         TreeManager.Instance.DestroyTree(this, _lastAttackedBeaver);
         Debug.Log("나무 파괴됨.");
     }
