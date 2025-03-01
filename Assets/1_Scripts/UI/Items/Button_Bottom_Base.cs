@@ -16,7 +16,7 @@ public class Button_Bottom_Base : MonoBehaviour
 
     #region public Function
     public void OnClick_Button()
-    {
+    {   
         switch(buttonType)
         {
             case Button_Bottom_Types.Status:
@@ -40,25 +40,8 @@ public class Button_Bottom_Base : MonoBehaviour
 
     #region private Function
     private void Initialize()
-    {      
-        //아이콘 초기화
-        switch(buttonType)
-        {
-            case Button_Bottom_Types.Status: //정보창
-                {
-                    
-                }
-                break;
-
-            case Button_Bottom_Types.Upgrade: //업그레이드
-                {
-
-                }
-                break;
-
-            default:
-                break;
-        }
+    {   
+        iconImg.sprite = GameManager.Instance.Settings.icon_Button_Bottom_Sprite[buttonType];
     }
 
     #endregion

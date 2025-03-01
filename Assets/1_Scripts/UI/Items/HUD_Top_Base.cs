@@ -29,32 +29,17 @@ public class HUD_Top_Base : MonoBehaviour
     {   
         //아이콘 지정
         SetIcon();
+        SetValue();
     }
 
     private void SetIcon()
-    {
-        switch(valueType)
-        {
-            case ValueTypes.Wood:
-                {
-
-                }
-                break;
-
-            case ValueTypes.Diamond:
-                {
-
-                }
-                break;
-            
-            default:
-                break;
-        }
+    {   
+        iconImg.sprite = GameManager.Instance.Settings.icon_ValueSprite[valueType];
     }
 
     private void SetValue()
     {
-        valueText.text = $"99999"; //추후에 바꿔야함. 어디에 연결시켜야됨.
+        valueText.text = GameManager.Instance.GetValue(valueType).ToString(); //추후에 바꿔야함. 어디에 연결시켜야됨.
     }
     #endregion
 }
