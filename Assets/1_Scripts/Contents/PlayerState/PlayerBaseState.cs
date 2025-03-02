@@ -76,12 +76,14 @@ public class PlayerBaseState : IState
 
     public bool ReachTheTarget()
     {
-        NavMeshAgent agent = _stateMachine.Player.Agent;
-        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        Ray ray = new Ray(_stateMachine.Player.transform.position + Vector3.up * 0.5f, _stateMachine.Player.transform.forward);
+        RaycastHit hit;
+
+        if(Physics.Raycast(ray, out hit, 1f, ~0, QueryTriggerInteraction.Collide))
         {
-            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            if(hit.collider != null)
             {
-                // 목적지에 도달함
+                Debug.Log($"Hit Name :: {hit.transform.name}");
                 return true;
             }
         }
