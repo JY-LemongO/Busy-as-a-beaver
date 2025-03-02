@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class BeaverManager : SingletonBase<BeaverManager>
 {
-    private const string BEAVER_PREFAB_PATH = "Prefabs/Beaver/Beaver_Temp";
+    //private const string BEAVER_PREFAB_PATH = "Prefabs/Beaver/Beaver_Temp";
+    private const string BEAVER_PREFAB_PATH = "Prefabs/Beaver/Beaver";
 
     public void SpawnBeaver(Vector3 position)
     {

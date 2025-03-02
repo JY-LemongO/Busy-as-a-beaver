@@ -6,7 +6,7 @@ public class TreeManager : SingletonBase<TreeManager>
 {
     #region Events    
     public event Action<int> OnWoodValueChanged; // Temp Code
-    public event Action<Resource_Tree, GJY_TestBeaver> OnTreeDestroyed;
+    public event Action<Resource_Tree, Player> OnTreeDestroyed;
     #endregion
 
     public List<Resource_Tree> TreeList { get; private set; } = new();
@@ -48,12 +48,12 @@ public class TreeManager : SingletonBase<TreeManager>
         return tree;
     }
 
-    public void DestroyTree(Resource_Tree tree, GJY_TestBeaver beaver)
+    public void DestroyTree(Resource_Tree tree, Player player)
     {
         PoolManager.Instance.Return(tree.gameObject);
         TreeList.Remove(tree);
         OnWoodValueChanged?.Invoke(tree.TreeSO.wood);
-        OnTreeDestroyed?.Invoke(tree, beaver);
+        OnTreeDestroyed?.Invoke(tree, player);
         Debug.Log($"목재 획득:: +{tree.TreeSO.wood}");
     }        
 

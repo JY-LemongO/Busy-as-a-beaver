@@ -12,7 +12,7 @@ public class GJY_TestBeaver : MonoBehaviour
 
     private void Awake()
     {
-        TreeManager.Instance.OnTreeDestroyed += OnTryGetLog;
+        //TreeManager.Instance.OnTreeDestroyed += OnTryGetLog;
     }
 
     private void OnEnable()
@@ -64,7 +64,7 @@ public class GJY_TestBeaver : MonoBehaviour
     {
         while (_targetTree.Status.IsAlive)
         {
-            _targetTree.GetDamaged(5f, this);
+            //_targetTree.GetDamaged(5f, this);
             yield return new WaitForSeconds(1f);
         }
 

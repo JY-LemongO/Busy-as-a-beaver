@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -37,11 +38,6 @@ public class PlayerBaseState : IState
 
     }
 
-    public void OnMove()
-    {
-
-    }
-
     protected void StartAnimation(int animationHash)
     {
         _stateMachine.Player.Animator.SetBool(animationHash, true);
@@ -50,10 +46,5 @@ public class PlayerBaseState : IState
     protected void StopAnimation(int animationHash)
     {
         _stateMachine.Player.Animator.SetBool(animationHash, false);
-    }
-
-    protected virtual void OnWalkStarted(InputAction.CallbackContext context)
-    {
-
     }
 }
