@@ -5,18 +5,20 @@ using UnityEngine.UI;
 public class GJY_TestScene : MonoBehaviour
 {    
     [Range(1, 10)]
-    [SerializeField] private float _damage;
-    [SerializeField] TMP_Text _logText;
+    [SerializeField] private float _damage;    
     [SerializeField] BHSpawnPoint _houseTrs1;
     [SerializeField] BHSpawnPoint _houseTrs2;
     [SerializeField] Button _previewBtn;
+    [SerializeField] Button _nextStageBtn;
+    [SerializeField] GameObject _nextStagePanel;
 
     private int _currentWood = 0;
 
     private void Awake()
-    {
-        TreeManager.Instance.OnWoodValueChanged += OnWoodValueUpdate;
+    {        
         _previewBtn.onClick.AddListener(OnPreviewMode);
+        _nextStageBtn.onClick.AddListener(OnNextStage);
+        DamManager.Instance.OnBuiltDam += () => _nextStagePanel.SetActive(true);
     }
 
     private void Update()
@@ -31,12 +33,12 @@ public class GJY_TestScene : MonoBehaviour
         }
     }
 
-    private void OnWoodValueUpdate(int value)
-    {
-        _currentWood += value;
-        _logText.text = $"Current Log : {_currentWood}";
-    }
-
     private void OnPreviewMode()
         => BuildingSystem.Instance.EnterBHPreviewMode();    
+
+    private void OnNextStage()
+    {
+        _nextStagePanel.SetActive(false);
+        StageManager.Instance.StageClear();
+    }        
 }

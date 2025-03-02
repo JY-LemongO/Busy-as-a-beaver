@@ -93,9 +93,11 @@ public class GJY_TestBeaver : Beaver
 
     private IEnumerator Co_MoveToDam()
     {
-        while (Vector3.Distance(transform.position, Dam.Instance.transform.position) > _needDistance)
+        Dam dam = DamManager.Instance.Dam;
+
+        while (Vector3.Distance(transform.position, dam.transform.position) > _needDistance)
         {
-            Vector3 dir = Util.GetMoveDirection(transform, Dam.Instance.transform);
+            Vector3 dir = Util.GetMoveDirection(transform, dam.transform);
             transform.position += dir * _moveSpeed * Time.deltaTime;
             yield return null;
         }
@@ -106,7 +108,7 @@ public class GJY_TestBeaver : Beaver
     private IEnumerator Co_BuildDam()
     {
         yield return new WaitForSeconds(2f);
-        Dam.Instance.BuildDam();
+        DamManager.Instance.Dam.BuildDam();
         PoolManager.Instance.Return(_log);
 
         _isMovingToDam = false;
@@ -121,5 +123,19 @@ public class GJY_TestBeaver : Beaver
             transform.position += dir * _moveSpeed * Time.deltaTime;
             yield return null;
         }
+    }
+
+    public override void Dispose()
+    {
+        if (_log != null)
+            PoolManager.Instance.Return(_log);
+
+        StopAllCoroutines();
+
+        _house = null;
+        _targetTree = null;
+        _log = null;
+        _isMovingToDam = false;
+        _isLogging = false;
     }
 }

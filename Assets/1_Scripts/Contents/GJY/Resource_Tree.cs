@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using Unity.Android.Gradle;
 using UnityEngine;
 
 public class Resource_Tree : MonoBehaviour
@@ -18,6 +17,7 @@ public class Resource_Tree : MonoBehaviour
 
     public void Setup()
     {
+        // To Do - 나무 스테이터스 넣기
         IsDestroyed = false;
     }
 
@@ -32,7 +32,7 @@ public class Resource_Tree : MonoBehaviour
         if (IsLogging)
             return;
 
-        // To Do - Logging        
+        // To Do - Logging
         IsLogging = true;
         StartCoroutine(Co_Logging());
     }    

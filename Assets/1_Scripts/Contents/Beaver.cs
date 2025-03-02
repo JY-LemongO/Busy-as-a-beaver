@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Beaver : MonoBehaviour
 {
-    
+    public virtual void Dispose() { }
 }
