@@ -12,8 +12,8 @@ public class PlayerInteractionState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
-        Rotate();
-        StartAnimation(_stateMachine.Player.AnimationData.InteracrtionParameterName);
+        //Rotate();
+        StartAnimation(_stateMachine.Player.AnimationData.InteracrtionParameterHash);
 
         _stateMachine.Player.targetTree.LogTree();
     }
@@ -22,7 +22,7 @@ public class PlayerInteractionState : PlayerBaseState
     {
         base.Exit();
         _stateMachine.Player.isInteraction = false;
-        StopAnimation(_stateMachine.Player.AnimationData.InteracrtionParameterName);
+        StopAnimation(_stateMachine.Player.AnimationData.InteracrtionParameterHash);
     }
 
     public override void PhysicsUpdate()
@@ -32,7 +32,7 @@ public class PlayerInteractionState : PlayerBaseState
 
     public override void Update()
     {
-        base.Update();
+
     }
 
     private void Rotate()
