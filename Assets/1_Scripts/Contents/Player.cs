@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
     [SerializeField] private float _needDistance;
     [SerializeField] private float _moveSpeed;
 
+    public bool isInteraction = false;
+    public Resource_Tree targetTree;
+
     private void Awake()
     {
         AnimationData.Initialize();

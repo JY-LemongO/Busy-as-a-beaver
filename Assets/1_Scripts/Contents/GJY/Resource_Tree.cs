@@ -29,7 +29,7 @@ public class Resource_Tree : MonoBehaviour, IDamagable
     {
         _lastAttackedBeaver = beaver;
         Status.GetDamaged(damage);
-    }        
+    }
 
     private void OnTreeDestroyed()
     {
