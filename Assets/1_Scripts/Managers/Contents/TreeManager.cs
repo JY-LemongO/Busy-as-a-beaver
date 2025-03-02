@@ -57,7 +57,7 @@ public class TreeManager : SingletonBase<TreeManager>
         PoolManager.Instance.Return(tree.gameObject);
         TreeList.Remove(tree);
         OnWoodValueChanged?.Invoke(tree.TreeSO.wood);
-        OnTreeDestroyed?.Invoke(tree, beaver);
+        OnTreeDestroyed?.Invoke(tree, player);
         Debug.Log($"목재 획득:: +{tree.TreeSO.wood}");
     }        
 

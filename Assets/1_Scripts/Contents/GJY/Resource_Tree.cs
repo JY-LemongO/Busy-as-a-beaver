@@ -9,7 +9,7 @@ public class Resource_Tree : MonoBehaviour, IDamagable
     // Status가 아닌 TreeStatus 등 상속구조로 변경 가능
     public Status Status { get; private set; }
 
-    private GJY_TestBeaver _lastAttackedBeaver;
+    private Player _lastAttackedBeaver;
     private bool _isInit = false;
 
     public void Init()
@@ -25,9 +25,9 @@ public class Resource_Tree : MonoBehaviour, IDamagable
     public void Setup()
         => Status.Setup(_treeSO);
 
-    public void GetDamaged(float damage, GJY_TestBeaver beaver)
+    public void GetDamaged(float damage, Player player)
     {
-        _lastAttackedBeaver = beaver;
+        _lastAttackedBeaver = player;
         Status.GetDamaged(damage);
     }        
 
