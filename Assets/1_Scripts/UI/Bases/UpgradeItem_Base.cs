@@ -12,15 +12,22 @@ public class UpgradeItem_Base : MonoBehaviour
 
     public UpgradeData upgradeData;
 
+    bool isConsumable => GameManager.Instance.wood - upgradeData.upgradeCost >= 0;
+    
+    //
     public void OnClick_Upgarde()
     {
-        if(true) //나중에 조건 수정
+        if(isConsumable)
         {
             GameManager.Instance.statusData[upgradeData.statusType].statusValue += 1;
             GameManager.Instance.statusData[StatusType.Wood].statusValue -= upgradeData.upgradeCost;
             MessageManager.Instance.ViewMessage(MessageType.NOMAL, "success");
             Initialize();
             StatusManager.Instance.SetDirty();
+        }
+        else
+        {
+            MessageManager.Instance.ViewMessage(MessageType.NOMAL, $"자원이 부족합니다.");
         }
     }
 

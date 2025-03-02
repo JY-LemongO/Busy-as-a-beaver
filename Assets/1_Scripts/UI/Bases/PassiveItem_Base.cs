@@ -13,6 +13,10 @@ public class PassiveItem_Base : MonoBehaviour
 
     public PassiveData passiveData;
 
+    bool isMaxLevel => GameManager.Instance.statusData[passiveData.statusType].statusValue <= passiveData.maxLevel;
+    bool isConsumable => GameManager.Instance.wood - passiveData.cost >= 0;
+    bool isUpgradeable => isMaxLevel && isConsumable;
+
     #region Life Cycle
     private void OnEnable() {
     }
@@ -21,12 +25,16 @@ public class PassiveItem_Base : MonoBehaviour
     #region Button Function
     public void OnClick_PassiveBtn()
     {
-        if(true)// 나중에 조건 수정
+        if(isUpgradeable)
         {
             GameManager.Instance.statusData[passiveData.statusType].statusValue += 1;
             GameManager.Instance.statusData[StatusType.Wood].statusValue -= passiveData.cost;
             Initialize();
             StatusManager.Instance.SetDirty();
+        }
+        else
+        {   
+            MessageManager.Instance.ViewMessage(MessageType.NOMAL, $"업그레이드 실패"); //나중에 뭐때문에 실패했는지 알려주기
         }
     }
     #endregion
