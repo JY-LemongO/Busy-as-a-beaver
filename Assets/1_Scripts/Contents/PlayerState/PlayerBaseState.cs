@@ -34,6 +34,9 @@ public class PlayerBaseState : IState
 
     public virtual void PhysicsUpdate()
     {
+        if (_stateMachine.Player.targetTree != null)
+            return;
+
         if (TryGetTarget())
         {
             MoveToTarget();

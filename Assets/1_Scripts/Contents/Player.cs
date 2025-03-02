@@ -22,7 +22,7 @@ public class Player : Beaver
 
     #region GJY
     public GameObject log;
-
+    
     public bool _isMovingToDam = false;
     public bool _isLogging = false;
     #endregion
