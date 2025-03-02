@@ -25,7 +25,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     //move
     private float MoveSpeed => statusData[StatusType.MoveSpeed].statusValue;
-    private float passiveSpeed => passiveData["Passive_005"].incriseValueDic[statusData[StatusType.Passive_QuickFeet].statusValue] * 0.01f;
+    private bool isPassiveSpeedOpen => statusData[StatusType.Passive_QuickFeet].statusValue > 0;
+    private float passiveSpeed => isPassiveSpeedOpen ? passiveData["Passive_005"].incriseValueDic[statusData[StatusType.Passive_QuickFeet].statusValue] * 0.01f : 0;
     private float upgradeSpeed => upgradeData["Upgrade_001"].incriseValue * statusData[StatusType.Upgrade_Speed].statusValue * 0.01f;
     public float fixMoveSpeed => MoveSpeed * (passiveSpeed + upgradeSpeed + 1);
 

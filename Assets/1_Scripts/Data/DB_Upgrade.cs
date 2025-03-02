@@ -47,7 +47,7 @@ public class DB_Upgrade : ScriptableObjectData
             newData.upgradeCost = int.Parse(keyValues[nameof(newData.upgradeCost)]);
             
 
-            GameManager.Instance.upgradeData.Add($"Upgrade_{newData.index}", newData);
+            GameManager.Instance.upgradeData.Add(newData.model, newData);
         }
     }
 }
