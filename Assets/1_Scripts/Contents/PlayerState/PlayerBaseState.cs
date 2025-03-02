@@ -35,8 +35,10 @@ public class PlayerBaseState : IState
 
     public virtual void Update()
     {
-
+        //_stateMachine.Player.Agent.SetDestination(target);
     }
+
+
 
     protected void StartAnimation(int animationHash)
     {

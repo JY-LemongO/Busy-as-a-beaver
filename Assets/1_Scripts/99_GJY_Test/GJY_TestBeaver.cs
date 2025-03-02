@@ -103,7 +103,7 @@ public class GJY_TestBeaver : MonoBehaviour
     {
         while (_targetTree.Status.IsAlive)
         {
-            //_targetTree.GetDamaged(5f, this);
+            _targetTree.GetDamaged(5f, this);
             yield return new WaitForSeconds(1f);
         }        
     }
