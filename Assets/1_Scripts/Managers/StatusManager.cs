@@ -13,7 +13,7 @@ using System.IO;
 public class StatusManager : MonoSingleton<StatusManager>
 {
     [SerializeField] private bool isDirty = false;
-    public void SetDircy() => isDirty = true;
+    public void SetDirty() => isDirty = true;
 
 
     private void Update() {

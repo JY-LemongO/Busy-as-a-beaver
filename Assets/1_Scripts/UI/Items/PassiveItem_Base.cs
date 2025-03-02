@@ -21,7 +21,13 @@ public class PassiveItem_Base : MonoBehaviour
     #region Button Function
     public void OnClick_PassiveBtn()
     {
-        
+        if(true)// 나중에 조건 수정
+        {
+            GameManager.Instance.statusData[passiveData.statusType].statusValue += 1;
+            GameManager.Instance.statusData[StatusType.Wood].statusValue -= passiveData.cost;
+            Initialize();
+            StatusManager.Instance.SetDirty();
+        }
     }
     #endregion
 

@@ -16,15 +16,20 @@ public class SubUI_Upgrade : SubUI_Base
         Initialize();
     }
 
-    public override void Initialize()
+    public override void Initialize() //Upgrade_{}
     {
         scrollView.normalizedPosition = new Vector2(1f, 0f);
 
-        List<UpgradeData> datas = GameManager.Instance.upgradeData.Values.ToList<UpgradeData>();
+        // List<UpgradeData> datas = GameManager.Instance.upgradeData.Values.ToList<UpgradeData>();
+
+        // for(int i = 0; i < upgradeItem.Count; i++)
+        // {
+        //     upgradeItem[i].Initialize(datas[i]);
+        // }
 
         for(int i = 0; i < upgradeItem.Count; i++)
         {
-            upgradeItem[i].Initialize(datas[i]);
+            upgradeItem[i].Initialize(GameManager.Instance.upgradeData[$"Upgrade_{i+1}"]);
         }
     }
 }
