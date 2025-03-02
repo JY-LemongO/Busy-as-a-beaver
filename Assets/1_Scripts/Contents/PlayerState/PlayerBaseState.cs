@@ -79,11 +79,16 @@ public class PlayerBaseState : IState
         Ray ray = new Ray(_stateMachine.Player.transform.position + Vector3.up * 0.5f, _stateMachine.Player.transform.forward);
         RaycastHit hit;
 
-        if(Physics.Raycast(ray, out hit, 1f, ~0, QueryTriggerInteraction.Collide))
+        int layerMask = 1 << LayerMask.NameToLayer("Resource") | 1 << LayerMask.NameToLayer("Dam");
+
+        if (Physics.Raycast(ray, out hit, 1f, layerMask, QueryTriggerInteraction.Collide))
         {
             if(hit.collider != null)
             {
-                Debug.Log($"Hit Name :: {hit.transform.name}");
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Resource"))
+                {
+                    _stateMachine.Player.isInteraction = true;
+                }
                 return true;
             }
         }
@@ -92,7 +97,7 @@ public class PlayerBaseState : IState
 
     public void MoveToDam()
     {
-        _stateMachine.Player.Agent.SetDestination(DamManager.Instance.Dam.moveToDamPosition.transform.position);
+        _stateMachine.Player.Agent.SetDestination(DamManager.Instance.transform.position);
     }
 
     #region GJY
