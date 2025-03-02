@@ -38,7 +38,7 @@ public class Status
         if (HP <= 0)
         {
             IsAlive = false;
-            OnDead?.Invoke();
-        }            
+            OnDead?.Invoke();            
+        }
     }
 }

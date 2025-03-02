@@ -1,6 +1,6 @@
-model,index,upgradeName,upgradeDescription,incriseValue,incriseType,cost,null
-Upgrade_Speed,1,이동속도,비버의 이동속도가 {0} 증가합니다.,10,PERCENT,100,
-Upgrade_Power,2,파워,비버의 힘이 {0} 증가합니다.,10,PERCENT,100,
-Upgrade_Income,3,수익,비버가 얻는 나무의 양이 {0} 증가합니다.,10,PERCENT,100,
-Upgrade_TreeRegen,4,나무재생,나무가 {0} 빨리자랍니다.,10,PERCENT,100,
-Upgrade_BeaverHP,5,체력,비버의 체력이 {0} 증가합니다.,10,PERCENT,100,
+model,index,upgradeName,upgradeDescription,statusType,incriseValue,incriseType,upgradeCost,null
+Upgrade_001,1,이동속도,비버의 이동속도가 {0} 증가합니다.,Upgrade_Speed,10,PERCENT,100,
+Upgrade_002,2,파워,비버의 힘이 {0} 증가합니다.,Upgrade_Power,10,PERCENT,100,
+Upgrade_003,3,수익,비버가 얻는 나무의 양이 {0} 증가합니다.,Upgrade_Income,10,PERCENT,100,
+Upgrade_004,4,나무재생,나무가 {0} 빨리자랍니다.,Upgrade_TreeRegen,10,PERCENT,100,
+Upgrade_005,5,체력,비버의 체력이 {0} 증가합니다.,Upgrade_BeaverHP,10,PERCENT,100,

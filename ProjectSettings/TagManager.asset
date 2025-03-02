@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Selectable
   layers:
   - Default
   - TransparentFX
@@ -41,6 +42,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: PlayerHUD
+    uniqueID: 1572015527
+    locked: 0
+  - name: HUD
+    uniqueID: 3470585051
+    locked: 0
   - name: SubUI
     uniqueID: 1103003155
+    locked: 0
+  - name: Message
+    uniqueID: 2384009455
     locked: 0

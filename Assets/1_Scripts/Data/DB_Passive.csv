@@ -1,0 +1,7 @@
+model,index,passiveName,description,statusType,incriseValue,incriseType,cost,maxLevel,null
+Passive_001,1,예민한,나무가 넘어질 때 깔릴 확률 감소,Passive_Sharp,5/10/20,PERCENT,30,3,
+Passive_002,2,근면한,체력이 0이 될 시 x만큼 체력 증가,Passive_Sedulity,5/10/20,PERCENT,30,3,
+Passive_003,3,단단한 이빨,나무를 빨리 베어냄,Passive_HardTeeth,5/10/20,PERCENT,30,3,
+Passive_004,4,철새,철새들이 날아와 크리스탈을 지급,Passive_SeasonalBird,10/20/30,PERCENT,30,3,
+Passive_005,5,빠른 발,이동속도 증가,Passive_QuickFeet,5/10/20,PERCENT,30,3,
+Passive_006,6,금수저,더욱 많은 돈을 가지고 시작,Passive_GoldenSpoon,30/50/100,PERCENT,30,3,
