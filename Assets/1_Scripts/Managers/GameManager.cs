@@ -19,10 +19,8 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {   
     //var
-    private int wood;
-    public int Wood{ get { return wood;} set{ wood = value; }}
-    private int diamond;
-    public int Diamond { get { return diamond; } set { diamond = value; }}
+    public int wood => statusData[StatusType.Wood].statusValue;
+    public int diamond => statusData[StatusType.Diamond].statusValue;
 
 
     //scriptable Object
@@ -36,9 +34,14 @@ public class GameManager : MonoSingleton<GameManager>
     public SerializedDictionary<SubUIType, ScriptableObjectData> DataSO = new SerializedDictionary<SubUIType, ScriptableObjectData>();
 
     //Data
+    [SerializedDictionary("model", "data")]
     public SerializedDictionary<string, UpgradeData> upgradeData = new SerializedDictionary<string, UpgradeData>();
+
+    [SerializedDictionary("StatusType", "data")]
     public SerializedDictionary<StatusType, StatusData> statusData =new SerializedDictionary<StatusType, StatusData>();
 
+    [SerializedDictionary("model", "data")]
+    public SerializedDictionary<string, PassiveData> passiveData = new SerializedDictionary<string, PassiveData>();
 
     private void OnEnable() {
         foreach(var data in DataSO.Values)
@@ -53,8 +56,8 @@ public class GameManager : MonoSingleton<GameManager>
         int result = 0;
         switch(type)
         {
-            case ValueTypes.Wood: result = wood; break;
-            case ValueTypes.Diamond: result = Diamond; break;
+            case ValueTypes.Wood: result = statusData[StatusType.Wood].statusValue; break;
+            case ValueTypes.Diamond: result = statusData[StatusType.Diamond].statusValue; break;
             
             default: break;
         }

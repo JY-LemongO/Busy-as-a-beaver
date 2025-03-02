@@ -19,4 +19,7 @@ public class Settings_UI : ScriptableObject
 
     [SerializedDictionary("ValueTypes", "Sprite")]
     public SerializedDictionary<string, Sprite> icon_Upgrade_dict = new SerializedDictionary<string, Sprite>();
+    
+    [SerializedDictionary("ValueTypes", "Sprite")]
+    public SerializedDictionary<string, Sprite> icon_Passive_dict = new SerializedDictionary<string, Sprite>();
 }
