@@ -20,10 +20,10 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     //var
-    public int wood => statusData[StatusType.Wood].statusValue;
+    public int coin => statusData[StatusType.Wood].statusValue;
     public int diamond => statusData[StatusType.Diamond].statusValue;
     
-
+    private bool isInitialize = false;
 
     //scriptable Object
     [SerializeField] public Settings_UI Settings;
@@ -55,22 +55,31 @@ public class GameManager : MonoSingleton<GameManager>
 
 
     private void OnEnable() {
-        foreach(var data in DataSO.Values)
+        if(!isInitialize)
         {
-            data.SetDictionaryData();
+            foreach(var data in DataSO.Values)
+            {
+                data.SetDictionaryData();
+            }
+
+            isInitialize = true;
         }
 
-        MessageManager.Instance.ViewMessage(MessageType.Enemy, enemyData["Enemy_001"]);
+
+        //test
+        // MessageManager.Instance.ViewMessage(MessageType.Enemy, enemyData["Enemy_001"]);
     }
     
     #region public Method
     public int GetValue(ValueTypes type)
-    {
+    {   
+        if(!isInitialize) return 0;
+        
         int result = 0;
         switch(type)
         {
-            case ValueTypes.Coin: result = statusData[StatusType.Wood].statusValue; break;
-            case ValueTypes.Diamond: result = statusData[StatusType.Diamond].statusValue; break;
+            case ValueTypes.Coin: result = coin; break;
+            case ValueTypes.Diamond: result = diamond; break;
             
             default: break;
         }

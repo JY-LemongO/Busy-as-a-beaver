@@ -186,6 +186,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD_Top_Base (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6959620006783900238, guid: ec4f663b8f059784cad9168cb828be77,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.0014954
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196589683192803063, guid: ec4f663b8f059784cad9168cb828be77,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5cac968d3e325d8418a1902093518c67,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -320,6 +331,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: HUD_Top_Base
       objectReference: {fileID: 0}
+    - target: {fileID: 6959620006783900238, guid: ec4f663b8f059784cad9168cb828be77,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.0014954
+      objectReference: {fileID: 0}
+    - target: {fileID: 9196589683192803063, guid: ec4f663b8f059784cad9168cb828be77,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 26798eb6264eee64ca6e2b7c950d1652,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

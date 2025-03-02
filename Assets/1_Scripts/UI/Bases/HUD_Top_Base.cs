@@ -43,12 +43,13 @@ public class HUD_Top_Base : MonoBehaviour
 
     private void SetIcon()
     {   
-        iconImg.sprite = GameManager.Instance.Settings.icon_ValueSprite[valueType];
+        // iconImg.sprite = GameManager.Instance.Settings.icon_ValueSprite[valueType];
     }
 
     private void SetValue()
-    {
-        valueText.text = GameManager.Instance.GetValue(valueType).ToString(); //추후에 바꿔야함. 어디에 연결시켜야됨.
+    {   
+        if(GameManager.Instance != null)
+            valueText.text = GameManager.Instance.GetValue(valueType).ToString(); //추후에 바꿔야함. 어디에 연결시켜야됨.
     }
     #endregion
 }
