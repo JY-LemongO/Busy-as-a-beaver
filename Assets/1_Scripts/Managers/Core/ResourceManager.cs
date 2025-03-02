@@ -26,10 +26,16 @@ public class ResourceManager : SingletonBase<ResourceManager>
             return null;
         }
 
-        if (isPooling)
-            return PoolManager.Instance.Get(prefab);
+        GameObject go = null;
 
-        GameObject go = UnityEngine.Object.Instantiate(prefab, parent);
+        if (isPooling)
+        {
+            go = PoolManager.Instance.Get(prefab);
+            go.transform.SetParent(parent);
+            return go;
+        }            
+
+        go = UnityEngine.Object.Instantiate(prefab, parent);
         go.name = prefab.name;
 
         return go;

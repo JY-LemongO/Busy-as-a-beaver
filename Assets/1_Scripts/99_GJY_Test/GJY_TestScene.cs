@@ -38,5 +38,5 @@ public class GJY_TestScene : MonoBehaviour
     }
 
     private void OnPreviewMode()
-        => BuildingSystem.Instance.EnterPreviewBH();    
+        => BuildingSystem.Instance.EnterBHPreviewMode();    
 }

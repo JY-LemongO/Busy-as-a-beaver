@@ -11,9 +11,10 @@ public class UpgradeData
     public int index;
     public string upgradeName;
     public string upgradeDescription;
+    public StatusType statusType;
     public int incriseValue;
     public IncriseType incriseType;
-    public int cost;
+    public int upgradeCost;
 }
 
 [CreateAssetMenu(fileName = "DB_Upgrade", menuName = "DB/Upgrade", order = -1)]
@@ -40,13 +41,13 @@ public class DB_Upgrade : ScriptableObjectData
             newData.index = int.Parse(keyValues[nameof(newData.index)]);
             newData.upgradeName = keyValues[nameof(newData.upgradeName)];
             newData.upgradeDescription = keyValues[nameof(newData.upgradeDescription)];
+            newData.statusType = Enum.Parse<StatusType>(keyValues[nameof(newData.statusType)]);
             newData.incriseValue = int.Parse(keyValues[nameof(newData.incriseValue)]);
             newData.incriseType = Enum.Parse<IncriseType>(keyValues[nameof(newData.incriseType)]);
-            // Debug.Log(nameof(newData.upgradeCost));
-            newData.cost = int.Parse(keyValues[nameof(newData.cost)]);
+            newData.upgradeCost = int.Parse(keyValues[nameof(newData.upgradeCost)]);
             
 
-            GameManager.Instance.upgradeData.Add(newData.model, newData);
+            GameManager.Instance.upgradeData.Add($"Upgrade_{newData.index}", newData);
         }
     }
 }
