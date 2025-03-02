@@ -9098,10 +9098,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 5
-  _logText: {fileID: 95322152}
   _houseTrs1: {fileID: 1681485963}
   _houseTrs2: {fileID: 211041977}
   _previewBtn: {fileID: 72667048}
+  _nextStageBtn: {fileID: 0}
+  _nextStagePanel: {fileID: 0}
 --- !u!1 &278815668646943581
 GameObject:
   m_ObjectHideFlags: 0

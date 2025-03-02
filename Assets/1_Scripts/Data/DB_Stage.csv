@@ -1,0 +1,17 @@
+model,index,maxHouse,needWood,null
+stage_001,1,1,10,null
+stage_002,2,1,11,null
+stage_003,3,2,27.5,null
+stage_004,4,2,68.75,null
+stage_005,5,3,240.625,null
+stage_006,6,4,1082.8125,null
+stage_007,7,1,13,null
+stage_008,8,2,32.5,null
+stage_009,9,2,81.25,null
+stage_010,10,3,284.375,null
+stage_011,11,4,1279.6875,null
+stage_012,12,1,16,null
+stage_013,13,2,40,null
+stage_014,14,2,100,null
+stage_015,15,3,350,null
+stage_016,16,4,1575,null

@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2441869450326905768
 MonoBehaviour:
@@ -58,6 +58,8 @@ MonoBehaviour:
       Value: {fileID: 11400000, guid: b6316123aeeadeb4a810f586cfa2fc3a, type: 2}
     - Key: 6
       Value: {fileID: 11400000, guid: 73deb48dc3c24ca4d93bc650bbb88a42, type: 2}
+    - Key: 7
+      Value: {fileID: 11400000, guid: 51e41a3e0150c04428234d91938e9a88, type: 2}
   upgradeData:
     _serializedList: []
   statusData:
@@ -67,4 +69,6 @@ MonoBehaviour:
   itemData:
     _serializedList: []
   enemyData:
+    _serializedList: []
+  stageData:
     _serializedList: []
