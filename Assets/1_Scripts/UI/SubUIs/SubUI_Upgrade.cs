@@ -18,14 +18,7 @@ public class SubUI_Upgrade : SubUI_Base
 
     public override void Initialize() //Upgrade_{}
     {
-        scrollView.normalizedPosition = new Vector2(1f, 0f);
-
-        // List<UpgradeData> datas = GameManager.Instance.upgradeData.Values.ToList<UpgradeData>();
-
-        // for(int i = 0; i < upgradeItem.Count; i++)
-        // {
-        //     upgradeItem[i].Initialize(datas[i]);
-        // }
+        scrollView.normalizedPosition = new Vector2(0f, 1f);
 
         for(int i = 0; i < upgradeItem.Count; i++)
         {

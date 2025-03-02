@@ -27,6 +27,7 @@ public class CanvasCameraFinder : MonoBehaviour
         }
 
         cv.worldCamera = Camera.main;
+        cv.worldCamera = GameObject.Find("SubUICamera").GetComponent<Camera>();
         cv.sortingLayerName = string.IsNullOrEmpty(SortingLayerName)? "Default" : SortingLayerName;
     }
 }
