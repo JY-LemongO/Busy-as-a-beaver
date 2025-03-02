@@ -12,6 +12,7 @@ public class PlayerWalkState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
+
         StartAnimation(_stateMachine.Player.AnimationData.WalkParameterHash);
     }
 

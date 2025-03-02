@@ -6,14 +6,14 @@ public class TreeManager : SingletonBase<TreeManager>
 {
     #region Events    
     public event Action<int> OnWoodValueChanged; // Temp Code
+    public event Action<Resource_Tree> OnTreeSpawned;
     public event Action<Resource_Tree, GJY_TestBeaver> OnTreeDestroyed;
     #endregion
 
     public List<Resource_Tree> TreeList { get; private set; } = new();
-
-    #region TempCode
-    private const string TREE_PREFAB_PATH = "Prefabs/Tree/Tree_Temp";
-    #endregion
+    
+    private const string TREE_PREFAB_PATH = "Prefabs/Tree/";
+    private const string STUMP_PREFAB_PATH = "Prefabs/Tree/Stump";
 
     public Resource_Tree GetClosestTree(Transform beaverTrs)
     {
@@ -36,24 +36,28 @@ public class TreeManager : SingletonBase<TreeManager>
         return closestTree;
     }
 
-    public Resource_Tree SpawnTree(Transform spawner)
+    public Resource_Tree SpawnTree(string treeKey, Transform spawner)
     {
-        Resource_Tree tree = ResourceManager.Instance.Instantiate(TREE_PREFAB_PATH, spawner).GetComponent<Resource_Tree>();
-        tree.transform.position = spawner.position;
+        string path = TREE_PREFAB_PATH + treeKey;
+        Resource_Tree tree = Util.SpawnGameObjectAndSetPosition<Resource_Tree>(path, spawner.position, parent: spawner);
 
         tree.Init();
         tree.Setup();
         TreeList.Add(tree);
-        
+        OnTreeSpawned?.Invoke(tree);
+
         return tree;
     }
+
+    public GameObject SpawnStump(Transform spawner)
+        => Util.SpawnGameObjectAndSetPosition(STUMP_PREFAB_PATH, spawner.position, parent: spawner);
 
     public void DestroyTree(Resource_Tree tree, GJY_TestBeaver beaver)
     {
         PoolManager.Instance.Return(tree.gameObject);
         TreeList.Remove(tree);
         OnWoodValueChanged?.Invoke(tree.TreeSO.wood);
-        OnTreeDestroyed?.Invoke(tree, beaver);
+        OnTreeDestroyed?.Invoke(tree, player);
         Debug.Log($"목재 획득:: +{tree.TreeSO.wood}");
     }        
 

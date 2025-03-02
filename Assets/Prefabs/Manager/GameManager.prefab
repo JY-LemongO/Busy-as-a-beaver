@@ -50,9 +50,13 @@ MonoBehaviour:
     _serializedList:
     - Key: 2
       Value: {fileID: 11400000, guid: efffad51d213d3e459e500400dda06ed, type: 2}
+    - Key: 3
+      Value: {fileID: 11400000, guid: 2c584bd94c0503e49a732e5caa6fd791, type: 2}
     - Key: 1
       Value: {fileID: 11400000, guid: 3511da9aff15451459c5719c28f20e92, type: 2}
   upgradeData:
     _serializedList: []
   statusData:
+    _serializedList: []
+  passiveData:
     _serializedList: []

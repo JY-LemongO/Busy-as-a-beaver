@@ -16,24 +16,40 @@ MonoBehaviour:
   icon_ValueSprite:
     _serializedList:
     - Key: 1
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
     - Key: 2
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
   icon_Button_Bottom_Sprite:
     _serializedList:
     - Key: 1
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
     - Key: 2
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+    - Key: 3
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
   icon_Upgrade_dict:
     _serializedList:
-    - Key: Upgrade_Speed
-      Value: {fileID: 0}
-    - Key: Upgrade_Power
-      Value: {fileID: 0}
-    - Key: Upgrade_Income
-      Value: {fileID: 0}
-    - Key: Upgrade_TreeRegen
-      Value: {fileID: 0}
-    - Key: Upgrade_BeaverHP
-      Value: {fileID: 0}
+    - Key: Upgrade_001
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+    - Key: Upgrade_002
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+    - Key: Upgrade_003
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+    - Key: Upgrade_004
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+    - Key: Upgrade_005
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+  icon_Passive_dict:
+    _serializedList:
+    - Key: Passive_001
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+    - Key: Passive_002
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+    - Key: Passive_003
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+    - Key: Passive_004
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+    - Key: Passive_005
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+    - Key: Passive_006
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
