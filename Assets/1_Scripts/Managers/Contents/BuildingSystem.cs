@@ -7,16 +7,44 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
     #region Events
     public event Action<BeaverHouse> OnBeaverHouseBuilt;
     public event Action<BeaverHouse> OnBeaverHouseDestroyed;
+    public event Action OnExitPreviewMode;
     #endregion
 
     private Dictionary<BHSpawnPoint, BeaverHouse> _beaverHouseDict = new();
-
-    // BH == BeaverHouse
+    
     private int _buildableBHCount;
     private int _currentBHCount;
+    private bool _isPVMode = false;
 
     private const string BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/BeaverHouse_Temp";
     private const string PV_BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/PV_BeaverHouse_Temp";
+
+    private void Update()
+    {
+        if (!_isPVMode)
+            return;
+
+        if (Input.GetMouseButtonUp(0))
+        {            
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.collider != null)
+                {
+                    Debug.Log($"터치된 오브젝트: {hit.collider.gameObject.name}");
+
+                    // 특정 오브젝트만 터치 반응하도록 설정
+                    if (hit.collider.CompareTag("Selectable") && hit.collider.TryGetComponent(out PV_BeaverHouse pvBH))
+                    {
+                        BuildBeaverHouse(pvBH.SpawnPoint);
+                        ExitPreviewBH();
+                    }
+                }
+            }
+        }
+    }
 
     public void BuildBeaverHouse(BHSpawnPoint spawnPoint)
     {
@@ -51,8 +79,9 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
         _currentBHCount--;        
     }
 
-    public void EnterPreviewBH()
+    public void EnterBHPreviewMode()
     {
+        _isPVMode = true;
         foreach (var spawnPoint in _beaverHouseDict.Keys)
         {
             if (_beaverHouseDict[spawnPoint] != null)
@@ -60,12 +89,14 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
 
             GameObject go = ResourceManager.Instance.Instantiate(PV_BEAVER_HOUSE_PREFAB_PATH);
             go.transform.position = spawnPoint.transform.position;
+            go.GetComponent<PV_BeaverHouse>().Setup(spawnPoint);
         }
     }
 
     public void ExitPreviewBH()
     {
-
+        _isPVMode = false;
+        OnExitPreviewMode?.Invoke();
     }
 
     public void RegistBHSpawnPoint(BHSpawnPoint spawnPoint)
@@ -75,6 +106,8 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
     {
         if (_buildableBHCount == _currentBHCount)
             return false;
+
+        // 재화가 부족해도 false
 
         return true;
     }
@@ -89,6 +122,9 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
 
     public override void Dispose()
     {
+        OnBeaverHouseBuilt = null;
+        OnBeaverHouseDestroyed = null;
+        OnExitPreviewMode = null;
         _beaverHouseDict.Clear();
         base.Dispose();
     }

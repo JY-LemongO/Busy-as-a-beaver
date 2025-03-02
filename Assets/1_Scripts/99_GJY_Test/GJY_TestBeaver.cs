@@ -6,9 +6,13 @@ public class GJY_TestBeaver : MonoBehaviour
 {
     [SerializeField] private float _needDistance;
     [SerializeField] private float _moveSpeed;
+    [SerializeField] private Transform _logTrs;
 
     private Resource_Tree _targetTree;
+    private GameObject _log;
     private bool _isMovingToDam = false;
+
+    private const string LOG_PREFAB_PATH = "Prefabs/Tree/Log_Temp";
 
     private void Awake()
     {
@@ -29,6 +33,12 @@ public class GJY_TestBeaver : MonoBehaviour
         {
             StopAllCoroutines();
             SearchTree();
+        }
+        else
+        {
+            _log = ResourceManager.Instance.Instantiate(LOG_PREFAB_PATH, _logTrs);
+            _log.transform.localPosition = Vector3.zero;
+            _log.transform.localRotation = Quaternion.identity;
         }
     }
 
@@ -89,6 +99,7 @@ public class GJY_TestBeaver : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         Dam.Instance.BuildDam();
+        PoolManager.Instance.Return(_log);
 
         _isMovingToDam = false;
         if (FindTree())
