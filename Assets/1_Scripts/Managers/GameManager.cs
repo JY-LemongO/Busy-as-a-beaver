@@ -65,6 +65,7 @@ public class GameManager : MonoSingleton<GameManager>
             isInitialize = true;
         }
 
+        OpenPopup(PopupType.Clear);
 
         //test
         // MessageManager.Instance.ViewMessage(MessageType.Enemy, enemyData["Enemy_001"]);
@@ -74,7 +75,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int GetValue(ValueTypes type)
     {   
         if(!isInitialize) return 0;
-        
+
         int result = 0;
         switch(type)
         {
@@ -90,6 +91,11 @@ public class GameManager : MonoSingleton<GameManager>
     {
         statusData[type].statusValue += value;
         StatusManager.Instance.SetDirty();
+    }
+
+    public void OpenPopup(PopupType type)
+    {
+        SubUI.popup_Wraps[type].OpenPopup(type);;
     }
     #endregion
 }

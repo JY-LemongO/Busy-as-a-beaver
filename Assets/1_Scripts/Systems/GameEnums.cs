@@ -104,3 +104,9 @@ public enum ItemType
     Banana = 2,
     Peach = 3,
 }
+
+public enum PopupType
+{
+    NONE = 0,
+    Clear = 1,
+}
