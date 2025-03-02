@@ -30,6 +30,12 @@ public class GameManager : MonoSingleton<GameManager>
     private float upgradeSpeed => upgradeData["Upgrade_001"].incriseValue * statusData[StatusType.Upgrade_Speed].statusValue * 0.01f;
     public float fixMoveSpeed => MoveSpeed * (passiveSpeed + upgradeSpeed + 1);
 
+    //나무 베는 스피드 
+    private float attackSpeed => statusData[StatusType.AttackSpeed].statusValue;
+    private bool isPassiveAtkSpdOpen => statusData[StatusType.Passive_QuickFeet].statusValue > 0;
+    public float passiveAttackSpeed => isPassiveAtkSpdOpen ? passiveData["Passive_003"].incriseValueDic[statusData[StatusType.Passive_QuickFeet].statusValue] * 0.01f : 0;
+    private float upgradeAtkSpd => upgradeData["Upgrade_002"].incriseValue * statusData[StatusType.Upgrade_Power].statusValue * 0.01f;
+    public float AttackSpeed => attackSpeed * (1- upgradeAtkSpd - passiveAttackSpeed);
 
     private bool isInitialize = false;
 
