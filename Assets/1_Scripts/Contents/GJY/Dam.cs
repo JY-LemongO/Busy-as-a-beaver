@@ -4,36 +4,32 @@ using UnityEngine;
 public class Dam : MonoBehaviour
 {
     [SerializeField] List<GameObject> _damProgressList;
-    [SerializeField] private int _needLogCount;    
+    [SerializeField] private int _needLogCount;
+    public GameObject moveToDamPosition;
 
-    public static Dam Instance { get; private set; }
+    public int NeedLogCount { get; private set; }
+    private int _currentLogCount;
 
-    private int _currentLogCount;    
-
-    private void Awake()
+    public void SetupDam(int logCount)
     {
-        if (Instance == null)
-            Instance = this;
-
-        if (Instance != this)
-            Destroy(gameObject);
-
-        if (_needLogCount == 0)
-            Debug.LogError("[Dam] 필요한 나무 개수가 잘못 설정되어있습니다.");
+        foreach (var logProgress in _damProgressList)
+            logProgress.SetActive(false);
+        NeedLogCount = logCount;
+        _currentLogCount = 0;
     }
 
     public void BuildDam()
     {
         _currentLogCount++;
 
-        int step = Mathf.FloorToInt(5 * (_currentLogCount - 1) / (_needLogCount - 1)) + 1;        
+        int step = Mathf.FloorToInt(5 * (_currentLogCount - 1) / (NeedLogCount - 1)) + 1;
         if (step <= _damProgressList.Count && !_damProgressList[step - 1].activeSelf)
             _damProgressList[step - 1].SetActive(true);
 
-        if (_currentLogCount == _needLogCount)
+        if (_currentLogCount == NeedLogCount)
         {
             // To Do - Stage Clear            
-            Debug.Log("Stage Clear!");
-        }            
+            DamManager.Instance.BuildDamComplete();
+        }
     }
 }

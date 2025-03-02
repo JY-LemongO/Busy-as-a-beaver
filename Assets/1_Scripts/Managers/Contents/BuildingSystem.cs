@@ -16,8 +16,8 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
     private int _currentBHCount;
     private bool _isPVMode = false;
 
-    private const string BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/BeaverHouse_Temp";
-    private const string PV_BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/PV_BeaverHouse_Temp";
+    private const string BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/BeaverHouse";
+    private const string PV_BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/PV_BeaverHouse_Temp";    
 
     private void Update()
     {
@@ -29,7 +29,7 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, float.MaxValue, ~0, QueryTriggerInteraction.Collide))
             {
                 if (hit.collider != null)
                 {

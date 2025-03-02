@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
@@ -17,10 +18,11 @@ using UnityEngine;
     
 
 public class GameManager : MonoSingleton<GameManager>
-{   
+{
     //var
     public int wood => statusData[StatusType.Wood].statusValue;
     public int diamond => statusData[StatusType.Diamond].statusValue;
+    
 
 
     //scriptable Object

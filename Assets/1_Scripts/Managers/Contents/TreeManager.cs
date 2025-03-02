@@ -44,6 +44,7 @@ public class TreeManager : SingletonBase<TreeManager>
         string path = TREE_PREFAB_PATH + treeKey;
         Resource_Tree tree = Util.SpawnGameObjectAndSetPosition<Resource_Tree>(path, spawner.position, parent: spawner);
 
+        // 나무 셋업할 때 시간이나 요구시간 설정해야함.
         tree.Setup();
         TreeList.Add(tree);
         OnTreeSpawned?.Invoke(tree);
@@ -57,14 +58,27 @@ public class TreeManager : SingletonBase<TreeManager>
     public void DestroyTree(Resource_Tree tree, Beaver beaver)
     {
         PoolManager.Instance.Return(tree.gameObject);
-        TreeList.Remove(tree);
-        //OnWoodValueChanged?.Invoke();
-        OnTreeDestroyed?.Invoke(tree, beaver);        
+        TreeList.Remove(tree);        
+        OnTreeDestroyed?.Invoke(tree, beaver);
+
+        //GameManager.Instance.SetValue(StatusType.Wood, 5);
+    }
+
+    public void DestroyAllTree()
+    {
+        foreach(Resource_Tree tree in TreeList)
+            PoolManager.Instance.Return(tree.gameObject);
+        TreeList.Clear();
     }
 
     protected override void InitChild()
     {
-        
+        StageManager.Instance.OnStageClear += OnStageClear;
+    }    
+
+    private void OnStageClear(int notUsed)
+    {
+        DestroyAllTree();
     }
 
     public override void Dispose()

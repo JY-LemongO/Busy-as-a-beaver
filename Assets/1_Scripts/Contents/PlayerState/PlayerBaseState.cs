@@ -34,27 +34,28 @@ public class PlayerBaseState : IState
 
     public virtual void PhysicsUpdate()
     {
+        if (_stateMachine.Player._isMovingToDam)
+        {
+            MoveToDam();
+            _stateMachine.ChangeState(_stateMachine.WalkState);
+        }
+
         if (_stateMachine.Player.targetTree != null)
             return;
 
-        if (TryGetTarget())
+        if (TryGetTargetTree())
         {
-            MoveToTarget();
+            MoveToTargetTree();
             _stateMachine.ChangeState(_stateMachine.WalkState);
         }
     }
 
     public virtual void Update()
     {
-        if (ReachTheTarget())
-        {
-            Interaction();
-            _stateMachine.ChangeState(_stateMachine.InteractionState);
-            Debug.Log($"[PlayerBaseState] 스테이트 전환  :: {_stateMachine.InteractionState.ToString()}");
-        }
+
     }
 
-    public bool TryGetTarget()
+    public bool TryGetTargetTree()
     {
         _stateMachine.Player.targetTree = TreeManager.Instance.GetClosestTree(_stateMachine.Player.transform);
 
@@ -67,22 +68,7 @@ public class PlayerBaseState : IState
 
         return false;
     }
-
-    #region GJY
-    private void OnGetLog()
-    {
-        _stateMachine.Player.targetTree.OnTreeDestroyed -= OnGetLog;
-
-        _stateMachine.Player.log = ResourceManager.Instance.Instantiate("Prefabs/Tree/Log", _stateMachine.Player.transform);
-        _stateMachine.Player.log.transform.localPosition = Vector3.zero;
-        _stateMachine.Player.log.transform.localRotation = Quaternion.identity;
-
-        _stateMachine.Player._isMovingToDam = true;
-        _stateMachine.Player._isLogging = false;        
-    }
-    #endregion
-
-    public void MoveToTarget()
+    public void MoveToTargetTree()
     {
         Transform targetTrensform = _stateMachine.Player.targetTree.gameObject.transform;
         _stateMachine.Player.Agent.SetDestination(targetTrensform.position);
@@ -102,10 +88,24 @@ public class PlayerBaseState : IState
         return false;
     }
 
-    public void Interaction()
+    public void MoveToDam()
     {
-        _stateMachine.Player.isInteraction = true;
+        _stateMachine.Player.Agent.SetDestination(Dam.Instance.moveToDamPosition.transform.position);
     }
+
+    #region GJY
+    private void OnGetLog()
+    {
+        _stateMachine.Player.targetTree.OnTreeDestroyed -= OnGetLog;
+
+        _stateMachine.Player.log = ResourceManager.Instance.Instantiate("Prefabs/Tree/Log", _stateMachine.Player.transform);
+        _stateMachine.Player.log.transform.localPosition = Vector3.zero;
+        _stateMachine.Player.log.transform.localRotation = Quaternion.identity;
+
+        _stateMachine.Player._isMovingToDam = true;
+        _stateMachine.Player._isLogging = false;        
+    }
+    #endregion
 
     protected void StartAnimation(int animationHash)
     {
