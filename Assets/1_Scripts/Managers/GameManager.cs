@@ -33,6 +33,7 @@ public class GameManager : MonoSingleton<GameManager>
 
 
     //Data List
+    [SerializedDictionary("SubUI", "SO")]
     public SerializedDictionary<SubUIType, ScriptableObjectData> DataSO = new SerializedDictionary<SubUIType, ScriptableObjectData>();
 
     //Data
@@ -45,11 +46,21 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializedDictionary("model", "data")]
     public SerializedDictionary<string, PassiveData> passiveData = new SerializedDictionary<string, PassiveData>();
 
+    [SerializedDictionary("model", "data")]
+    public SerializedDictionary<string, ItemData> itemData = new SerializedDictionary<string, ItemData>();
+
+    [SerializedDictionary("model", "data")]
+    public SerializedDictionary<string, EnemyData> enemyData = new SerializedDictionary<string, EnemyData>();
+
+
+
     private void OnEnable() {
         foreach(var data in DataSO.Values)
         {
             data.SetDictionaryData();
         }
+
+        MessageManager.Instance.ViewMessage(MessageType.Enemy, enemyData["Enemy_001"]);
     }
     
     #region public Method

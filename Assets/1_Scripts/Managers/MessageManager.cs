@@ -33,4 +33,8 @@ public class MessageManager : MonoSingleton<MessageManager>
     {
         dict_Message[type].ViewMessage(message);
     }
+    public void ViewMessage(MessageType type, EnemyData data)
+    {
+        dict_Message[type].ViewMessage(data);
+    }
 }

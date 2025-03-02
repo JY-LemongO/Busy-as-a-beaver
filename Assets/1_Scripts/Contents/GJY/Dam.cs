@@ -4,6 +4,8 @@ using UnityEngine;
 public class Dam : MonoBehaviour
 {
     [SerializeField] List<GameObject> _damProgressList;
+    [SerializeField] private int _needLogCount;
+    public GameObject moveToDamPosition;
 
     public int NeedLogCount { get; private set; }
     private int _currentLogCount;

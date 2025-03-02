@@ -29,15 +29,20 @@ public class PlayerWalkState : PlayerBaseState
 
     public override void Update()
     {
-        base.Update();
+        if (ReachTheTarget())
+        {
+            if (_stateMachine.Player._isMovingToDam)
+            {
+                _stateMachine.ChangeState(_stateMachine.BuildingState);
+            }
+            else
+            {
+                _stateMachine.Player.isInteraction = true;
+                _stateMachine.ChangeState(_stateMachine.InteractionState);
+                Debug.Log($"[PlayeyWalkState] 스테이트 전환  :: {_stateMachine.InteractionState.ToString()}");
+            }
+        }
 
-        //if (_stateMachine.Player.isInteraction)
-        //{
-        //    _stateMachine.ChangeState(_stateMachine.InteractionState);
-        //}
-        //else
-        //{
-        //    _stateMachine.ChangeState(_stateMachine.IdleState);
-        //}
+
     }
 }

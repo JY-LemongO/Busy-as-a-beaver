@@ -8,6 +8,7 @@ public class PlayerStateMachine : StateMachine
     public PlayerIdleState IdleState { get; }
     public PlayerWalkState WalkState { get; }
     public PlayerInteractionState InteractionState { get; }
+    public PlayerBuildingState BuildingState { get; }
 
     public PlayerStateMachine(Player player)
     {
@@ -16,5 +17,6 @@ public class PlayerStateMachine : StateMachine
         IdleState = new PlayerIdleState(this);
         WalkState = new PlayerWalkState(this);
         InteractionState = new PlayerInteractionState(this);
+        BuildingState = new PlayerBuildingState(this);
     }
 }
