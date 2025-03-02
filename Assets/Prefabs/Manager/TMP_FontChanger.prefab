@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d23cf42b7a5434ea7352120f91ae3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FontAsset: {fileID: 11400000, guid: 91c8a5892a0fa4049969bc1634a48776, type: 2}
+  FontAsset: {fileID: 11400000, guid: e69bd040292982440ab32b4e902e4536, type: 2}
