@@ -18,6 +18,7 @@ public class UpgradeItem_Base : MonoBehaviour
         {
             GameManager.Instance.statusData[upgradeData.statusType].statusValue += 1;
             GameManager.Instance.statusData[StatusType.Wood].statusValue -= upgradeData.upgradeCost;
+            MessageManager.Instance.ViewMessage(MessageType.NOMAL, "success");
             Initialize();
             StatusManager.Instance.SetDirty();
         }

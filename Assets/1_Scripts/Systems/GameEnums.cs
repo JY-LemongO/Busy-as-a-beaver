@@ -70,3 +70,9 @@ public enum StatusType
     Upgrade_TreeRegen = 204,
     Upgrade_BeaverHP = 205,
 }
+
+public enum MessageType
+{
+    NONE = 0,
+    NOMAL = 1,
+}
