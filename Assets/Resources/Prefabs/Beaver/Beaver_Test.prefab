@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _needDistance: 1
-  _moveSpeed: 5
+  _moveSpeed: 25
   _logTrs: {fileID: 494876442440502353}
 --- !u!1 &8133828969000725040
 GameObject:
