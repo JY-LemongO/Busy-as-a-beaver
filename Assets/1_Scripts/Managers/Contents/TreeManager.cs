@@ -54,7 +54,7 @@ public class TreeManager : SingletonBase<TreeManager>
     public GameObject SpawnStump(Transform spawner)
         => Util.SpawnGameObjectAndSetPosition(STUMP_PREFAB_PATH, spawner.position, parent: spawner);
 
-    public void DestroyTree(Resource_Tree tree, GJY_TestBeaver player)
+    public void DestroyTree(Resource_Tree tree, GJY_TestBeaver beaver)
     {
         PoolManager.Instance.Return(tree.gameObject);
         TreeList.Remove(tree);
@@ -64,7 +64,7 @@ public class TreeManager : SingletonBase<TreeManager>
 
     protected override void InitChild()
     {
-        // ì•„ì§ ì´ˆê¸°í™” í•  ê²ƒë“¤ì´ ì•ˆ ë³´ì„.
+        // ?•„ì§? ì´ˆê¸°?™” ?•  ê²ƒë“¤?´ ?•ˆ ë³´ì„.
     }
 
     public override void Dispose()
