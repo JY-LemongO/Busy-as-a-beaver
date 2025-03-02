@@ -25,11 +25,11 @@ public class Resource_Tree : MonoBehaviour, IDamagable
     public void Setup()
         => Status.Setup(_treeSO);
 
-    public void GetDamaged(float damage, GJY_TestBeaver player)
+    public void GetDamaged(float damage, GJY_TestBeaver beaver)
     {
-        _lastAttackedBeaver = player;
+        _lastAttackedBeaver = beaver;
         Status.GetDamaged(damage);
-    }        
+    }
 
     private void OnTreeDestroyed()
     {

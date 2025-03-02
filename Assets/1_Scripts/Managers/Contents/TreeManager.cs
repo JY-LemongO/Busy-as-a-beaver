@@ -52,14 +52,14 @@ public class TreeManager : SingletonBase<TreeManager>
     public GameObject SpawnStump(Transform spawner)
         => Util.SpawnGameObjectAndSetPosition(STUMP_PREFAB_PATH, spawner.position, parent: spawner);
 
-    public void DestroyTree(Resource_Tree tree, GJY_TestBeaver player)
+    public void DestroyTree(Resource_Tree tree, GJY_TestBeaver beaver)
     {
         PoolManager.Instance.Return(tree.gameObject);
         TreeList.Remove(tree);
         OnWoodValueChanged?.Invoke(tree.TreeSO.wood);
-        OnTreeDestroyed?.Invoke(tree, player);
+        OnTreeDestroyed?.Invoke(tree, beaver);
         Debug.Log($"목재 획득:: +{tree.TreeSO.wood}");
-    }        
+    }
 
     protected override void InitChild()
     {
