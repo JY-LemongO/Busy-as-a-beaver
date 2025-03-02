@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110f9dc7e52817b44944ddeb4c05521e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonType: 0
+  type: 0
   iconImg: {fileID: 4225973112343464440}
 --- !u!1 &4366629253268318241
 GameObject:

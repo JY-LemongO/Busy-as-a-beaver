@@ -172,6 +172,14 @@ MonoBehaviour:
   upgradeIcon: {fileID: 2274472956765862995}
   upgradeName: {fileID: 7479544191701080923}
   upgradeDescription: {fileID: 6750625634548442832}
+  upgradeData:
+    model: 
+    index: 0
+    upgradeName: 
+    upgradeDescription: 
+    incriseValue: 0
+    incriseType: 0
+    cost: 0
 --- !u!1 &1049275974713875396
 GameObject:
   m_ObjectHideFlags: 0

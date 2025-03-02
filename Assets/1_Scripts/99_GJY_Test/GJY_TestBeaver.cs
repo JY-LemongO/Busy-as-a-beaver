@@ -12,7 +12,7 @@ public class GJY_TestBeaver : MonoBehaviour
     private GameObject _log;
     private bool _isMovingToDam = false;
 
-    private const string LOG_PREFAB_PATH = "Prefabs/Tree/Log_Temp";
+    private const string LOG_PREFAB_PATH = "Prefabs/Tree/Log";
 
     private void Awake()
     {
