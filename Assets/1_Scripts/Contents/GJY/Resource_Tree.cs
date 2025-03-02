@@ -51,7 +51,6 @@ public class Resource_Tree : MonoBehaviour
 
     private IEnumerator Co_Logging()
     {   
-        Debug.Log($"Logging time is {_logTime} {GameManager.Instance.passiveAttackSpeed}");
         float currentTime = 0f;
 
         while (currentTime < _logTime)

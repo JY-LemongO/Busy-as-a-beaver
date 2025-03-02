@@ -33,9 +33,17 @@ public class GameManager : MonoSingleton<GameManager>
     //나무 베는 스피드 
     private float attackSpeed => statusData[StatusType.AttackSpeed].statusValue;
     private bool isPassiveAtkSpdOpen => statusData[StatusType.Passive_QuickFeet].statusValue > 0;
-    public float passiveAttackSpeed => isPassiveAtkSpdOpen ? passiveData["Passive_003"].incriseValueDic[statusData[StatusType.Passive_QuickFeet].statusValue] * 0.01f : 0;
+    private float passiveAttackSpeed => isPassiveAtkSpdOpen ? passiveData["Passive_003"].incriseValueDic[statusData[StatusType.Passive_QuickFeet].statusValue] * 0.01f : 0;
     private float upgradeAtkSpd => upgradeData["Upgrade_002"].incriseValue * statusData[StatusType.Upgrade_Power].statusValue * 0.01f;
     public float AttackSpeed => attackSpeed * (1- upgradeAtkSpd - passiveAttackSpeed);
+
+    //나무 수입
+    private float income => statusData[StatusType.Income].statusValue;
+    private float upgardeIncome => upgradeData["Upgrade_002"].incriseValue * statusData[StatusType.Upgrade_Power].statusValue * 0.01f;
+    public float Income => income * (1 + upgardeIncome);
+
+    //시작시 갖고있는 돈
+
 
     private bool isInitialize = false;
 
