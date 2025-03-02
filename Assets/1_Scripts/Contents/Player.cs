@@ -17,7 +17,6 @@ public class Player : Beaver
     [SerializeField] private float _needDistance;
     [SerializeField] private float _moveSpeed;
 
-    public bool isInteraction = false;
     public Resource_Tree targetTree;
 
     #region GJY

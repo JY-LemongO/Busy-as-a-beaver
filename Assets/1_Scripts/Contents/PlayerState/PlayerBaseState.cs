@@ -42,7 +42,7 @@ public class PlayerBaseState : IState
 
         if (_stateMachine.Player.targetTree != null)
             return;
-
+        
         if (TryGetTargetTree())
         {
             MoveToTargetTree();
@@ -63,11 +63,11 @@ public class PlayerBaseState : IState
         {
             _stateMachine.Player.targetTree.SetBeaver(_stateMachine.Player as Beaver);
             _stateMachine.Player.targetTree.OnTreeDestroyed += OnGetLog;
-            return true;            
+            return true;
         }
-
         return false;
     }
+
     public void MoveToTargetTree()
     {
         Transform targetTrensform = _stateMachine.Player.targetTree.gameObject.transform;
