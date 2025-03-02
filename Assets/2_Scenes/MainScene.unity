@@ -539,6 +539,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 632024751345066732, guid: 0921c121e9ae3ef409d56b1f7e16b9a0,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 632024751345066732, guid: 0921c121e9ae3ef409d56b1f7e16b9a0,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 632024751345066732, guid: 0921c121e9ae3ef409d56b1f7e16b9a0,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 632024751345066732, guid: 0921c121e9ae3ef409d56b1f7e16b9a0,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 632024751345066732, guid: 0921c121e9ae3ef409d56b1f7e16b9a0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 632024751345066732, guid: 0921c121e9ae3ef409d56b1f7e16b9a0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 892837816121545608, guid: 0921c121e9ae3ef409d56b1f7e16b9a0,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -848,6 +878,11 @@ PrefabInstance:
         type: 3}
       propertyPath: obj_transform
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7165999878746653731, guid: 0921c121e9ae3ef409d56b1f7e16b9a0,
+        type: 3}
+      propertyPath: type
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7967352098754639675, guid: 0921c121e9ae3ef409d56b1f7e16b9a0,
         type: 3}
@@ -5495,6 +5530,16 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3499195238058973815, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3499195238058973815, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3653127328604958521, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -5740,6 +5785,16 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5896176530869908085, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5896176530869908085, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5944555422521089700, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
         type: 3}
       propertyPath: m_Layer
@@ -5784,6 +5839,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6304949702229095534, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6304949702229095534, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6631208756023138962, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
         type: 3}
@@ -6398,10 +6463,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 5
-  _logText: {fileID: 95322152}
   _houseTrs1: {fileID: 1681485963}
   _houseTrs2: {fileID: 211041977}
   _previewBtn: {fileID: 72667048}
+  _nextStageBtn: {fileID: 0}
+  _nextStagePanel: {fileID: 0}
 --- !u!1 &278815668646943581
 GameObject:
   m_ObjectHideFlags: 0
