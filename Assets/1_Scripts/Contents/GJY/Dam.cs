@@ -10,6 +10,15 @@ public class Dam : MonoBehaviour
     public int NeedLogCount { get; private set; }
     private int _currentLogCount;
 
+    private void Awake()
+    {
+        if (DamManager.Instance.Dam == null)
+        {
+            DamManager.Instance.SetDam(this);
+            SetupDam(100);
+        }            
+    }
+
     public void SetupDam(int logCount)
     {
         foreach (var logProgress in _damProgressList)

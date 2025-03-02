@@ -4528,11 +4528,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8502299785305142451}
   - component: {fileID: 4850748396835367402}
-  - component: {fileID: 8409374512781651993}
   - component: {fileID: 4649357715192611446}
   m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
+  m_Name: Dam Camera
+  m_TagString: SubCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4603,14 +4602,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8409374512781651993
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8936950148341989519}
-  m_Enabled: 1
 --- !u!114 &4649357715192611446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4712,6 +4703,7 @@ MonoBehaviour:
   - {fileID: 2414968719351569927}
   - {fileID: 8156072237428450966}
   _needLogCount: 10
+  moveToDamPosition: {fileID: 0}
 --- !u!1 &9101354032008999121
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class StageManager : SingletonBase<StageManager>
 {
@@ -10,6 +11,7 @@ public class StageManager : SingletonBase<StageManager>
         {
             _stage = value;
             OnStageClear?.Invoke(value);
+            Debug.Log("스테이지 증가");
         }
     }
     private int _stage;

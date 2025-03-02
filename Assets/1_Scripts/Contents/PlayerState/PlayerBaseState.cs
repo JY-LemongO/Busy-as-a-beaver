@@ -90,7 +90,7 @@ public class PlayerBaseState : IState
 
     public void MoveToDam()
     {
-        _stateMachine.Player.Agent.SetDestination(Dam.Instance.moveToDamPosition.transform.position);
+        _stateMachine.Player.Agent.SetDestination(DamManager.Instance.Dam.moveToDamPosition.transform.position);
     }
 
     #region GJY

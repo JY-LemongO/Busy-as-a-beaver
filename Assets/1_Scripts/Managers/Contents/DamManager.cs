@@ -13,13 +13,19 @@ public class DamManager : SingletonBase<DamManager>
     {
         GameObject go = ResourceManager.Instance.Instantiate(DAM_PREFAB_PATH);
         Dam = go.GetComponent<Dam>();
+        Dam.SetupDam(2); // 임시
         Dam.transform.position = spawnPoint.position;
         Dam.transform.rotation = spawnPoint.rotation;
     }
 
+    //Temp
+    public void SetDam(Dam dam)
+        => Dam = dam;
+
     public void BuildDamComplete()
     {
         // To Do - 스테이지 클리어 UI 띄우기
+        Debug.Log("댐 완성");
         OnBuiltDam?.Invoke();
     }
 

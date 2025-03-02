@@ -21,6 +21,7 @@ public class LevelController : MonoBehaviour
         if (_currentLevel != null)
             PoolManager.Instance.Return(_currentLevel.gameObject);
 
-        PoolManager.Instance.Get(_levelPresetList[level - 1]);
+        _currentLevel = PoolManager.Instance.Get(_levelPresetList[level - 1]).GetComponent<Level>();
+        _currentLevel.SpawnDam();
     }
 }
