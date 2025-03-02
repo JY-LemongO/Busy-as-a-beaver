@@ -1,0 +1,4 @@
+model,index,itemName,description,itemType,value,incriseType,null
+Item_001,1,사과,무작위 비버 한마리의 체력을 회복합니다.,Apple,10,NOMAL,
+Item_002,2,바나나,무작위 비버 한마리의 이동속도가 5초간 빨라집니다.,Banana,5,NOMAL,
+Item_003,3,복숭아,무작위 비버가 얻는 자원이 10 증가합니다.,Peach,10,NOMAL,

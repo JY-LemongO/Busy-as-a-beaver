@@ -9,12 +9,8 @@ public class Message_Nomal : Message_Base
         base.messageText.text = message;
         gameObject.SetActive(true);
 
-        StartCoroutine(WaitCoroutine());
+        StartCoroutine(WaitCoroutine(1f));
     }
 
-    IEnumerator WaitCoroutine()
-    {
-        yield return new WaitForSeconds(1f);
-        gameObject.SetActive(false);
-    }
+    public override void ViewMessage(EnemyData data){ }
 }

@@ -41,3 +41,11 @@ MonoBehaviour:
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
     - Key: Passive_006
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+  icon_Item_dict:
+    _serializedList:
+    - Key: Item_001
+      Value: {fileID: 21300000, guid: 5cac968d3e325d8418a1902093518c67, type: 3}
+    - Key: Item_002
+      Value: {fileID: 21300000, guid: 5cac968d3e325d8418a1902093518c67, type: 3}
+    - Key: Item_003
+      Value: {fileID: 21300000, guid: 5cac968d3e325d8418a1902093518c67, type: 3}
