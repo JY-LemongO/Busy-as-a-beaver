@@ -6,6 +6,7 @@ public class TreeManager : SingletonBase<TreeManager>
 {
     #region Events    
     public event Action<int> OnWoodValueChanged; // Temp Code
+    public event Action<Resource_Tree> OnTreeSpawned;
     public event Action<Resource_Tree, GJY_TestBeaver> OnTreeDestroyed;
     #endregion
 
@@ -38,13 +39,13 @@ public class TreeManager : SingletonBase<TreeManager>
 
     public Resource_Tree SpawnTree(Transform spawner)
     {
-        Resource_Tree tree = ResourceManager.Instance.Instantiate(TREE_PREFAB_PATH, spawner).GetComponent<Resource_Tree>();
-        tree.transform.position = spawner.position;
+        Resource_Tree tree = Util.SpawnGameObjectAndSetPosition<Resource_Tree>(TREE_PREFAB_PATH, spawner.position, parent: spawner);
 
         tree.Init();
         tree.Setup();
         TreeList.Add(tree);
-        
+        OnTreeSpawned?.Invoke(tree);
+
         return tree;
     }
 

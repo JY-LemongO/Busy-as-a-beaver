@@ -54,14 +54,12 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
             return;
         }
         Vector3 spawnPosition = spawnPoint.transform.position;
-        GameObject go = ResourceManager.Instance.Instantiate(BEAVER_HOUSE_PREFAB_PATH);
-        go.transform.position = spawnPosition;
+        BeaverHouse beaverHouse = Util.SpawnGameObjectAndSetPosition<BeaverHouse>(BEAVER_HOUSE_PREFAB_PATH, spawnPosition, parent: spawnPoint.transform);
 
-        BeaverHouse beaverHouse = go.GetComponent<BeaverHouse>();
         _beaverHouseDict[spawnPoint] = beaverHouse;
         _currentBHCount++;
 
-        BeaverManager.Instance.SpawnBeaver(spawnPosition);
+        BeaverManager.Instance.SpawnBeaver(spawnPosition, beaverHouse);
         OnBeaverHouseBuilt?.Invoke(beaverHouse);
     }
 
@@ -87,9 +85,8 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
             if (_beaverHouseDict[spawnPoint] != null)
                 continue;
 
-            GameObject go = ResourceManager.Instance.Instantiate(PV_BEAVER_HOUSE_PREFAB_PATH);
-            go.transform.position = spawnPoint.transform.position;
-            go.GetComponent<PV_BeaverHouse>().Setup(spawnPoint);
+            PV_BeaverHouse pvBeaverHouse = Util.SpawnGameObjectAndSetPosition<PV_BeaverHouse>(PV_BEAVER_HOUSE_PREFAB_PATH, spawnPoint.transform.position);
+            pvBeaverHouse.Setup(spawnPoint);
         }
     }
 

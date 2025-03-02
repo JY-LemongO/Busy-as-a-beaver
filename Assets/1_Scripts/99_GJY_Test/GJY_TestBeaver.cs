@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GJY_TestBeaver : MonoBehaviour
@@ -8,6 +7,7 @@ public class GJY_TestBeaver : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Transform _logTrs;
 
+    private BeaverHouse _house;
     private Resource_Tree _targetTree;
     private GameObject _log;
     private bool _isMovingToDam = false;
@@ -17,6 +17,7 @@ public class GJY_TestBeaver : MonoBehaviour
     private void Awake()
     {
         TreeManager.Instance.OnTreeDestroyed += OnTryGetLog;
+        TreeManager.Instance.OnTreeSpawned += OnTreeSpawned;
     }
 
     private void OnEnable()
@@ -24,14 +25,28 @@ public class GJY_TestBeaver : MonoBehaviour
         SearchTree();
     }
 
+    public void SetHouse(BeaverHouse house)
+        => _house = house;
+
+    private void OnTreeSpawned(Resource_Tree tree)
+    {
+        if (_targetTree != null || _isMovingToDam)
+            return;
+
+        StopAllCoroutines();
+        SetTargetTree(tree);
+    }
+
     private void OnTryGetLog(Resource_Tree destroyedTree, GJY_TestBeaver beaver)
     {
         if (_isMovingToDam)
             return;
 
+        StopAllCoroutines();
+        _targetTree = null;
+
         if (beaver != this)
         {
-            StopAllCoroutines();
             SearchTree();
         }
         else
@@ -39,6 +54,9 @@ public class GJY_TestBeaver : MonoBehaviour
             _log = ResourceManager.Instance.Instantiate(LOG_PREFAB_PATH, _logTrs);
             _log.transform.localPosition = Vector3.zero;
             _log.transform.localRotation = Quaternion.identity;
+            
+            _isMovingToDam = true;
+            StartCoroutine(Co_MoveToDam());
         }
     }
 
@@ -46,6 +64,18 @@ public class GJY_TestBeaver : MonoBehaviour
     {
         if (FindTree())
             StartCoroutine(Co_MoveToTree());
+        else
+        {
+            // 자신의 집으로 이동 - 휴식
+            StartCoroutine(Co_MoveToHouse());
+            Debug.Log($"[GJY_TestBeaver] 집으로 이동");
+        }
+    }
+
+    private void SetTargetTree(Resource_Tree tree)
+    {
+        _targetTree = tree;
+        StartCoroutine(Co_MoveToTree());
     }
 
     private bool FindTree()
@@ -61,8 +91,7 @@ public class GJY_TestBeaver : MonoBehaviour
     {
         while (Vector3.Distance(transform.position, _targetTree.transform.position) > _needDistance)
         {
-            Vector3 dir = (_targetTree.transform.position - transform.position).normalized;
-            dir.y = 0;
+            Vector3 dir = Util.GetMoveDirection(transform, _targetTree.transform);            
             transform.position += dir * _moveSpeed * Time.deltaTime;
             yield return null;
         }
@@ -76,18 +105,14 @@ public class GJY_TestBeaver : MonoBehaviour
         {
             _targetTree.GetDamaged(5f, this);
             yield return new WaitForSeconds(1f);
-        }
-
-        _isMovingToDam = true;
-        StartCoroutine(Co_MoveToDam());
+        }        
     }
 
     private IEnumerator Co_MoveToDam()
     {
         while (Vector3.Distance(transform.position, Dam.Instance.transform.position) > _needDistance)
         {
-            Vector3 dir = (Dam.Instance.transform.position - transform.position).normalized;
-            dir.y = 0;
+            Vector3 dir = Util.GetMoveDirection(transform, Dam.Instance.transform);
             transform.position += dir * _moveSpeed * Time.deltaTime;
             yield return null;
         }
@@ -102,7 +127,16 @@ public class GJY_TestBeaver : MonoBehaviour
         PoolManager.Instance.Return(_log);
 
         _isMovingToDam = false;
-        if (FindTree())
-            StartCoroutine(Co_MoveToTree());
+        SearchTree();
+    }
+
+    private IEnumerator Co_MoveToHouse()
+    {
+        while (Vector3.Distance(transform.position, _house.transform.position) > _needDistance)
+        {
+            Vector3 dir = Util.GetMoveDirection(transform, _house.transform);
+            transform.position += dir * _moveSpeed * Time.deltaTime;
+            yield return null;
+        }
     }
 }
