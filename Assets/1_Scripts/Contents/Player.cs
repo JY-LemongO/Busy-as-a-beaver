@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Player : MonoBehaviour
+public class Player : Beaver
 {
     [field: Header("Animations")]
     public PlayerAnimationData AnimationData { get; private set; } = new PlayerAnimationData();
@@ -19,6 +19,13 @@ public class Player : MonoBehaviour
 
     public bool isInteraction = false;
     public Resource_Tree targetTree;
+
+    #region GJY
+    public GameObject log;
+
+    public bool _isMovingToDam = false;
+    public bool _isLogging = false;
+    #endregion
 
     private void Awake()
     {

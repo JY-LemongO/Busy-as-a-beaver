@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class GJY_TestBeaver : MonoBehaviour
+public class GJY_TestBeaver : Beaver
 {
     [SerializeField] private float _needDistance;
     [SerializeField] private float _moveSpeed;
@@ -68,7 +68,7 @@ public class GJY_TestBeaver : MonoBehaviour
         _targetTree = TreeManager.Instance.GetClosestTree(transform);
         if (_targetTree != null)
         {
-            _targetTree.SetBeaver(this);
+            _targetTree.SetBeaver(this as Beaver);
             _targetTree.OnTreeDestroyed += OnGetLog;
             return true;
         }            

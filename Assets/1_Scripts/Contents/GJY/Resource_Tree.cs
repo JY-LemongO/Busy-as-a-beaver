@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.Android.Gradle;
 using UnityEngine;
 
 public class Resource_Tree : MonoBehaviour
@@ -11,15 +12,16 @@ public class Resource_Tree : MonoBehaviour
 
     public bool IsDestroyed { get; private set; }
     public bool IsTargeted {  get; private set; }
+    public bool IsLogging { get; private set; }
 
-    private GJY_TestBeaver _workedBeaver;
+    private Beaver _workedBeaver;    
 
     public void Setup()
     {
         IsDestroyed = false;
     }
 
-    public void SetBeaver(GJY_TestBeaver player)
+    public void SetBeaver(Beaver player)
     {
         IsTargeted = true;
         _workedBeaver = player;
@@ -27,18 +29,22 @@ public class Resource_Tree : MonoBehaviour
 
     public void LogTree()
     {
+        if (IsLogging)
+            return;
+
         // To Do - Logging        
+        IsLogging = true;
         StartCoroutine(Co_Logging());
     }    
 
     private void DestroyTree()
     {        
-        TreeManager.Instance.DestroyTree(this, _workedBeaver);
+        TreeManager.Instance.DestroyTree(this, _workedBeaver);        
         OnTreeDestroyed?.Invoke();
         OnTreeDestroyed = null;
         IsTargeted = false;
         IsDestroyed = true;
-        _workedBeaver = null;
+        _workedBeaver = null;        
     }
 
     private IEnumerator Co_Logging()

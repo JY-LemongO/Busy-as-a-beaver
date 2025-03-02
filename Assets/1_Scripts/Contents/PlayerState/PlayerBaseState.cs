@@ -47,6 +47,7 @@ public class PlayerBaseState : IState
         {
             Interaction();
             _stateMachine.ChangeState(_stateMachine.InteractionState);
+            Debug.Log($"[PlayerBaseState] 스테이트 전환  :: {_stateMachine.InteractionState.ToString()}");
         }
     }
 
@@ -56,11 +57,27 @@ public class PlayerBaseState : IState
 
         if (_stateMachine.Player.targetTree != null)
         {
-            return true;
+            _stateMachine.Player.targetTree.SetBeaver(_stateMachine.Player as Beaver);
+            _stateMachine.Player.targetTree.OnTreeDestroyed += OnGetLog;
+            return true;            
         }
 
         return false;
     }
+
+    #region GJY
+    private void OnGetLog()
+    {
+        _stateMachine.Player.targetTree.OnTreeDestroyed -= OnGetLog;
+
+        _stateMachine.Player.log = ResourceManager.Instance.Instantiate("Prefabs/Tree/Log", _stateMachine.Player.transform);
+        _stateMachine.Player.log.transform.localPosition = Vector3.zero;
+        _stateMachine.Player.log.transform.localRotation = Quaternion.identity;
+
+        _stateMachine.Player._isMovingToDam = true;
+        _stateMachine.Player._isLogging = false;        
+    }
+    #endregion
 
     public void MoveToTarget()
     {

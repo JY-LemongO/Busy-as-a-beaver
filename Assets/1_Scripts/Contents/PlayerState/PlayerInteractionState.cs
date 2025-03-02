@@ -14,6 +14,8 @@ public class PlayerInteractionState : PlayerBaseState
         base.Enter();
         Rotate();
         StartAnimation(_stateMachine.Player.AnimationData.InteracrtionParameterName);
+
+        _stateMachine.Player.targetTree.LogTree();
     }
 
     public override void Exit()

@@ -7,7 +7,7 @@ public class TreeManager : SingletonBase<TreeManager>
     #region Events    
     public event Action<int> OnWoodValueChanged; // Temp Code
     public event Action<Resource_Tree> OnTreeSpawned;
-    public event Action<Resource_Tree, GJY_TestBeaver> OnTreeDestroyed;
+    public event Action<Resource_Tree, Beaver> OnTreeDestroyed;    
     #endregion
 
     public List<Resource_Tree> TreeList { get; private set; } = new();
@@ -54,17 +54,17 @@ public class TreeManager : SingletonBase<TreeManager>
     public GameObject SpawnStump(Transform spawner)
         => Util.SpawnGameObjectAndSetPosition(STUMP_PREFAB_PATH, spawner.position, parent: spawner);
 
-    public void DestroyTree(Resource_Tree tree, GJY_TestBeaver beaver)
+    public void DestroyTree(Resource_Tree tree, Beaver beaver)
     {
         PoolManager.Instance.Return(tree.gameObject);
         TreeList.Remove(tree);
         //OnWoodValueChanged?.Invoke();
-        OnTreeDestroyed?.Invoke(tree, player);
+        OnTreeDestroyed?.Invoke(tree, beaver);        
     }
 
     protected override void InitChild()
     {
-        // ?ïÑÏß? Ï¥àÍ∏∞?ôî ?ï† Í≤ÉÎì§?ù¥ ?ïà Î≥¥ÏûÑ.
+        
     }
 
     public override void Dispose()
