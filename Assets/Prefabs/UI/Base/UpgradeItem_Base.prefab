@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 8093780096740859220}
   - component: {fileID: 744057601956870868}
   - component: {fileID: 4230079165617301269}
+  - component: {fileID: 5677661579235103666}
   m_Layer: 0
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -141,9 +142,9 @@ RectTransform:
   m_Father: {fileID: 2729977994906379434}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0.5}
-  m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -30.9116, y: 0.3661}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 311.0884, y: 0.3661}
   m_SizeDelta: {x: 203.5884, y: 139.8678}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8093780096740859220
@@ -240,6 +241,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5677661579235103666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1049275974713875396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98edd0f066a9ea444b7a932e67e6e828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2079196763874081854
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ public enum SubUIType
     ConstructStatus = 1,
     Upgrade = 2, 
     Passive = 3,
+    Settings = 4,
 }
 
 public enum IncriseType
