@@ -49,4 +49,6 @@ public enum StatusType
     AttackSpeed = 2,
     Income = 3,
     MoveSpeed = 4,
+    Wood = 5,
+    Diamond = 6,
 }

@@ -16,24 +16,24 @@ MonoBehaviour:
   icon_ValueSprite:
     _serializedList:
     - Key: 1
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
     - Key: 2
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
   icon_Button_Bottom_Sprite:
     _serializedList:
     - Key: 1
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
     - Key: 2
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
   icon_Upgrade_dict:
     _serializedList:
     - Key: Upgrade_Speed
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
     - Key: Upgrade_Power
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
     - Key: Upgrade_Income
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
     - Key: Upgrade_TreeRegen
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
     - Key: Upgrade_BeaverHP
-      Value: {fileID: 0}
+      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}

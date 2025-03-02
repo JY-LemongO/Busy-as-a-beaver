@@ -29,12 +29,6 @@ public class StatusManager : MonoSingleton<StatusManager>
         string filePath = "Assets/1_Scripts/Data/DB_Status";
         StreamWriter sw = new StreamWriter(filePath+".csv");
 
-        // if(!File.Exists(filePath)) //파일이 없는 경우
-        // {   
-        //     sw = File.Open(filePath +".csv");
-        //     sw = new StreamWriter(filePath+".csv");
-        // }
-
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.Clear();
 
@@ -49,7 +43,7 @@ public class StatusManager : MonoSingleton<StatusManager>
             values += $"{data.model},{data.index},{data.statusName},{data.type},{data.statusValue},{data.valueType},null";
             stringBuilder.AppendLine(values);
         }
-        
+
         string trimString = stringBuilder.ToString().Trim();
 
         sw.WriteLine(trimString);

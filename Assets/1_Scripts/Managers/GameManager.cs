@@ -19,10 +19,8 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {   
     //var
-    private int wood;
-    public int Wood{ get { return wood;} set{ wood = value; }}
-    private int diamond;
-    public int Diamond { get { return diamond; } set { diamond = value; }}
+    public int wood => statusData[StatusType.Wood].statusValue;
+    public int diamond => statusData[StatusType.Diamond].statusValue;
 
 
     //scriptable Object
@@ -53,8 +51,8 @@ public class GameManager : MonoSingleton<GameManager>
         int result = 0;
         switch(type)
         {
-            case ValueTypes.Wood: result = wood; break;
-            case ValueTypes.Diamond: result = Diamond; break;
+            case ValueTypes.Wood: result = statusData[StatusType.Wood].statusValue; break;
+            case ValueTypes.Diamond: result = statusData[StatusType.Diamond].statusValue; break;
             
             default: break;
         }
