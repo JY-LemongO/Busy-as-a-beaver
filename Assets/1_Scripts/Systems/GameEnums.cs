@@ -85,6 +85,7 @@ public enum MessageType
 {
     NONE = 0,
     NOMAL = 1,
+    Enemy = 2,
 }
 
 public enum EnemyType

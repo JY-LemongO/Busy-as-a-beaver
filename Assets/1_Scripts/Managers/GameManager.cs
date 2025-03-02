@@ -57,6 +57,8 @@ public class GameManager : MonoSingleton<GameManager>
         {
             data.SetDictionaryData();
         }
+
+        MessageManager.Instance.ViewMessage(MessageType.Enemy, enemyData["Enemy_001"]);
     }
     
     #region public Method
