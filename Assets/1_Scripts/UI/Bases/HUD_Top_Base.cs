@@ -30,7 +30,16 @@ public class HUD_Top_Base : MonoBehaviour
         //아이콘 지정
         SetIcon();
         SetValue();
+        
     }
+
+    //#region GJY
+    //private void OnValueChanged(int value)
+    //{
+    //    valueText
+    //}
+    //#endregion
+
 
     private void SetIcon()
     {   

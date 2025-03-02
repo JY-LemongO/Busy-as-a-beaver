@@ -63,5 +63,11 @@ public class GameManager : MonoSingleton<GameManager>
         }
         return result;
     }
+
+    public void SetValue(StatusType type, int value)
+    {
+        statusData[type].statusValue += value;
+        StatusManager.Instance.SetDirty();
+    }
     #endregion
 }

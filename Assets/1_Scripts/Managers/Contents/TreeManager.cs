@@ -57,9 +57,10 @@ public class TreeManager : SingletonBase<TreeManager>
     public void DestroyTree(Resource_Tree tree, Beaver beaver)
     {
         PoolManager.Instance.Return(tree.gameObject);
-        TreeList.Remove(tree);
-        //OnWoodValueChanged?.Invoke();
-        OnTreeDestroyed?.Invoke(tree, beaver);        
+        TreeList.Remove(tree);        
+        OnTreeDestroyed?.Invoke(tree, beaver);
+
+        GameManager.Instance.SetValue(StatusType.Wood, 5);
     }
 
     protected override void InitChild()
