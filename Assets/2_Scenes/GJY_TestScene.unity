@@ -2336,6 +2336,7 @@ GameObject:
   - component: {fileID: 835553009}
   - component: {fileID: 835553008}
   - component: {fileID: 835553011}
+  - component: {fileID: 835553012}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2386,7 +2387,7 @@ Camera:
   far clip plane: 1000
   field of view: 75.4
   orthographic: 1
-  orthographic size: 18
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2409,14 +2410,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835553007}
-  m_LocalRotation: {x: -0.16193837, y: -0.72761005, z: 0.64035463, w: -0.18521781}
-  m_LocalPosition: {x: -2.3985462, y: 24.300774, z: 6.902541}
+  m_LocalRotation: {x: 0.54902285, y: 0, z: 0, w: 0.8358074}
+  m_LocalPosition: {x: -2.3985462, y: 24.300774, z: -6.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1760118786}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 66.6, y: 0, z: 0}
 --- !u!114 &835553011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2461,6 +2462,49 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &835553012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835553007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81df349c90b05704eb435be5595deff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isReturnCenter: 0
+  _forcedReturn: 0
+  _curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _returnCountdown: 1
+  _returnTime: 0.5
+  _borderHorizon: {x: -5, y: 5}
+  _borderVertical: {x: -5, y: 5}
+  _sensitivity: 2
 --- !u!1 &1041333586
 GameObject:
   m_ObjectHideFlags: 0
