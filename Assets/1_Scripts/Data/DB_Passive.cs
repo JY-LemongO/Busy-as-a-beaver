@@ -63,7 +63,7 @@ public class DB_Passive : ScriptableObjectData
             }
             newData.incriseValueDic = temp;            
 
-            GameManager.Instance.passiveData.Add($"Passive_{newData.index}", newData);
+            GameManager.Instance.passiveData.Add(newData.model, newData);
         }
     }
 }

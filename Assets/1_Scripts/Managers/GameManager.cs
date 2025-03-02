@@ -22,7 +22,29 @@ public class GameManager : MonoSingleton<GameManager>
     //var
     public int coin => statusData[StatusType.Wood].statusValue;
     public int diamond => statusData[StatusType.Diamond].statusValue;
-    
+
+    //move
+    private float MoveSpeed => statusData[StatusType.MoveSpeed].statusValue;
+    private bool isPassiveSpeedOpen => statusData[StatusType.Passive_QuickFeet].statusValue > 0;
+    private float passiveSpeed => isPassiveSpeedOpen ? passiveData["Passive_005"].incriseValueDic[statusData[StatusType.Passive_QuickFeet].statusValue] * 0.01f : 0;
+    private float upgradeSpeed => upgradeData["Upgrade_001"].incriseValue * statusData[StatusType.Upgrade_Speed].statusValue * 0.01f;
+    public float fixMoveSpeed => MoveSpeed * (passiveSpeed + upgradeSpeed + 1);
+
+    //나무 베는 스피드 
+    private float attackSpeed => statusData[StatusType.AttackSpeed].statusValue;
+    private bool isPassiveAtkSpdOpen => statusData[StatusType.Passive_QuickFeet].statusValue > 0;
+    private float passiveAttackSpeed => isPassiveAtkSpdOpen ? passiveData["Passive_003"].incriseValueDic[statusData[StatusType.Passive_QuickFeet].statusValue] * 0.01f : 0;
+    private float upgradeAtkSpd => upgradeData["Upgrade_002"].incriseValue * statusData[StatusType.Upgrade_Power].statusValue * 0.01f;
+    public float AttackSpeed => attackSpeed * (1- upgradeAtkSpd - passiveAttackSpeed);
+
+    //나무 수입
+    private float income => statusData[StatusType.Income].statusValue;
+    private float upgardeIncome => upgradeData["Upgrade_002"].incriseValue * statusData[StatusType.Upgrade_Power].statusValue * 0.01f;
+    public float Income => income * (1 + upgardeIncome);
+
+    //시작시 갖고있는 돈
+
+
     private bool isInitialize = false;
 
     //scriptable Object

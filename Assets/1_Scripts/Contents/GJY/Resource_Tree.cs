@@ -3,8 +3,9 @@ using System.Collections;
 using UnityEngine;
 
 public class Resource_Tree : MonoBehaviour
-{
-    [SerializeField] private float _logTime;
+{   
+    // float baseLogTime = 5f;
+    [SerializeField] private float _logTime => GameManager.Instance.AttackSpeed;
 
     public event Action OnTreeDestroyed;
     public event Action<float> OnLogging;
@@ -49,7 +50,7 @@ public class Resource_Tree : MonoBehaviour
     }
 
     private IEnumerator Co_Logging()
-    {
+    {   
         float currentTime = 0f;
 
         while (currentTime < _logTime)

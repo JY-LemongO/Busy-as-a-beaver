@@ -77,7 +77,7 @@ public class StatusManager : MonoSingleton<StatusManager>
                     break;
                 case StatusType.MoveSpeed:
                     {
-                        GameManager.Instance.statusData[item.type].statusValue = 100;
+                        GameManager.Instance.statusData[item.type].statusValue = 4;
                     }
                     break;
 

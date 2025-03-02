@@ -16,7 +16,7 @@ public class GJY_TestScene : MonoBehaviour
     {        
         _previewBtn.onClick.AddListener(OnPreviewMode);
         _nextStageBtn.onClick.AddListener(OnNextStage);
-        DamManager.Instance.OnBuiltDam += () => _nextStagePanel.SetActive(true);
+        DamManager.Instance.OnBuiltDam += () => GameManager.Instance.OpenPopup(PopupType.Clear);//() => _nextStagePanel.SetActive(true);
     }
 
     private void Update()
