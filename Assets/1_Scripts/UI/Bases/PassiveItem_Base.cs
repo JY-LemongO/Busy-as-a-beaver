@@ -41,7 +41,7 @@ public class PassiveItem_Base : MonoBehaviour
 
     public void Initialize()
     {
-        passiveIcon.sprite = GameManager.Instance.Settings.icon_Passive_dict[passiveData.model];
+        // passiveIcon.sprite = GameManager.Instance.Settings.icon_Passive_dict[passiveData.model];
         passiveNameText.text = passiveData.passiveName;
         passiveCostText.text = passiveData.cost.ToString();
         passiveLevelText.text = $"Lv.{GameManager.Instance.statusData[passiveData.statusType].statusValue.ToString()}";

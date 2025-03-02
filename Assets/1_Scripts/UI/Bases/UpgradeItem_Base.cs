@@ -35,7 +35,7 @@ public class UpgradeItem_Base : MonoBehaviour
     {      
         upgradeData = _upgradeData;
 
-        upgradeIcon.sprite = GameManager.Instance.Settings.icon_Upgrade_dict[upgradeData.model];
+        // upgradeIcon.sprite = GameManager.Instance.Settings.icon_Upgrade_dict[upgradeData.model];
         upgradeName.text = upgradeData.upgradeName;
 
         string upgradeValue = $"{upgradeData.incriseValue}{GetUpgradeUnit(upgradeData.incriseType)}";
@@ -44,7 +44,7 @@ public class UpgradeItem_Base : MonoBehaviour
     }
     public void Initialize()
     {
-        upgradeIcon.sprite = GameManager.Instance.Settings.icon_Upgrade_dict[upgradeData.model];
+        // upgradeIcon.sprite = GameManager.Instance.Settings.icon_Upgrade_dict[upgradeData.model];
         upgradeName.text = upgradeData.upgradeName;
 
         string upgradeValue = $"{upgradeData.incriseValue}{GetUpgradeUnit(upgradeData.incriseType)}";
