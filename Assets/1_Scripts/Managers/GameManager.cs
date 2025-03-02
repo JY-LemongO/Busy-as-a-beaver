@@ -56,7 +56,7 @@ public class GameManager : MonoSingleton<GameManager>
         int result = 0;
         switch(type)
         {
-            case ValueTypes.Wood: result = statusData[StatusType.Wood].statusValue; break;
+            case ValueTypes.Coin: result = statusData[StatusType.Wood].statusValue; break;
             case ValueTypes.Diamond: result = statusData[StatusType.Diamond].statusValue; break;
             
             default: break;

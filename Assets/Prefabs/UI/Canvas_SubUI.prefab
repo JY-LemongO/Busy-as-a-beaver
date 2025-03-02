@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cv: {fileID: 3366886327674273629}
-  SortingLayerName: 
+  SortingLayerName: SubUI
 --- !u!1001 &174029446818366221
 PrefabInstance:
   m_ObjectHideFlags: 0

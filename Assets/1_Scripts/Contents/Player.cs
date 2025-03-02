@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Player : MonoBehaviour
+public class Player : Beaver
 {
     [field: Header("Animations")]
     public PlayerAnimationData AnimationData { get; private set; } = new PlayerAnimationData();
@@ -12,13 +12,20 @@ public class Player : MonoBehaviour
     public PlayerStateMachine StateMachine { get; private set; }
     public Rigidbody Rigidbody { get; private set; }
 
+    public NavMeshAgent Agent { get; private set; }
+
     [SerializeField] private float _needDistance;
     [SerializeField] private float _moveSpeed;
 
-    private Resource_Tree _targetTree;
+    public bool isInteraction = false;
+    public Resource_Tree targetTree;
 
-    private NavMeshAgent _agent;
-    public Transform target;
+    #region GJY
+    public GameObject log;
+    
+    public bool _isMovingToDam = false;
+    public bool _isLogging = false;
+    #endregion
 
     private void Awake()
     {
@@ -35,11 +42,10 @@ public class Player : MonoBehaviour
     }
     private void Update()
     {
-        _agent.SetDestination(target.position);
-
         StateMachine.HandleInput();
         StateMachine.Update();
     }
+
     private void FixedUpdate()
     {
         StateMachine.PhysicsUpdate();
@@ -47,13 +53,13 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        //SearchTree();
+
     }
 
     private void SetComponents()
     {
         Animator = GetComponentInChildren<Animator>();
         Rigidbody = GetComponent<Rigidbody>();
-        _agent = GetComponent<NavMeshAgent>();
+        Agent = GetComponent<NavMeshAgent>();
     }
 }

@@ -30,5 +30,14 @@ public class PlayerWalkState : PlayerBaseState
     public override void Update()
     {
         base.Update();
+
+        //if (_stateMachine.Player.isInteraction)
+        //{
+        //    _stateMachine.ChangeState(_stateMachine.InteractionState);
+        //}
+        //else
+        //{
+        //    _stateMachine.ChangeState(_stateMachine.IdleState);
+        //}
     }
 }
