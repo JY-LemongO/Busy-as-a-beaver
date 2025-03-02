@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6923881114832738534}
   - component: {fileID: 4542035384899741094}
   m_Layer: 0
-  m_Name: Level 2
+  m_Name: Level 1-2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -641,7 +641,12 @@ PrefabInstance:
     - target: {fileID: 6665175917776721922, guid: f61e382be42b566499b52686514bce45,
         type: 3}
       propertyPath: m_Name
-      value: BHSpawnPoint
+      value: BHSpawnPoint_Main
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332953609917277260, guid: f61e382be42b566499b52686514bce45,
+        type: 3}
+      propertyPath: spawnerType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

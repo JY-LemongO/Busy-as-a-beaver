@@ -67,9 +67,15 @@ public class TreeManager : SingletonBase<TreeManager>
     public void DestroyAllTree()
     {
         foreach(Resource_Tree tree in TreeList)
+        {
+            tree.Dispose();
             PoolManager.Instance.Return(tree.gameObject);
+        }            
         TreeList.Clear();
     }
+
+    public int GetTreesCount()
+        => TreeList.Count;
 
     protected override void InitChild()
     {

@@ -3,9 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GJY_TestScene : MonoBehaviour
-{    
-    [Range(1, 10)]
-    [SerializeField] private float _damage;    
+{   
     [SerializeField] BHSpawnPoint _houseTrs1;
     [SerializeField] BHSpawnPoint _houseTrs2;
     [SerializeField] Button _previewBtn;
@@ -31,6 +29,11 @@ public class GJY_TestScene : MonoBehaviour
         {
             BuildingSystem.Instance.BuildBeaverHouse(_houseTrs2);
         }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log(TreeManager.Instance.GetTreesCount());
+        }
+            
     }
 
     private void OnPreviewMode()

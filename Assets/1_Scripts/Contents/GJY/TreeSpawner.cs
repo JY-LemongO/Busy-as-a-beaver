@@ -13,6 +13,7 @@ public class TreeSpawner : MonoBehaviour
     private void Awake()
     {
         SpawnTree();
+        DamManager.Instance.OnBuiltDam += OnBuiltDam;
     }
 
     private void SpawnTree()
@@ -30,6 +31,12 @@ public class TreeSpawner : MonoBehaviour
         _stump = TreeManager.Instance.SpawnStump(transform);
         StartCoroutine(Co_CountdownRespawn());
     }
+
+    private void OnBuiltDam()
+    {
+        StopAllCoroutines();
+        _tree.OnTreeDestroyed -= OnTreeRespawnCountdown;
+    }    
 
     private IEnumerator Co_CountdownRespawn()
     {

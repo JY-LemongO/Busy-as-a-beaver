@@ -29,8 +29,13 @@ public class DamManager : SingletonBase<DamManager>
         OnBuiltDam?.Invoke();
     }
 
+    private void OnStageClear(int notUsed)
+    {
+        Dam.ResetDam();
+    }
+
     protected override void InitChild()
     {
-
+        StageManager.Instance.OnStageClear += OnStageClear;
     }
 }

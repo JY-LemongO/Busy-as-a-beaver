@@ -21,6 +21,6 @@ public class StageManager : SingletonBase<StageManager>
 
     protected override void InitChild()
     {
-        
+        _stage = 1;
     }
 }
