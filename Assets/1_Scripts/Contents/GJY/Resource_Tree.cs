@@ -43,6 +43,7 @@ public class Resource_Tree : MonoBehaviour
         TreeManager.Instance.DestroyTree(this, _workedBeaver);        
         OnTreeDestroyed?.Invoke();
         OnTreeDestroyed = null;
+        IsLogging = false;
         IsTargeted = false;
         IsLogging = false;
         IsDestroyed = true;

@@ -11,7 +11,7 @@ public class BeaverManager : SingletonBase<BeaverManager>
 
     public void SpawnBeaver(Vector3 position, BeaverHouse house)
     {
-        GJY_TestBeaver beaver = Util.SpawnGameObjectAndSetPosition<GJY_TestBeaver>(BEAVERTEST_PREFAB_PATH, position + Vector3.forward, parent: house.transform);
+        GJY_TestBeaver beaver = Util.SpawnGameObjectAndSetPosition<GJY_TestBeaver>(BEAVER_PREFAB_PATH, position + Vector3.forward, parent: house.transform);
         beaver.SetHouse(house);
         _beaversList.Add(beaver);
     }

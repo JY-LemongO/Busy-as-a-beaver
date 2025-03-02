@@ -35,14 +35,11 @@ public class PlayerWalkState : PlayerBaseState
             {
                 _stateMachine.ChangeState(_stateMachine.BuildingState);
             }
-            else
+            else if (_stateMachine.Player.isInteraction)
             {
-                _stateMachine.Player.isInteraction = true;
                 _stateMachine.ChangeState(_stateMachine.InteractionState);
                 Debug.Log($"[PlayeyWalkState] 스테이트 전환  :: {_stateMachine.InteractionState.ToString()}");
             }
         }
-
-
     }
 }

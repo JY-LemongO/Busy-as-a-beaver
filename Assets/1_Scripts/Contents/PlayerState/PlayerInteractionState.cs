@@ -12,9 +12,7 @@ public class PlayerInteractionState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
-        //Rotate();
         StartAnimation(_stateMachine.Player.AnimationData.InteracrtionParameterHash);
-
         _stateMachine.Player.targetTree.LogTree();
     }
 
@@ -33,19 +31,5 @@ public class PlayerInteractionState : PlayerBaseState
     public override void Update()
     {
 
-    }
-
-    private void Rotate()
-    {
-        if (_stateMachine.Player.targetTree != null)
-        {
-            Transform targetTransform = _stateMachine.Player.targetTree.gameObject.transform;
-            Transform playerTransform = _stateMachine.Player.transform;
-            var look = targetTransform.position - playerTransform.position;
-            look.y = 0;
-
-            var targetRotation = Quaternion.LookRotation(look);
-            _stateMachine.Player.transform.rotation = targetRotation;
-        }
     }
 }
