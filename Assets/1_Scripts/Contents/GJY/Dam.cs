@@ -20,9 +20,7 @@ public class Dam : MonoBehaviour
     }
 
     public void SetupDam(int logCount)
-    {
-        foreach (var logProgress in _damProgressList)
-            logProgress.SetActive(false);
+    {        
         NeedLogCount = logCount;
         _currentLogCount = 0;
     }
@@ -40,5 +38,13 @@ public class Dam : MonoBehaviour
             // To Do - Stage Clear            
             DamManager.Instance.BuildDamComplete();
         }
+    }
+
+    public void ResetDam()
+    {
+        foreach (var logProgress in _damProgressList)
+            logProgress.SetActive(false);
+
+        Debug.Log("리셋 댐");
     }
 }

@@ -95,6 +95,7 @@ MonoBehaviour:
   upgradeIcon: {fileID: 0}
   upgradeName: {fileID: 7479544191701080923}
   upgradeDescription: {fileID: 6750625634548442832}
+  upgradeCost: {fileID: 8410253984147235574}
   upgradeData:
     model: 
     index: 0

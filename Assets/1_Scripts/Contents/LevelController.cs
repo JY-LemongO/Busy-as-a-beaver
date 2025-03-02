@@ -20,8 +20,15 @@ public class LevelController : MonoBehaviour
     {
         if (_currentLevel != null)
             PoolManager.Instance.Return(_currentLevel.gameObject);
-
         _currentLevel = PoolManager.Instance.Get(_levelPresetList[level - 1]).GetComponent<Level>();
         _currentLevel.SpawnDam();
+        //StartCoroutine(Co_Delay(level));
+    }
+
+    private IEnumerator Co_Delay(int level)
+    {
+        yield return new WaitForSeconds(1);        
+
+        
     }
 }

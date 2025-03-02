@@ -20,10 +20,10 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     //var
-    public int wood => statusData[StatusType.Wood].statusValue;
+    public int coin => statusData[StatusType.Wood].statusValue;
     public int diamond => statusData[StatusType.Diamond].statusValue;
     
-
+    private bool isInitialize = false;
 
     //scriptable Object
     [SerializeField] public Settings_UI Settings;
@@ -52,25 +52,37 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializedDictionary("model", "data")]
     public SerializedDictionary<string, EnemyData> enemyData = new SerializedDictionary<string, EnemyData>();
 
+    [SerializedDictionary("model", "data")]
+    public SerializedDictionary<string, StageData> stageData = new SerializedDictionary<string, StageData>();
 
 
     private void OnEnable() {
-        foreach(var data in DataSO.Values)
+        if(!isInitialize)
         {
-            data.SetDictionaryData();
+            foreach(var data in DataSO.Values)
+            {
+                data.SetDictionaryData();
+            }
+
+            isInitialize = true;
         }
 
-        MessageManager.Instance.ViewMessage(MessageType.Enemy, enemyData["Enemy_001"]);
+        Debug.Log($"{GetStageData(4).model}");
+
+        //test
+        // MessageManager.Instance.ViewMessage(MessageType.Enemy, enemyData["Enemy_001"]);
     }
     
     #region public Method
     public int GetValue(ValueTypes type)
-    {
+    {   
+        if(!isInitialize) return 0;
+
         int result = 0;
         switch(type)
         {
-            case ValueTypes.Coin: result = statusData[StatusType.Wood].statusValue; break;
-            case ValueTypes.Diamond: result = statusData[StatusType.Diamond].statusValue; break;
+            case ValueTypes.Coin: result = coin; break;
+            case ValueTypes.Diamond: result = diamond; break;
             
             default: break;
         }
@@ -81,6 +93,16 @@ public class GameManager : MonoSingleton<GameManager>
     {
         statusData[type].statusValue += value;
         StatusManager.Instance.SetDirty();
+    }
+
+    public void OpenPopup(PopupType type)
+    {
+        SubUI.popup_Wraps[type].OpenPopup(type);;
+    }
+
+    public StageData GetStageData(int stage)
+    {
+        return stageData[$"stage_{stage:D3}"];
     }
     #endregion
 }

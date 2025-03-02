@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PV_BeaverHouse : MonoBehaviour
+public class PV_BeaverHouse : MonoBehaviour, ITouchable
 {
     public BHSpawnPoint SpawnPoint { get; private set; }
 
@@ -18,5 +18,10 @@ public class PV_BeaverHouse : MonoBehaviour
     {
         if (gameObject.activeSelf)
             PoolManager.Instance.Return(gameObject);
+    }
+
+    public void Interact()
+    {
+        BuildingSystem.Instance.BuildBeaverHouse(SpawnPoint);
     }
 }

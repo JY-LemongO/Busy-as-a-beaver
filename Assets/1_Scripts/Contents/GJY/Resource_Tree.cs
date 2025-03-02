@@ -44,6 +44,7 @@ public class Resource_Tree : MonoBehaviour
         OnTreeDestroyed = null;
         IsLogging = false;
         IsTargeted = false;
+        IsLogging = false;
         IsDestroyed = true;
         _workedBeaver = null;        
     }
@@ -60,5 +61,14 @@ public class Resource_Tree : MonoBehaviour
         }
 
         DestroyTree();
+    }
+
+    public void Dispose()
+    {
+        OnTreeDestroyed = null;
+        IsTargeted = false;
+        IsLogging = false;
+        IsDestroyed = true;
+        _workedBeaver = null;
     }
 }
