@@ -95,6 +95,9 @@ public class StatusManager : MonoSingleton<StatusManager>
                 case StatusType.Upgrade_Power:
                 case StatusType.Upgrade_Speed:
                 case StatusType.Upgrade_TreeRegen:
+                case StatusType.Item_Apple:
+                case StatusType.Item_Banana:
+                case StatusType.Item_Peach:
                     {
                         GameManager.Instance.statusData[item.type].statusValue = 0;
                     }   

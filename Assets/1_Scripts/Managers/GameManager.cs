@@ -57,9 +57,6 @@ public class GameManager : MonoSingleton<GameManager>
         {
             data.SetDictionaryData();
         }
-
-        foreach(var data in enemyData.Values)
-        Debug.Log($"{data.model}");
     }
     
     #region public Method
@@ -74,6 +71,12 @@ public class GameManager : MonoSingleton<GameManager>
             default: break;
         }
         return result;
+    }
+
+    public void SetValue(StatusType type, int value)
+    {
+        statusData[type].statusValue += value;
+        StatusManager.Instance.SetDirty();
     }
     #endregion
 }

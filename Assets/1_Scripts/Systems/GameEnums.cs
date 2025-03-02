@@ -74,6 +74,11 @@ public enum StatusType
     Upgrade_Income = 203,
     Upgrade_TreeRegen = 204,
     Upgrade_BeaverHP = 205,
+
+    //item
+    Item_Apple = 301,
+    Item_Banana = 302,
+    Item_Peach = 303,
 }
 
 public enum MessageType

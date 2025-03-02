@@ -16,3 +16,6 @@ status_UpgradeLevel_Power,14,업그레이드 : 나무캐는 속도,Upgrade_Power
 status_UpgradeLevel_Income,15,업그레이드 : 획득 골드 증가,Upgrade_Income,0,NOMAL,null
 status_UpgradeLevel_TreeRegen,16,업그레이드 : 나무가 빨리 재생,Upgrade_TreeRegen,0,NOMAL,null
 status_UpgradeLevel_BeaverHP,17,업그레이드 : 비버의 체력 증가,Upgrade_BeaverHP,0,NOMAL,null
+status_Item_Count_001,18,아이템 : 사과,Item_Apple,0,NOMAL,null
+status_Item_Count_002,19,아이템 : 바나나,Item_Banana,0,NOMAL,null
+status_Item_Count_003,20,아이템 : 복숭아,Item_Peach,0,NOMAL,null
