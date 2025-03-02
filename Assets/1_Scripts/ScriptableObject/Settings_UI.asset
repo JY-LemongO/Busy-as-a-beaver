@@ -29,27 +29,27 @@ MonoBehaviour:
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
   icon_Upgrade_dict:
     _serializedList:
-    - Key: Upgrade_Speed
+    - Key: Upgrade_001
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Upgrade_Power
+    - Key: Upgrade_002
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Upgrade_Income
+    - Key: Upgrade_003
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Upgrade_TreeRegen
+    - Key: Upgrade_004
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Upgrade_BeaverHP
+    - Key: Upgrade_005
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
   icon_Passive_dict:
     _serializedList:
-    - Key: Passive_Sharp
+    - Key: Passive_001
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Passive_Sedulity
+    - Key: Passive_002
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Passive_HardTeeth
+    - Key: Passive_003
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Passive_SeasonalBird
+    - Key: Passive_004
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Passive_QuickFeet
+    - Key: Passive_005
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Passive_GoldenSpoon
+    - Key: Passive_006
       Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}

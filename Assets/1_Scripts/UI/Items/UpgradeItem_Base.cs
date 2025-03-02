@@ -14,7 +14,13 @@ public class UpgradeItem_Base : MonoBehaviour
 
     public void OnClick_Upgarde()
     {
-
+        if(true) //나중에 조건 수정
+        {
+            GameManager.Instance.statusData[upgradeData.statusType].statusValue += 1;
+            GameManager.Instance.statusData[StatusType.Wood].statusValue -= upgradeData.upgradeCost;
+            Initialize();
+            StatusManager.Instance.SetDirty();
+        }
     }
 
     public void Initialize(UpgradeData _upgradeData)
@@ -27,6 +33,14 @@ public class UpgradeItem_Base : MonoBehaviour
         string upgradeValue = $"{upgradeData.incriseValue}{GetUpgradeUnit(upgradeData.incriseType)}";
         upgradeDescription.text = string.Format(upgradeData.upgradeDescription, upgradeValue);
 
+    }
+    public void Initialize()
+    {
+        upgradeIcon.sprite = GameManager.Instance.Settings.icon_Upgrade_dict[upgradeData.model];
+        upgradeName.text = upgradeData.upgradeName;
+
+        string upgradeValue = $"{upgradeData.incriseValue}{GetUpgradeUnit(upgradeData.incriseType)}";
+        upgradeDescription.text = string.Format(upgradeData.upgradeDescription, upgradeValue);
     }
 
     private string GetUpgradeUnit(IncriseType type)

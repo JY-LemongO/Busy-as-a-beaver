@@ -3,11 +3,16 @@ status_HP,1,체력,HP,100,NOMAL,null
 status_AttackSpeed,2,나무 베는 속도,AttackSpeed,5,NOMAL,null
 status_Income,3,수익,Income,100,PERCENT,null
 status_MoveSpeed,4,이동속도,MoveSpeed,4,NOMAL,null
-status_Wood,5,보유중인 나무,Wood,-660,NOMAL,null
+status_Wood,5,보유중인 나무,Wood,-2070,NOMAL,null
 status_Diamond,6,보유중인 다이아,Diamond,0,NOMAL,null
-status_PassiveLevel_Sharp,7,패시브 : 예민함,Passive_Sharp,6,NOMAL,null
-status_PassiveLevel_Sedulity,8,패시브 : 근면함,Passive_Sedulity,6,NOMAL,null
-status_PassiveLevel_HardTeeth,9,패시브 : 단단한 이빨,Passive_HardTeeth,0,NOMAL,null
-status_PassiveLevel_SeasonalBird,10,패시브 : 철새,Passive_SeasonalBird,4,NOMAL,null
-status_PassiveLevel_QuickFeet,11,패시브 : 빠른 발,Passive_QuickFeet,6,NOMAL,null
-status_PassiveLevel_GoldenSpoon,12,패시브 : 금수저,Passive_GoldenSpoon,0,NOMAL,null
+status_PassiveLevel_Sharp,7,패시브 : 예민함,Passive_Sharp,5,NOMAL,null
+status_PassiveLevel_Sedulity,8,패시브 : 근면함,Passive_Sedulity,2,NOMAL,null
+status_PassiveLevel_HardTeeth,9,패시브 : 단단한 이빨,Passive_HardTeeth,4,NOMAL,null
+status_PassiveLevel_SeasonalBird,10,패시브 : 철새,Passive_SeasonalBird,2,NOMAL,null
+status_PassiveLevel_QuickFeet,11,패시브 : 빠른 발,Passive_QuickFeet,3,NOMAL,null
+status_PassiveLevel_GoldenSpoon,12,패시브 : 금수저,Passive_GoldenSpoon,3,NOMAL,null
+status_UpgradeLevel_Speed,13,업그레이드 : 이동속도,Upgrade_Speed,3,NOMAL,null
+status_UpgradeLevel_Power,14,업그레이드 : 나무캐는 속도,Upgrade_Power,3,NOMAL,null
+status_UpgradeLevel_Income,15,업그레이드 : 획득 골드 증가,Upgrade_Income,3,NOMAL,null
+status_UpgradeLevel_TreeRegen,16,업그레이드 : 나무가 빨리 재생,Upgrade_TreeRegen,3,NOMAL,null
+status_UpgradeLevel_BeaverHP,17,업그레이드 : 비버의 체력 증가,Upgrade_BeaverHP,3,NOMAL,null

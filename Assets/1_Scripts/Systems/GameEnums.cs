@@ -62,4 +62,11 @@ public enum StatusType
     Passive_SeasonalBird = 104,
     Passive_QuickFeet = 105,
     Passive_GoldenSpoon = 106,
+
+    //upgrade
+    Upgrade_Speed = 201,
+    Upgrade_Power = 202,
+    Upgrade_Income = 203,
+    Upgrade_TreeRegen = 204,
+    Upgrade_BeaverHP = 205,
 }
