@@ -11,21 +11,21 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
     #endregion
 
     private Dictionary<BHSpawnPoint, BeaverHouse> _beaverHouseDict = new();
-    
+    public bool IsPVMode { get; private set; } = false;
+
     private int _buildableBHCount;
     private int _currentBHCount;
-    private bool _isPVMode = false;
 
     private const string BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/BeaverHouse";
-    private const string PV_BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/PV_BeaverHouse_Temp";    
+    private const string PV_BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/PV_BeaverHouse";
 
     private void Update()
     {
-        if (!_isPVMode)
+        if (!IsPVMode)
             return;
 
         if (Input.GetMouseButtonUp(0))
-        {            
+        {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -74,12 +74,15 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
         OnBeaverHouseDestroyed?.Invoke(_beaverHouseDict[spawnPoint]);
         _beaverHouseDict[spawnPoint] = null;
 
-        _currentBHCount--;        
+        _currentBHCount--;
     }
 
     public void EnterBHPreviewMode()
     {
-        _isPVMode = true;
+        if (IsPVMode)
+            return;
+
+        IsPVMode = true;
         foreach (var spawnPoint in _beaverHouseDict.Keys)
         {
             if (_beaverHouseDict[spawnPoint] != null)
@@ -92,7 +95,7 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
 
     public void ExitPreviewBH()
     {
-        _isPVMode = false;
+        IsPVMode = false;
         OnExitPreviewMode?.Invoke();
     }
 

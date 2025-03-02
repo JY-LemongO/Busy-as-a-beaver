@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6923881114832738534}
   - component: {fileID: 4542035384899741094}
   m_Layer: 0
-  m_Name: Level 1
+  m_Name: Level 1-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ Transform:
   - {fileID: 3436560968590581686}
   - {fileID: 7260592589004296704}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4542035384899741094
 MonoBehaviour:
@@ -77,14 +77,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126541302967066084}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0.22459155, z: -0, w: 0.97445303}
+  m_LocalPosition: {x: 0.19, y: 0, z: -5.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6923881114832738534}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -25.958, z: 0}
 --- !u!1 &4278842616449446219
 GameObject:
   m_ObjectHideFlags: 0
@@ -641,7 +641,12 @@ PrefabInstance:
     - target: {fileID: 6665175917776721922, guid: f61e382be42b566499b52686514bce45,
         type: 3}
       propertyPath: m_Name
-      value: BHSpawnPoint
+      value: BHSpawnPoint_Main
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332953609917277260, guid: f61e382be42b566499b52686514bce45,
+        type: 3}
+      propertyPath: spawnerType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

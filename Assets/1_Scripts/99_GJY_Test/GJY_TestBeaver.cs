@@ -30,7 +30,7 @@ public class GJY_TestBeaver : Beaver
 
     private void OnTreeSpawned(Resource_Tree tree)
     {
-        if (_targetTree != null || _isMovingToDam)
+        if (_targetTree != null || _isMovingToDam || !gameObject.activeSelf)
             return;
 
         StopAllCoroutines();
@@ -110,6 +110,7 @@ public class GJY_TestBeaver : Beaver
         yield return new WaitForSeconds(2f);
         DamManager.Instance.Dam.BuildDam();
         PoolManager.Instance.Return(_log);
+        _log = null;
 
         _isMovingToDam = false;
         SearchTree();

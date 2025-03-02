@@ -13,8 +13,8 @@ public class PassiveItem_Base : MonoBehaviour
 
     public PassiveData passiveData;
 
-    bool isMaxLevel => GameManager.Instance.statusData[passiveData.statusType].statusValue <= passiveData.maxLevel;
-    bool isConsumable => GameManager.Instance.wood - passiveData.cost >= 0;
+    bool isMaxLevel => GameManager.Instance.statusData[passiveData.statusType].statusValue < passiveData.maxLevel;
+    bool isConsumable => GameManager.Instance.coin - passiveData.cost >= 0;
     bool isUpgradeable => isMaxLevel && isConsumable;
 
     #region Life Cycle
