@@ -22,7 +22,14 @@ public class GameManager : MonoSingleton<GameManager>
     //var
     public int coin => statusData[StatusType.Wood].statusValue;
     public int diamond => statusData[StatusType.Diamond].statusValue;
-    
+
+    //move
+    private float MoveSpeed => statusData[StatusType.MoveSpeed].statusValue;
+    private float passiveSpeed => passiveData["Passive_005"].incriseValueDic[statusData[StatusType.Passive_QuickFeet].statusValue] * 0.01f;
+    private float upgradeSpeed => upgradeData["Upgrade_001"].incriseValue * statusData[StatusType.Upgrade_Speed].statusValue * 0.01f;
+    public float fixMoveSpeed => MoveSpeed * (passiveSpeed + upgradeSpeed + 1);
+
+
     private bool isInitialize = false;
 
     //scriptable Object

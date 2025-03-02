@@ -4,7 +4,7 @@ using UnityEngine;
 public class GJY_TestBeaver : Beaver
 {
     [SerializeField] private float _needDistance;
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _moveSpeed => GameManager.Instance.statusData[StatusType.MoveSpeed].statusValue;
     [SerializeField] private Transform _logTrs;
 
     private BeaverHouse _house;
