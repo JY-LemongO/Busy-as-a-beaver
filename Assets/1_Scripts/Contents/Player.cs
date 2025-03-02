@@ -15,7 +15,7 @@ public class Player : Beaver
     public NavMeshAgent Agent { get; private set; }
 
     [SerializeField] private float _needDistance;
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _moveSpeed => GameManager.Instance.fixMoveSpeed;
 
     public Resource_Tree targetTree;
     public bool isInteraction = false;

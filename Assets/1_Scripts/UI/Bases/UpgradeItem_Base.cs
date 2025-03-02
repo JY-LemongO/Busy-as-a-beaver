@@ -23,6 +23,7 @@ public class UpgradeItem_Base : MonoBehaviour
             GameManager.Instance.statusData[upgradeData.statusType].statusValue += 1;
             GameManager.Instance.statusData[StatusType.Wood].statusValue -= upgradeData.upgradeCost;
             MessageManager.Instance.ViewMessage(MessageType.NOMAL, "success");
+            Debug.Log($"now Beaver Speed is : {GameManager.Instance.fixMoveSpeed}");
             Refresh();
             StatusManager.Instance.SetDirty();
         }
