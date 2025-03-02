@@ -8,7 +8,7 @@ using UnityEngine;
 public enum ValueTypes
 {
     NONE = 0,
-    Wood = 1,
+    Coin = 1,
     Diamond = 2,
 }
 
@@ -23,7 +23,7 @@ public enum ScriptableObjectType
 public enum SubUIType
 {
     NONE = 0,
-    Status = 1,
+    ConstructStatus = 1,
     Upgrade = 2, 
     Passive = 3,
 }

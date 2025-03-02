@@ -33,7 +33,7 @@ public class StatusManager : MonoSingleton<StatusManager>
         stringBuilder.Clear();
 
         //keys
-        string keys = GameManager.Instance.DataSO[SubUIType.Status].CSV.text.Split('\n')[0].Trim();
+        string keys = GameManager.Instance.DataSO[SubUIType.ConstructStatus].CSV.text.Split('\n')[0].Trim();
         stringBuilder.AppendLine(keys);
 
         //values 

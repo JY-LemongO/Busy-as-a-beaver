@@ -16,29 +16,17 @@ MonoBehaviour:
   icon_ValueSprite:
     _serializedList:
     - Key: 1
-      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+      Value: {fileID: 21300000, guid: 26798eb6264eee64ca6e2b7c950d1652, type: 3}
     - Key: 2
-      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+      Value: {fileID: 21300000, guid: 5cac968d3e325d8418a1902093518c67, type: 3}
   icon_Button_Bottom_Sprite:
     _serializedList:
     - Key: 1
-      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+      Value: {fileID: 21300000, guid: 19cdbc0a496335843a66a993159f52b7, type: 3}
     - Key: 2
-      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+      Value: {fileID: 21300000, guid: 33fc66e0b179773488a1eb029b7d4918, type: 3}
     - Key: 3
-      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-  icon_Upgrade_dict:
-    _serializedList:
-    - Key: Upgrade_001
-      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Upgrade_002
-      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Upgrade_003
-      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Upgrade_004
-      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
-    - Key: Upgrade_005
-      Value: {fileID: 21300000, guid: d515b8f29b1593341a227add68b55a84, type: 3}
+      Value: {fileID: 21300000, guid: ca8e6bbfa0dafc54f808f348586f8acc, type: 3}
   icon_Passive_dict:
     _serializedList:
     - Key: Passive_001
