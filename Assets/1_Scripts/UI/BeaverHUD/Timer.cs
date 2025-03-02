@@ -11,11 +11,13 @@ public class Timer : MonoBehaviour
 
     public Vector3 offest;
 
+    public float time;
+
     private void OnEnable() 
     {
         thisRect.sizeDelta = new Vector2(0.1f, 0.1f);
         
-        StartTimer(4f); //Test
+        StartTimer(time); //Test
 
     }
 
