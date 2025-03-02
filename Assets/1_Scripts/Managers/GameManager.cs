@@ -34,9 +34,14 @@ public class GameManager : MonoSingleton<GameManager>
     public SerializedDictionary<SubUIType, ScriptableObjectData> DataSO = new SerializedDictionary<SubUIType, ScriptableObjectData>();
 
     //Data
+    [SerializedDictionary("model", "data")]
     public SerializedDictionary<string, UpgradeData> upgradeData = new SerializedDictionary<string, UpgradeData>();
+
+    [SerializedDictionary("StatusType", "data")]
     public SerializedDictionary<StatusType, StatusData> statusData =new SerializedDictionary<StatusType, StatusData>();
 
+    [SerializedDictionary("model", "data")]
+    public SerializedDictionary<string, PassiveData> passiveData = new SerializedDictionary<string, PassiveData>();
 
     private void OnEnable() {
         foreach(var data in DataSO.Values)

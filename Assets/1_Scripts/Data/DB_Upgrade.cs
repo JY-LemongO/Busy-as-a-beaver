@@ -42,11 +42,10 @@ public class DB_Upgrade : ScriptableObjectData
             newData.upgradeDescription = keyValues[nameof(newData.upgradeDescription)];
             newData.incriseValue = int.Parse(keyValues[nameof(newData.incriseValue)]);
             newData.incriseType = Enum.Parse<IncriseType>(keyValues[nameof(newData.incriseType)]);
-            // Debug.Log(nameof(newData.upgradeCost));
             newData.cost = int.Parse(keyValues[nameof(newData.cost)]);
             
 
-            GameManager.Instance.upgradeData.Add(newData.model, newData);
+            GameManager.Instance.upgradeData.Add($"Upgrade_{newData.index}", newData);
         }
     }
 }

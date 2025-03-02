@@ -5,6 +5,7 @@ using UnityEngine;
 public class SubUI_Base : MonoBehaviour
 {
     public SubUIType type;
+    public GameObject itemPref;
 
     #region Button Function
     public void OnClick_Close()
@@ -23,5 +24,6 @@ public class SubUI_Base : MonoBehaviour
         gameObject.SetActive(type.Equals(this.type));
     }
 
+    public virtual void Initialize() { }
 
 }

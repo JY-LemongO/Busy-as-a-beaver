@@ -16,7 +16,7 @@ public class SubUI_Upgrade : SubUI_Base
         Initialize();
     }
 
-    private void Initialize()
+    public override void Initialize()
     {
         scrollView.normalizedPosition = new Vector2(1f, 0f);
 
