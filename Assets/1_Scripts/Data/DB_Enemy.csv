@@ -1,0 +1,5 @@
+model,index,enemyName,description,enemyType,hp,null
+Enemy_001,1,늑대,비버들이 무서워서 모두 집으로 도망칩니다!,Wolf,5,
+Enemy_002,2,원숭이,무작위 비버 한마리가 원숭이랑 놀기 시작합니다!,Monkey,5,
+Enemy_003,3,코끼리,코끼리가 댐을 파괴하기위해 달려옵니다!,Elepent,5,
+Enemy_004,4,독수리,비버들이 무서워서 모두 도망칩니다!,Eagle,5,

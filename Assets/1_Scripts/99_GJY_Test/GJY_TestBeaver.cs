@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class GJY_TestBeaver : MonoBehaviour
+public class GJY_TestBeaver : Beaver
 {
     [SerializeField] private float _needDistance;
     [SerializeField] private float _moveSpeed;
@@ -11,12 +11,12 @@ public class GJY_TestBeaver : MonoBehaviour
     private Resource_Tree _targetTree;
     private GameObject _log;
     private bool _isMovingToDam = false;
+    private bool _isLogging = false;
 
     private const string LOG_PREFAB_PATH = "Prefabs/Tree/Log";
 
     private void Awake()
-    {
-        TreeManager.Instance.OnTreeDestroyed += OnTryGetLog;
+    {        
         TreeManager.Instance.OnTreeSpawned += OnTreeSpawned;
     }
 
@@ -34,30 +34,21 @@ public class GJY_TestBeaver : MonoBehaviour
             return;
 
         StopAllCoroutines();
-        SetTargetTree(tree);
+        SearchTree();
     }
 
-    private void OnTryGetLog(Resource_Tree destroyedTree, GJY_TestBeaver beaver)
+    private void OnGetLog()
     {
-        if (_isMovingToDam)
-            return;
+        _targetTree.OnTreeDestroyed -= OnGetLog;
 
-        StopAllCoroutines();
-        _targetTree = null;
+        _log = ResourceManager.Instance.Instantiate(LOG_PREFAB_PATH, _logTrs);
+        _log.transform.localPosition = Vector3.zero;
+        _log.transform.localRotation = Quaternion.identity;
 
-        if (beaver != this)
-        {
-            SearchTree();
-        }
-        else
-        {
-            _log = ResourceManager.Instance.Instantiate(LOG_PREFAB_PATH, _logTrs);
-            _log.transform.localPosition = Vector3.zero;
-            _log.transform.localRotation = Quaternion.identity;
-            
-            _isMovingToDam = true;
-            StartCoroutine(Co_MoveToDam());
-        }
+        _isMovingToDam = true;
+        _isLogging = false;
+
+        StartCoroutine(Co_MoveToDam());
     }
 
     private void SearchTree()
@@ -72,17 +63,15 @@ public class GJY_TestBeaver : MonoBehaviour
         }
     }
 
-    private void SetTargetTree(Resource_Tree tree)
-    {
-        _targetTree = tree;
-        StartCoroutine(Co_MoveToTree());
-    }
-
     private bool FindTree()
     {
         _targetTree = TreeManager.Instance.GetClosestTree(transform);
         if (_targetTree != null)
+        {
+            _targetTree.SetBeaver(this as Beaver);
+            _targetTree.OnTreeDestroyed += OnGetLog;
             return true;
+        }            
 
         return false;
     }
@@ -96,17 +85,11 @@ public class GJY_TestBeaver : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine(Co_LogTree());
+        LogTree();
     }
 
-    private IEnumerator Co_LogTree()
-    {
-        while (_targetTree.Status.IsAlive)
-        {
-            _targetTree.GetDamaged(5f, this);
-            yield return new WaitForSeconds(1f);
-        }        
-    }
+    private void LogTree()
+        => _targetTree.LogTree(); 
 
     private IEnumerator Co_MoveToDam()
     {

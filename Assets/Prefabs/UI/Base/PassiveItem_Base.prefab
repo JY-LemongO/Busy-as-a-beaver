@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 586055842158909072}
   - component: {fileID: 8541998645131388603}
   - component: {fileID: 4207280342482918116}
+  - component: {fileID: 7091195374721442610}
   m_Layer: 0
   m_Name: PassiveItem_Base
   m_TagString: Untagged
@@ -300,6 +301,18 @@ MonoBehaviour:
     incriseType: 0
     cost: 0
     maxLevel: 0
+--- !u!114 &7091195374721442610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115599152969101430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98edd0f066a9ea444b7a932e67e6e828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7159202724122835839
 GameObject:
   m_ObjectHideFlags: 0
