@@ -29,6 +29,7 @@ public enum SubUIType
     Settings = 4,
     Enemy = 5,
     Item = 6,
+    Stage = 7,
 }
 
 public enum IncriseType
@@ -46,6 +47,7 @@ public enum DataType
     DB_Passive = 3,
     DB_Enemy = 4,
     DB_Item = 5,
+    DB_Stage = 6,
     
 }
 

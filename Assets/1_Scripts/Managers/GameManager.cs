@@ -52,6 +52,8 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializedDictionary("model", "data")]
     public SerializedDictionary<string, EnemyData> enemyData = new SerializedDictionary<string, EnemyData>();
 
+    [SerializedDictionary("model", "data")]
+    public SerializedDictionary<string, StageData> stageData = new SerializedDictionary<string, StageData>();
 
 
     private void OnEnable() {
@@ -65,7 +67,7 @@ public class GameManager : MonoSingleton<GameManager>
             isInitialize = true;
         }
 
-        OpenPopup(PopupType.Clear);
+        Debug.Log($"{GetStageData(4).model}");
 
         //test
         // MessageManager.Instance.ViewMessage(MessageType.Enemy, enemyData["Enemy_001"]);
@@ -96,6 +98,11 @@ public class GameManager : MonoSingleton<GameManager>
     public void OpenPopup(PopupType type)
     {
         SubUI.popup_Wraps[type].OpenPopup(type);;
+    }
+
+    public StageData GetStageData(int stage)
+    {
+        return stageData[$"stage_{stage:D3}"];
     }
     #endregion
 }
