@@ -519,7 +519,7 @@ PrefabInstance:
     - target: {fileID: 1665095282431152224, guid: f61e382be42b566499b52686514bce45,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1665095282431152224, guid: f61e382be42b566499b52686514bce45,
         type: 3}
@@ -895,7 +895,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 14.67
+  orthographic size: 10.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -918,8 +918,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 835553007}
-  m_LocalRotation: {x: 0.30278006, y: 0.69433624, z: -0.42219004, w: 0.4979729}
-  m_LocalPosition: {x: -5.003153, y: 10.487699, z: 0.8159391}
+  m_LocalRotation: {x: 0.2357933, y: 0.75943476, z: -0.37700978, w: 0.47489375}
+  m_LocalPosition: {x: -12.707234, y: 22.75647, z: 8.668692}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -949,7 +949,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -1204,7 +1204,7 @@ PrefabInstance:
     - target: {fileID: 1665095282431152224, guid: f61e382be42b566499b52686514bce45,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1665095282431152224, guid: f61e382be42b566499b52686514bce45,
         type: 3}
@@ -1460,6 +1460,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 708166202254647720, guid: 2a38d3f4516a6c945b4ed11548a78c35,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 67ffe5609e4bddf408dabc1e73309260, type: 2}
     - target: {fileID: 1682571816789436953, guid: 2a38d3f4516a6c945b4ed11548a78c35,
         type: 3}
       propertyPath: m_Name
