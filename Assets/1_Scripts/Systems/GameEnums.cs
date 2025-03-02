@@ -27,6 +27,8 @@ public enum SubUIType
     Upgrade = 2, 
     Passive = 3,
     Settings = 4,
+    Enemy = 5,
+    Item = 6,
 }
 
 public enum IncriseType
@@ -42,6 +44,8 @@ public enum DataType
     DB_Upgrade = 1,
     DB_Status = 2,
     DB_Passive = 3,
+    DB_Enemy = 4,
+    DB_Item = 5,
     
 }
 
@@ -76,4 +80,21 @@ public enum MessageType
 {
     NONE = 0,
     NOMAL = 1,
+}
+
+public enum EnemyType
+{
+    NONE = 0,
+    Wolf = 1,
+    Monkey = 2,
+    Elepent = 3,
+    Eagle = 4,
+}
+
+public enum ItemType
+{
+    NONE = 0,
+    Apple = 1,
+    Banana = 2,
+    Peach = 3,
 }
