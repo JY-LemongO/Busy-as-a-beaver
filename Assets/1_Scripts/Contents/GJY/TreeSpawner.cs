@@ -20,7 +20,10 @@ public class TreeSpawner : MonoBehaviour
     }
 
     private void OnTreeRespawnCountdown()
-        => StartCoroutine(Co_CountdownRespawn());
+    {
+        _tree.Status.OnDead -= OnTreeRespawnCountdown;
+        StartCoroutine(Co_CountdownRespawn());
+    }        
 
     private IEnumerator Co_CountdownRespawn()
     {
