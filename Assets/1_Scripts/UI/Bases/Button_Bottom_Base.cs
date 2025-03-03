@@ -18,7 +18,7 @@ public class Button_Bottom_Base : MonoBehaviour
     public void OnClick_Button()
     {   
         GameManager.Instance.SubUI.CloseAllSubUI();
-        GameManager.Instance.SubUI.subUI_Wraps[subUIType].OpenUI(subUIType);
+        BuildingSystem.Instance.EnterBHPreviewMode();
     }
 
     #endregion
