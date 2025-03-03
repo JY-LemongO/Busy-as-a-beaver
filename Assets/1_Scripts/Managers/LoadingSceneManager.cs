@@ -48,4 +48,10 @@ public class LoadingSceneManager : MonoBehaviour
             }
         }
     }
+
+    public static string GetNowSceneName()
+    {
+        Scene scene = SceneManager.GetActiveScene();
+        return scene.name;
+    }
 }

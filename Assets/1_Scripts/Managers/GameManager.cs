@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// 접근방법 : GameManager.Instance.변수명
@@ -15,7 +16,7 @@ using UnityEngine;
 /// StatusManager.Instance.SetDircy(); //이 함수를 호출하면 세이브됩니다! (아직 게임 강제종료 세이브는 구현 전입니다..!)
 /// </summary>
 /// 
-    
+
 
 public class GameManager : MonoSingleton<GameManager>
 {
@@ -85,14 +86,15 @@ public class GameManager : MonoSingleton<GameManager>
             {
                 data.SetDictionaryData();
             }
-
             isInitialize = true;
         }
 
         Debug.Log($"{GetStageData(4).model}");
+    }
 
-        //test
-        // MessageManager.Instance.ViewMessage(MessageType.Enemy, enemyData["Enemy_001"]);
+    private void Update() {
+        if(LoadingSceneManager.GetNowSceneName() == "MainScene" && GameObject.Find("Canvas_SubUI").GetComponent<Canvas_SubUI>() != null)
+            SubUI = GameObject.Find("Canvas_SubUI").GetComponent<Canvas_SubUI>();
     }
     
     #region public Method
