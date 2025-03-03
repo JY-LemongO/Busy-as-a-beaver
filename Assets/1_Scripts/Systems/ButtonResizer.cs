@@ -23,7 +23,7 @@ public class ButtonResizer : MonoBehaviour, IPointerDownHandler, IPointerUpHandl
 		if (button.interactable)
 		{
 			transform.localScale = Vector3.one * resizeValue;
-			SoundManager.Instance.PlaySFX(SoundManager.ESfx.SFX_BUTTON);
+			//SoundManager.Instance.PlaySFX(SoundManager.ESfx.SFX_BUTTON);
 		}
 	}
 
