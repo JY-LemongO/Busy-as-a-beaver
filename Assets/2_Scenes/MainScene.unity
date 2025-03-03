@@ -2105,6 +2105,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Managers2
       objectReference: {fileID: 0}
+    - target: {fileID: 3895236375098158558, guid: 38e0221697e6c8b42a6846a0e848fc80,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5028216407219136689, guid: 38e0221697e6c8b42a6846a0e848fc80,
         type: 3}
       propertyPath: m_RootOrder
@@ -6462,7 +6467,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36aae5d14bae6c469ef4d6de3fd4deb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 5
   _houseTrs1: {fileID: 1681485963}
   _houseTrs2: {fileID: 211041977}
   _previewBtn: {fileID: 72667048}
