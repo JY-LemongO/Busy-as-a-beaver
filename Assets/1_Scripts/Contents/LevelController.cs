@@ -16,6 +16,12 @@ public class LevelController : MonoBehaviour
         StageManager.Instance.OnStageClear += SetLevel;
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+            DamManager.Instance.BuildDamComplete();
+    }
+
     public void SetLevel(int level)
     {
         if (_currentLevel != null)

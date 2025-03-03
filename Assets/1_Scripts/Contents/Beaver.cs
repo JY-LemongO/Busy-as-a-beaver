@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class Beaver : MonoBehaviour
 {
+    public virtual void SetHouse(BeaverHouse house) { }
     public virtual void Dispose() { }
 }

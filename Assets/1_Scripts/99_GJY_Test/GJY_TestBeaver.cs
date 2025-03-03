@@ -25,7 +25,7 @@ public class GJY_TestBeaver : Beaver
         SearchTree();
     }
 
-    public void SetHouse(BeaverHouse house)
+    public override void SetHouse(BeaverHouse house)
         => _house = house;
 
     private void OnTreeSpawned(Resource_Tree tree)

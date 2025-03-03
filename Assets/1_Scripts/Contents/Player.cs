@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class Player : Beaver
 {
@@ -22,10 +23,14 @@ public class Player : Beaver
 
     #region GJY
     public GameObject log;
+    public BeaverHouse house;
     
     public bool _isMovingToDam = false;
     public bool _isLogging = false;
     #endregion
+
+    public override void SetHouse(BeaverHouse house)
+        => this.house = house;
 
     private void Awake()
     {

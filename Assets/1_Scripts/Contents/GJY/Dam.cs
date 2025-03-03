@@ -29,9 +29,9 @@ public class Dam : MonoBehaviour
     {
         _currentLogCount++;
 
-        int step = Mathf.FloorToInt(5 * (_currentLogCount - 1) / (NeedLogCount - 1)) + 1;
-        if (step <= _damProgressList.Count && !_damProgressList[step - 1].activeSelf)
-            _damProgressList[step - 1].SetActive(true);
+        //int step = Mathf.FloorToInt(5 * (_currentLogCount - 1) / (NeedLogCount - 1)) + 1;
+        //if (step <= _damProgressList.Count && !_damProgressList[step - 1].activeSelf)
+        //    _damProgressList[step - 1].SetActive(true);
 
         if (_currentLogCount == NeedLogCount)
         {
