@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9080527617685905997}
   - component: {fileID: 5577887923378166760}
   - component: {fileID: 629202681131381884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 7223388884498012748}
   - component: {fileID: 3551228132193477969}
   - component: {fileID: 8610430170633097760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 2300686593260735578}
   - component: {fileID: 4701744784240872622}
   - component: {fileID: 6778349586982745529}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 6174517526865168939}
   - component: {fileID: 2713583871430194081}
   - component: {fileID: 6133362941324300417}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 4861807344101122499}
   - component: {fileID: 4856514658144009888}
   - component: {fileID: 730634076613783111}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6059244830495795241}
   - component: {fileID: 5247997395763803132}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Dam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -589,4 +589,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea0ed49e5a8acba4c837e878b78ddab0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damProgressList: []
   _needLogCount: 0
+  moveToDamPosition: {fileID: 0}

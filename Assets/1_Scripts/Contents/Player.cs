@@ -15,10 +15,10 @@ public class Player : Beaver
     public NavMeshAgent Agent { get; private set; }
 
     [SerializeField] private float _needDistance;
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _moveSpeed => GameManager.Instance.fixMoveSpeed;
 
-    public bool isInteraction = false;
     public Resource_Tree targetTree;
+    public bool isInteraction = false;
 
     #region GJY
     public GameObject log;
@@ -40,10 +40,27 @@ public class Player : Beaver
     {
         StateMachine.ChangeState(StateMachine.IdleState);
     }
+
     private void Update()
     {
         StateMachine.HandleInput();
         StateMachine.Update();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            Animator.SetBool("Swim", true);
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            Animator.SetBool("Swim", false);
+        }
     }
 
     private void FixedUpdate()

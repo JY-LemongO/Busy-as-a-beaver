@@ -352,7 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.4}
+  m_Color: {r: 0.25882354, g: 0.12941177, b: 0.043137256, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -514,6 +514,7 @@ GameObject:
   - component: {fileID: 4996347255379948502}
   - component: {fileID: 288025551178455493}
   - component: {fileID: 2810809430389161512}
+  - component: {fileID: 4682553486741061713}
   m_Layer: 0
   m_Name: BackButton
   m_TagString: Untagged
@@ -635,6 +636,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4682553486741061713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7101715519488845757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98edd0f066a9ea444b7a932e67e6e828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7870977341444953445
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,4 +53,61 @@ public class StatusManager : MonoSingleton<StatusManager>
 
     }
 
+    public void Reset()
+    {
+        foreach(var item in GameManager.Instance.statusData.Values)
+        {
+            switch (item.type)
+            {
+                case StatusType.NONE:
+                case StatusType.HP:
+                    {
+                        GameManager.Instance.statusData[item.type].statusValue = 100;
+                    }
+                    break;
+                case StatusType.AttackSpeed:
+                    {
+                        GameManager.Instance.statusData[item.type].statusValue = 5;
+                    }
+                    break;
+                case StatusType.Income:
+                    {
+                        GameManager.Instance.statusData[item.type].statusValue = 100;
+                    }
+                    break;
+                case StatusType.MoveSpeed:
+                    {
+                        GameManager.Instance.statusData[item.type].statusValue = 4;
+                    }
+                    break;
+
+                //
+                case StatusType.Wood:
+                case StatusType.Diamond:
+                case StatusType.Passive_Sharp:
+                case StatusType.Passive_Sedulity:
+                case StatusType.Passive_HardTeeth:
+                case StatusType.Passive_SeasonalBird:
+                case StatusType.Passive_QuickFeet:
+                case StatusType.Passive_GoldenSpoon:
+                case StatusType.Upgrade_BeaverHP:
+                case StatusType.Upgrade_Income:
+                case StatusType.Upgrade_Power:
+                case StatusType.Upgrade_Speed:
+                case StatusType.Upgrade_TreeRegen:
+                case StatusType.Item_Apple:
+                case StatusType.Item_Banana:
+                case StatusType.Item_Peach:
+                    {
+                        GameManager.Instance.statusData[item.type].statusValue = 0;
+                    }   
+                    break;
+                default:
+                    break;
+            }
+
+            StatusManager.Instance.SetDirty();
+        }
+    }
+
 }

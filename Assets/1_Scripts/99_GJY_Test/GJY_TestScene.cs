@@ -3,20 +3,20 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GJY_TestScene : MonoBehaviour
-{    
-    [Range(1, 10)]
-    [SerializeField] private float _damage;
-    [SerializeField] TMP_Text _logText;
+{   
     [SerializeField] BHSpawnPoint _houseTrs1;
     [SerializeField] BHSpawnPoint _houseTrs2;
     [SerializeField] Button _previewBtn;
+    [SerializeField] Button _nextStageBtn;
+    [SerializeField] GameObject _nextStagePanel;
 
     private int _currentWood = 0;
 
     private void Awake()
-    {
-        TreeManager.Instance.OnWoodValueChanged += OnWoodValueUpdate;
+    {        
         _previewBtn.onClick.AddListener(OnPreviewMode);
+        _nextStageBtn.onClick.AddListener(OnNextStage);
+        DamManager.Instance.OnBuiltDam += () => GameManager.Instance.OpenPopup(PopupType.Clear);//() => _nextStagePanel.SetActive(true);
     }
 
     private void Update()
@@ -29,14 +29,19 @@ public class GJY_TestScene : MonoBehaviour
         {
             BuildingSystem.Instance.BuildBeaverHouse(_houseTrs2);
         }
-    }
-
-    private void OnWoodValueUpdate(int value)
-    {
-        _currentWood += value;
-        _logText.text = $"Current Log : {_currentWood}";
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            Debug.Log(TreeManager.Instance.GetTreesCount());
+        }
+            
     }
 
     private void OnPreviewMode()
         => BuildingSystem.Instance.EnterBHPreviewMode();    
+
+    private void OnNextStage()
+    {
+        _nextStagePanel.SetActive(false);
+        StageManager.Instance.StageClear();
+    }        
 }

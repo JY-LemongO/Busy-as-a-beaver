@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
-using Unity.Android.Gradle;
 using UnityEngine;
 
 public class Resource_Tree : MonoBehaviour
-{
-    [SerializeField] private float _logTime;
+{   
+    // float baseLogTime = 5f;
+    [SerializeField] private float _logTime => GameManager.Instance.AttackSpeed;
 
     public event Action OnTreeDestroyed;
     public event Action<float> OnLogging;
@@ -18,6 +18,7 @@ public class Resource_Tree : MonoBehaviour
 
     public void Setup()
     {
+        // To Do - 나무 스테이터스 넣기
         IsDestroyed = false;
     }
 
@@ -32,7 +33,7 @@ public class Resource_Tree : MonoBehaviour
         if (IsLogging)
             return;
 
-        // To Do - Logging        
+        // To Do - Logging
         IsLogging = true;
         StartCoroutine(Co_Logging());
     }    
@@ -42,13 +43,15 @@ public class Resource_Tree : MonoBehaviour
         TreeManager.Instance.DestroyTree(this, _workedBeaver);        
         OnTreeDestroyed?.Invoke();
         OnTreeDestroyed = null;
+        IsLogging = false;
         IsTargeted = false;
+        IsLogging = false;
         IsDestroyed = true;
         _workedBeaver = null;        
     }
 
     private IEnumerator Co_Logging()
-    {
+    {   
         float currentTime = 0f;
 
         while (currentTime < _logTime)
@@ -59,5 +62,14 @@ public class Resource_Tree : MonoBehaviour
         }
 
         DestroyTree();
+    }
+
+    public void Dispose()
+    {
+        OnTreeDestroyed = null;
+        IsTargeted = false;
+        IsLogging = false;
+        IsDestroyed = true;
+        _workedBeaver = null;
     }
 }

@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 82197244064579920}
   - component: {fileID: 6556114643380245396}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DamProgress2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &82197244064579920
 Transform:
   m_ObjectHideFlags: 0
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 3657983274308012873}
   - component: {fileID: 3105578030753118217}
   - component: {fileID: 3787108861785978065}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,13 +179,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2956503256328029456}
   - component: {fileID: 3034451575812700045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DamProgress1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2956503256328029456
 Transform:
   m_ObjectHideFlags: 0
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 7605447456370042550}
   - component: {fileID: 6436459158623001287}
   - component: {fileID: 8639155768960191034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   - component: {fileID: 6221036237069517780}
   - component: {fileID: 1730306630670068016}
   - component: {fileID: 8305729574400986773}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 1421673421317502696}
   - component: {fileID: 2814592110891643524}
   - component: {fileID: 8206741500400064278}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +566,7 @@ GameObject:
   - component: {fileID: 403892189147271813}
   - component: {fileID: 5208040560495061868}
   - component: {fileID: 3613076843368595268}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,13 +672,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3991140421943039798}
   - component: {fileID: 2614129498763050511}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DamProgress4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3991140421943039798
 Transform:
   m_ObjectHideFlags: 0
@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 7075310626362285062}
   - component: {fileID: 5202852124316630233}
   - component: {fileID: 3469608849646572991}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 7604948382501607085}
   - component: {fileID: 247687816661001260}
   - component: {fileID: 5577842985930015415}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -951,7 +951,7 @@ GameObject:
   - component: {fileID: 3377570391912756754}
   - component: {fileID: 2235361501228085064}
   - component: {fileID: 248933503081027351}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1059,7 +1059,7 @@ GameObject:
   - component: {fileID: 4932414736655571911}
   - component: {fileID: 9173400354663700957}
   - component: {fileID: 9059144460257047493}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1167,7 +1167,7 @@ GameObject:
   - component: {fileID: 6692628266611086529}
   - component: {fileID: 8834076048528895325}
   - component: {fileID: 8970950006670438577}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1275,7 +1275,7 @@ GameObject:
   - component: {fileID: 373458875967922528}
   - component: {fileID: 5165332731560202017}
   - component: {fileID: 6977025450261344565}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1383,7 +1383,7 @@ GameObject:
   - component: {fileID: 5081306422740023422}
   - component: {fileID: 2369519128648546548}
   - component: {fileID: 5355688633745997687}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1491,7 +1491,7 @@ GameObject:
   - component: {fileID: 8764453329767208581}
   - component: {fileID: 7017920300896136448}
   - component: {fileID: 3531047663013233215}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1599,7 +1599,7 @@ GameObject:
   - component: {fileID: 5742995034992075718}
   - component: {fileID: 102189141867591664}
   - component: {fileID: 7904266692924415723}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1707,7 +1707,7 @@ GameObject:
   - component: {fileID: 3068053858118572111}
   - component: {fileID: 1746003634255002903}
   - component: {fileID: 5313295512638212486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1815,7 +1815,7 @@ GameObject:
   - component: {fileID: 1621486690069654275}
   - component: {fileID: 6473078232273610643}
   - component: {fileID: 354012552878854276}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1923,7 +1923,7 @@ GameObject:
   - component: {fileID: 4548978380746590112}
   - component: {fileID: 3160310930417421615}
   - component: {fileID: 1686077881393963023}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2031,7 +2031,7 @@ GameObject:
   - component: {fileID: 5937305534951843218}
   - component: {fileID: 4301397797775726207}
   - component: {fileID: 4455985426390897098}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2139,7 +2139,7 @@ GameObject:
   - component: {fileID: 6290308774646599401}
   - component: {fileID: 6195019898912075708}
   - component: {fileID: 7529472799324928220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2247,7 +2247,7 @@ GameObject:
   - component: {fileID: 3452760212854442878}
   - component: {fileID: 8948540131100647207}
   - component: {fileID: 494333763931915054}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2355,7 +2355,7 @@ GameObject:
   - component: {fileID: 6852220925800259602}
   - component: {fileID: 2190643728991791523}
   - component: {fileID: 7850566160739923318}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2463,7 +2463,7 @@ GameObject:
   - component: {fileID: 8971479433209480326}
   - component: {fileID: 8253836612735995933}
   - component: {fileID: 163692665495985995}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2571,7 +2571,7 @@ GameObject:
   - component: {fileID: 6316946541359696085}
   - component: {fileID: 5629668394958100072}
   - component: {fileID: 9153067279732823160}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2679,7 +2679,7 @@ GameObject:
   - component: {fileID: 3483357640649442155}
   - component: {fileID: 2455450320887004405}
   - component: {fileID: 9024152773669726969}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2787,7 +2787,7 @@ GameObject:
   - component: {fileID: 603349484381724772}
   - component: {fileID: 6804251346099251050}
   - component: {fileID: 5657297597475102453}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2895,7 +2895,7 @@ GameObject:
   - component: {fileID: 6886555342823112027}
   - component: {fileID: 6967046010995316457}
   - component: {fileID: 3269047957364406161}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3003,7 +3003,7 @@ GameObject:
   - component: {fileID: 4943963961831516035}
   - component: {fileID: 1561122715861966857}
   - component: {fileID: 2159898864964598895}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3109,13 +3109,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2133085380110834366}
   - component: {fileID: 5997523258699519377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DamProgress3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2133085380110834366
 Transform:
   m_ObjectHideFlags: 0
@@ -3173,7 +3173,7 @@ GameObject:
   - component: {fileID: 173942816019434410}
   - component: {fileID: 1549860164520311835}
   - component: {fileID: 9065146217270991940}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3281,7 +3281,7 @@ GameObject:
   - component: {fileID: 1364659622329100727}
   - component: {fileID: 3945234246143463284}
   - component: {fileID: 8539098443169830076}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3389,7 +3389,7 @@ GameObject:
   - component: {fileID: 7784246710693071372}
   - component: {fileID: 1876815192311355704}
   - component: {fileID: 7714054659298179536}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3497,7 +3497,7 @@ GameObject:
   - component: {fileID: 4658179057731929738}
   - component: {fileID: 4264252646502431408}
   - component: {fileID: 788812251137291532}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3605,7 +3605,7 @@ GameObject:
   - component: {fileID: 8870868460494675428}
   - component: {fileID: 7340821336946561904}
   - component: {fileID: 5043362721411038272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3713,7 +3713,7 @@ GameObject:
   - component: {fileID: 3490824095957378864}
   - component: {fileID: 7696597145012519519}
   - component: {fileID: 630305401744981292}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3821,7 +3821,7 @@ GameObject:
   - component: {fileID: 6683869966893742254}
   - component: {fileID: 2166357910045674222}
   - component: {fileID: 5166169014673650696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3927,13 +3927,13 @@ GameObject:
   m_Component:
   - component: {fileID: 3752968732745375428}
   - component: {fileID: 7247998601027630360}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DamProgress5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3752968732745375428
 Transform:
   m_ObjectHideFlags: 0
@@ -3990,7 +3990,7 @@ GameObject:
   - component: {fileID: 1336191801072049699}
   - component: {fileID: 4942608866018141488}
   - component: {fileID: 5813747756845205944}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4098,7 +4098,7 @@ GameObject:
   - component: {fileID: 2552064867516749907}
   - component: {fileID: 5151215580964069234}
   - component: {fileID: 1262978389340944494}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4206,7 +4206,7 @@ GameObject:
   - component: {fileID: 7428949720459968230}
   - component: {fileID: 2593647818956592981}
   - component: {fileID: 4112940608378791867}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4314,7 +4314,7 @@ GameObject:
   - component: {fileID: 1814739300107281183}
   - component: {fileID: 155946226666037499}
   - component: {fileID: 3804482532601293865}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4422,7 +4422,7 @@ GameObject:
   - component: {fileID: 6069493369261057041}
   - component: {fileID: 914474155368437606}
   - component: {fileID: 1786335625271543258}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4528,15 +4528,14 @@ GameObject:
   m_Component:
   - component: {fileID: 8502299785305142451}
   - component: {fileID: 4850748396835367402}
-  - component: {fileID: 8409374512781651993}
   - component: {fileID: 4649357715192611446}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
+  m_Layer: 8
+  m_Name: Dam Camera
+  m_TagString: SubCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8502299785305142451
 Transform:
   m_ObjectHideFlags: 0
@@ -4603,14 +4602,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &8409374512781651993
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8936950148341989519}
-  m_Enabled: 1
 --- !u!114 &4649357715192611446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4665,7 +4656,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8806954587551353937}
   - component: {fileID: 5894052242531914023}
-  m_Layer: 0
+  - component: {fileID: 1061973619307766129}
+  m_Layer: 8
   m_Name: Dam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4712,6 +4704,28 @@ MonoBehaviour:
   - {fileID: 2414968719351569927}
   - {fileID: 8156072237428450966}
   _needLogCount: 10
+  moveToDamPosition: {fileID: 0}
+--- !u!65 &1061973619307766129
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9081263968116446256}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 5.33, y: 2.05, z: 2.19}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9101354032008999121
 GameObject:
   m_ObjectHideFlags: 0
@@ -4724,7 +4738,7 @@ GameObject:
   - component: {fileID: 1160365599062665527}
   - component: {fileID: 4206084051696804685}
   - component: {fileID: 5123391105338841045}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4832,7 +4846,7 @@ GameObject:
   - component: {fileID: 7889655053637005123}
   - component: {fileID: 5731749334171705141}
   - component: {fileID: 4351780978789813574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Log (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

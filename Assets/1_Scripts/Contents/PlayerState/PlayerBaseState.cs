@@ -34,27 +34,28 @@ public class PlayerBaseState : IState
 
     public virtual void PhysicsUpdate()
     {
+        if (_stateMachine.Player._isMovingToDam)
+        {
+            MoveToDam();
+            _stateMachine.ChangeState(_stateMachine.WalkState);
+        }
+
         if (_stateMachine.Player.targetTree != null)
             return;
-
-        if (TryGetTarget())
+        
+        if (TryGetTargetTree())
         {
-            MoveToTarget();
+            MoveToTargetTree();
             _stateMachine.ChangeState(_stateMachine.WalkState);
         }
     }
 
     public virtual void Update()
     {
-        if (ReachTheTarget())
-        {
-            Interaction();
-            _stateMachine.ChangeState(_stateMachine.InteractionState);
-            Debug.Log($"[PlayerBaseState] 스테이트 전환  :: {_stateMachine.InteractionState.ToString()}");
-        }
+
     }
 
-    public bool TryGetTarget()
+    public bool TryGetTargetTree()
     {
         _stateMachine.Player.targetTree = TreeManager.Instance.GetClosestTree(_stateMachine.Player.transform);
 
@@ -62,10 +63,41 @@ public class PlayerBaseState : IState
         {
             _stateMachine.Player.targetTree.SetBeaver(_stateMachine.Player as Beaver);
             _stateMachine.Player.targetTree.OnTreeDestroyed += OnGetLog;
-            return true;            
+            return true;
         }
-
         return false;
+    }
+
+    public void MoveToTargetTree()
+    {
+        Transform targetTrensform = _stateMachine.Player.targetTree.gameObject.transform;
+        _stateMachine.Player.Agent.SetDestination(targetTrensform.position);
+    }
+
+    public bool ReachTheTarget()
+    {
+        Ray ray = new Ray(_stateMachine.Player.transform.position + Vector3.up * 0.5f, _stateMachine.Player.transform.forward);
+        RaycastHit hit;
+
+        int layerMask = 1 << LayerMask.NameToLayer("Resource") | 1 << LayerMask.NameToLayer("Dam");
+
+        if (Physics.Raycast(ray, out hit, 1f, layerMask, QueryTriggerInteraction.Collide))
+        {
+            if(hit.collider != null)
+            {
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Resource"))
+                {
+                    _stateMachine.Player.isInteraction = true;
+                }
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void MoveToDam()
+    {
+        _stateMachine.Player.Agent.SetDestination(DamManager.Instance.transform.position);
     }
 
     #region GJY
@@ -81,31 +113,6 @@ public class PlayerBaseState : IState
         _stateMachine.Player._isLogging = false;        
     }
     #endregion
-
-    public void MoveToTarget()
-    {
-        Transform targetTrensform = _stateMachine.Player.targetTree.gameObject.transform;
-        _stateMachine.Player.Agent.SetDestination(targetTrensform.position);
-    }
-
-    public bool ReachTheTarget()
-    {
-        NavMeshAgent agent = _stateMachine.Player.Agent;
-        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
-        {
-            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
-            {
-                // 목적지에 도달함
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void Interaction()
-    {
-        _stateMachine.Player.isInteraction = true;
-    }
 
     protected void StartAnimation(int animationHash)
     {

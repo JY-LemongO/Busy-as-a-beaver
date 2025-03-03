@@ -54,9 +54,21 @@ MonoBehaviour:
       Value: {fileID: 11400000, guid: 2c584bd94c0503e49a732e5caa6fd791, type: 2}
     - Key: 1
       Value: {fileID: 11400000, guid: 3511da9aff15451459c5719c28f20e92, type: 2}
+    - Key: 5
+      Value: {fileID: 11400000, guid: b6316123aeeadeb4a810f586cfa2fc3a, type: 2}
+    - Key: 6
+      Value: {fileID: 11400000, guid: 73deb48dc3c24ca4d93bc650bbb88a42, type: 2}
+    - Key: 7
+      Value: {fileID: 11400000, guid: 51e41a3e0150c04428234d91938e9a88, type: 2}
   upgradeData:
     _serializedList: []
   statusData:
     _serializedList: []
   passiveData:
+    _serializedList: []
+  itemData:
+    _serializedList: []
+  enemyData:
+    _serializedList: []
+  stageData:
     _serializedList: []

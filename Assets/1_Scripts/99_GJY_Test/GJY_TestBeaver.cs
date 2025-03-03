@@ -4,7 +4,7 @@ using UnityEngine;
 public class GJY_TestBeaver : Beaver
 {
     [SerializeField] private float _needDistance;
-    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _moveSpeed => GameManager.Instance.fixMoveSpeed;
     [SerializeField] private Transform _logTrs;
 
     private BeaverHouse _house;
@@ -30,7 +30,7 @@ public class GJY_TestBeaver : Beaver
 
     private void OnTreeSpawned(Resource_Tree tree)
     {
-        if (_targetTree != null || _isMovingToDam)
+        if (_targetTree != null || _isMovingToDam || !gameObject.activeSelf)
             return;
 
         StopAllCoroutines();
@@ -77,7 +77,8 @@ public class GJY_TestBeaver : Beaver
     }
 
     private IEnumerator Co_MoveToTree()
-    {
+    {   
+        Debug.Log($"beaver speed : {GameManager.Instance.fixMoveSpeed}");
         while (Vector3.Distance(transform.position, _targetTree.transform.position) > _needDistance)
         {
             Vector3 dir = Util.GetMoveDirection(transform, _targetTree.transform);            
@@ -93,9 +94,11 @@ public class GJY_TestBeaver : Beaver
 
     private IEnumerator Co_MoveToDam()
     {
-        while (Vector3.Distance(transform.position, Dam.Instance.transform.position) > _needDistance)
+        Dam dam = DamManager.Instance.Dam;
+
+        while (Vector3.Distance(transform.position, dam.transform.position) > _needDistance)
         {
-            Vector3 dir = Util.GetMoveDirection(transform, Dam.Instance.transform);
+            Vector3 dir = Util.GetMoveDirection(transform, dam.transform);
             transform.position += dir * _moveSpeed * Time.deltaTime;
             yield return null;
         }
@@ -106,8 +109,9 @@ public class GJY_TestBeaver : Beaver
     private IEnumerator Co_BuildDam()
     {
         yield return new WaitForSeconds(2f);
-        Dam.Instance.BuildDam();
+        DamManager.Instance.Dam.BuildDam();
         PoolManager.Instance.Return(_log);
+        _log = null;
 
         _isMovingToDam = false;
         SearchTree();
@@ -121,5 +125,19 @@ public class GJY_TestBeaver : Beaver
             transform.position += dir * _moveSpeed * Time.deltaTime;
             yield return null;
         }
+    }
+
+    public override void Dispose()
+    {
+        if (_log != null)
+            PoolManager.Instance.Return(_log);
+
+        StopAllCoroutines();
+
+        _house = null;
+        _targetTree = null;
+        _log = null;
+        _isMovingToDam = false;
+        _isLogging = false;
     }
 }

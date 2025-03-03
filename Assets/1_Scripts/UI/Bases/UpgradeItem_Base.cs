@@ -9,10 +9,11 @@ public class UpgradeItem_Base : MonoBehaviour
     public Image upgradeIcon;
     public TMP_Text upgradeName;
     public TMP_Text upgradeDescription;
+    public TMP_Text upgradeCost;
 
     public UpgradeData upgradeData;
 
-    bool isConsumable => GameManager.Instance.wood - upgradeData.upgradeCost >= 0;
+    bool isConsumable => GameManager.Instance.coin - upgradeData.upgradeCost >= 0;
     
     //
     public void OnClick_Upgarde()
@@ -22,7 +23,8 @@ public class UpgradeItem_Base : MonoBehaviour
             GameManager.Instance.statusData[upgradeData.statusType].statusValue += 1;
             GameManager.Instance.statusData[StatusType.Wood].statusValue -= upgradeData.upgradeCost;
             MessageManager.Instance.ViewMessage(MessageType.NOMAL, "success");
-            Initialize();
+            Debug.Log($"now Beaver Speed is : {GameManager.Instance.fixMoveSpeed}");
+            Refresh();
             StatusManager.Instance.SetDirty();
         }
         else
@@ -41,8 +43,10 @@ public class UpgradeItem_Base : MonoBehaviour
         string upgradeValue = $"{upgradeData.incriseValue}{GetUpgradeUnit(upgradeData.incriseType)}";
         upgradeDescription.text = string.Format(upgradeData.upgradeDescription, upgradeValue);
 
+        upgradeCost.text = upgradeData.upgradeCost.ToString();
+
     }
-    public void Initialize()
+    public void Refresh()
     {
         // upgradeIcon.sprite = GameManager.Instance.Settings.icon_Upgrade_dict[upgradeData.model];
         upgradeName.text = upgradeData.upgradeName;

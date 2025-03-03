@@ -11,6 +11,12 @@ public abstract class Message_Base : MonoBehaviour
     public TMP_Text messageText;
 
     public abstract void ViewMessage(string message);
+    public abstract void ViewMessage(EnemyData data);
 
+    protected IEnumerator WaitCoroutine(float time)
+    {
+        yield return new WaitForSeconds(time);
+        gameObject.SetActive(false);
+    }
 }
     

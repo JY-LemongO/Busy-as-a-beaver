@@ -77,8 +77,7 @@ public class CameraController : MonoBehaviour
         float moveX = -_swipeDir.x * _sensitivity;
         float moveY = -_swipeDir.y * _sensitivity;
 
-        Vector3 moveVect = new Vector3(moveX, 0, moveY) + transform.position;
-        Debug.Log(swipeDelta);
+        Vector3 moveVect = new Vector3(moveX, 0, moveY) + transform.position;        
 
         Vector3 nextPosition = Vector3.Lerp(transform.position, moveVect, swipeDelta * Time.deltaTime);
         nextPosition.x = Mathf.Clamp(nextPosition.x, _borderHorizon.x, _borderHorizon.y);
