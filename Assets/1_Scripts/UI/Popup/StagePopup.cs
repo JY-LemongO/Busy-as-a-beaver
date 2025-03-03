@@ -18,6 +18,7 @@ public class StagePopup : Popup_Base
     public void OnClick_NextButton()
     {
         StageManager.Instance.StageClear();
+        ClosePopup(type);
     }
 
     public void OnClick_PreButton()
