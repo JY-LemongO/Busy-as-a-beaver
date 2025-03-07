@@ -22,7 +22,7 @@ public class SubUI_Upgrade : SubUI_Base
 
         for(int i = 0; i < upgradeItem.Count; i++)
         {
-            upgradeItem[i].Initialize(GameManager.Instance.upgradeData[$"Upgrade_{i+1:D3}"]);
+            upgradeItem[i].Initialize(DataManager.Instance.upgradeData[$"Upgrade_{i+1:D3}"]);
         }
     }
 }

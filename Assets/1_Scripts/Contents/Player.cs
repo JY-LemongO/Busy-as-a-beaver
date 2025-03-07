@@ -16,7 +16,7 @@ public class Player : Beaver
     public NavMeshAgent Agent { get; private set; }
 
     [SerializeField] private float _needDistance;
-    [SerializeField] private float _moveSpeed => GameManager.Instance.fixMoveSpeed;
+    [SerializeField] private float _moveSpeed => DataManager.Instance.fixMoveSpeed;
 
     public Resource_Tree targetTree;
     public bool isInteraction = false;
@@ -24,7 +24,7 @@ public class Player : Beaver
     #region GJY
     public GameObject log;
     public BeaverHouse house;
-    
+
     public bool _isMovingToDam = false;
     public bool _isLogging = false;
     #endregion
@@ -57,6 +57,16 @@ public class Player : Beaver
         if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
             Animator.SetBool("Swim", true);
+
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        while (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            gameObject.transform.position = new Vector3(gameObject.transform.position.x, -0.7f, gameObject.transform.position.z);
+            gameObject.transform.rotation = Quaternion.Euler(-33.0f, gameObject.transform.rotation.y, transform.rotation.z);
         }
     }
 

@@ -61,7 +61,7 @@ public class TreeManager : SingletonBase<TreeManager>
         TreeList.Remove(tree);        
         OnTreeDestroyed?.Invoke(tree, beaver);
 
-        GameManager.Instance.SetValue(StatusType.Wood, (int)(5 * (1 + GameManager.Instance.Income)));
+        DataManager.Instance.SetValue(StatusType.Wood, (int)(5 * (1 + DataManager.Instance.Income)));
     }
 
     public void DestroyAllTree()

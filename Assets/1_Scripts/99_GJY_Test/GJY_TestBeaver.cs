@@ -4,7 +4,7 @@ using UnityEngine;
 public class GJY_TestBeaver : Beaver
 {
     [SerializeField] private float _needDistance;
-    [SerializeField] private float _moveSpeed => GameManager.Instance.fixMoveSpeed;
+    [SerializeField] private float _moveSpeed => DataManager.Instance.fixMoveSpeed;
     [SerializeField] private Transform _logTrs;
 
     private BeaverHouse _house;
@@ -78,7 +78,7 @@ public class GJY_TestBeaver : Beaver
 
     private IEnumerator Co_MoveToTree()
     {   
-        Debug.Log($"beaver speed : {GameManager.Instance.fixMoveSpeed}");
+        Debug.Log($"beaver speed : {DataManager.Instance.fixMoveSpeed}");
         while (Vector3.Distance(transform.position, _targetTree.transform.position) > _needDistance)
         {
             Vector3 dir = Util.GetMoveDirection(transform, _targetTree.transform);            

@@ -38,13 +38,13 @@ public class Item_Base : MonoBehaviour
         switch(itemData.itemType)
         {
             case ItemType.Apple:
-                item_Count.text = GameManager.Instance.statusData[StatusType.Item_Apple].statusValue.ToString();
+                item_Count.text = DataManager.Instance.statusData[StatusType.Item_Apple].statusValue.ToString();
                 break;
             case ItemType.Banana:
-                item_Count.text = GameManager.Instance.statusData[StatusType.Item_Banana].statusValue.ToString();
+                item_Count.text = DataManager.Instance.statusData[StatusType.Item_Banana].statusValue.ToString();
                 break;
             case ItemType.Peach:
-                item_Count.text = GameManager.Instance.statusData[StatusType.Item_Peach].statusValue.ToString();
+                item_Count.text = DataManager.Instance.statusData[StatusType.Item_Peach].statusValue.ToString();
                 break;
         }
     }

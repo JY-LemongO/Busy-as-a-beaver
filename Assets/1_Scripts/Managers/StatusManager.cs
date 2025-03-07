@@ -33,11 +33,11 @@ public class StatusManager : MonoSingleton<StatusManager>
         stringBuilder.Clear();
 
         //keys
-        string keys = GameManager.Instance.DataSO[SubUIType.ConstructStatus].CSV.text.Split('\n')[0].Trim();
+        string keys = DataManager.Instance.DataSO[SubUIType.ConstructStatus].CSV.text.Split('\n')[0].Trim();
         stringBuilder.AppendLine(keys);
 
         //values 
-        foreach(var data in GameManager.Instance.statusData.Values)
+        foreach(var data in DataManager.Instance.statusData.Values)
         {
             string values = string.Empty;
             values += $"{data.model},{data.index},{data.statusName},{data.type},{data.statusValue},{data.valueType},null";
@@ -55,29 +55,29 @@ public class StatusManager : MonoSingleton<StatusManager>
 
     public void Reset()
     {
-        foreach(var item in GameManager.Instance.statusData.Values)
+        foreach(var item in DataManager.Instance.statusData.Values)
         {
             switch (item.type)
             {
                 case StatusType.NONE:
                 case StatusType.HP:
                     {
-                        GameManager.Instance.statusData[item.type].statusValue = 100;
+                        DataManager.Instance.statusData[item.type].statusValue = 100;
                     }
                     break;
                 case StatusType.AttackSpeed:
                     {
-                        GameManager.Instance.statusData[item.type].statusValue = 5;
+                        DataManager.Instance.statusData[item.type].statusValue = 5;
                     }
                     break;
                 case StatusType.Income:
                     {
-                        GameManager.Instance.statusData[item.type].statusValue = 100;
+                        DataManager.Instance.statusData[item.type].statusValue = 100;
                     }
                     break;
                 case StatusType.MoveSpeed:
                     {
-                        GameManager.Instance.statusData[item.type].statusValue = 4;
+                        DataManager.Instance.statusData[item.type].statusValue = 4;
                     }
                     break;
 
@@ -99,7 +99,7 @@ public class StatusManager : MonoSingleton<StatusManager>
                 case StatusType.Item_Banana:
                 case StatusType.Item_Peach:
                     {
-                        GameManager.Instance.statusData[item.type].statusValue = 0;
+                        DataManager.Instance.statusData[item.type].statusValue = 0;
                     }   
                     break;
                 default:

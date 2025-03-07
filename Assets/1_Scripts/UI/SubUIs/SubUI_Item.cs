@@ -16,7 +16,7 @@ public class SubUI_Item : SubUI_Base
         for(int i = 0; i < itemList.Count; i++)
         {
             itemList[i].parent = this.gameObject;
-            itemList[i].Initialize(GameManager.Instance.itemData[$"Item_{i+1:D3}"]);
+            itemList[i].Initialize(DataManager.Instance.itemData[$"Item_{i+1:D3}"]);
         }
     }
 }

@@ -11,8 +11,10 @@ public class StagePopup : Popup_Base
 
     public int stageLevel; //어딘가 스테이지 저장하는 변수가 있을듯.
 
-    private void OnEnable() {
-        data = GameManager.Instance.GetStageData(stageLevel);
+    private void OnEnable()
+    {
+        stageLevel = GameManager.Instance.GetCurrentStage();
+        data = DataManager.Instance.GetStageData(stageLevel);
     }
 
     public void OnClick_NextButton()
@@ -23,7 +25,7 @@ public class StagePopup : Popup_Base
 
     public void OnClick_PreButton()
     {
-        
+
     }
 
 }

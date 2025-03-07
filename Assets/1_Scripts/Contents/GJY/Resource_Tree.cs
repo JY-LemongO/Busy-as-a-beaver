@@ -5,7 +5,7 @@ using UnityEngine;
 public class Resource_Tree : MonoBehaviour
 {   
     // float baseLogTime = 5f;
-    [SerializeField] private float _logTime => GameManager.Instance.AttackSpeed;
+    [SerializeField] private float _logTime => DataManager.Instance.AttackSpeed;
 
     public event Action OnTreeDestroyed;
     public event Action<float> OnLogging;

@@ -48,8 +48,8 @@ public class HUD_Top_Base : MonoBehaviour
 
     private void SetValue()
     {   
-        if(GameManager.Instance != null)
-            valueText.text = GameManager.Instance.GetValue(valueType).ToString(); //추후에 바꿔야함. 어디에 연결시켜야됨.
+        if(DataManager.Instance != null)
+            valueText.text = DataManager.Instance.GetValue(valueType).ToString(); //추후에 바꿔야함. 어디에 연결시켜야됨.
     }
     #endregion
 }

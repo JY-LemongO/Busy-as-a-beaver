@@ -47,7 +47,7 @@ public class DB_Item : ScriptableObjectData
             newData.value = int.Parse(keyValues[nameof(newData.value)]);
             newData.incriseType = Enum.Parse<IncriseType>(keyValues[nameof(newData.incriseType)]);
 
-            GameManager.Instance.itemData.Add(newData.model, newData);
+            DataManager.Instance.itemData.Add(newData.model, newData);
         }
     }
 }

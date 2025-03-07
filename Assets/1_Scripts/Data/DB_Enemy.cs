@@ -46,7 +46,7 @@ public class DB_Enemy : ScriptableObjectData
             newData.hp = int.Parse(keyValues[nameof(newData.hp)]);
              
 
-            GameManager.Instance.enemyData.Add(newData.model, newData);
+            DataManager.Instance.enemyData.Add(newData.model, newData);
         }
     }
 }

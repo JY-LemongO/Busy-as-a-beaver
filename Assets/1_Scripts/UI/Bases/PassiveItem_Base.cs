@@ -13,8 +13,8 @@ public class PassiveItem_Base : MonoBehaviour
 
     public PassiveData passiveData;
 
-    bool isMaxLevel => GameManager.Instance.statusData[passiveData.statusType].statusValue < passiveData.maxLevel;
-    bool isConsumable => GameManager.Instance.coin - passiveData.cost >= 0;
+    bool isMaxLevel => DataManager.Instance.statusData[passiveData.statusType].statusValue < passiveData.maxLevel;
+    bool isConsumable => DataManager.Instance.coin - passiveData.cost >= 0;
     bool isUpgradeable => isMaxLevel && isConsumable;
 
     #region Life Cycle
@@ -27,8 +27,8 @@ public class PassiveItem_Base : MonoBehaviour
     {
         if(isUpgradeable)
         {
-            GameManager.Instance.statusData[passiveData.statusType].statusValue += 1;
-            GameManager.Instance.statusData[StatusType.Wood].statusValue -= passiveData.cost;
+            DataManager.Instance.statusData[passiveData.statusType].statusValue += 1;
+            DataManager.Instance.statusData[StatusType.Wood].statusValue -= passiveData.cost;
             Initialize();
             StatusManager.Instance.SetDirty();
         }
@@ -44,7 +44,7 @@ public class PassiveItem_Base : MonoBehaviour
         // passiveIcon.sprite = GameManager.Instance.Settings.icon_Passive_dict[passiveData.model];
         passiveNameText.text = passiveData.passiveName;
         passiveCostText.text = passiveData.cost.ToString();
-        passiveLevelText.text = $"Lv.{GameManager.Instance.statusData[passiveData.statusType].statusValue.ToString()}";
+        passiveLevelText.text = $"Lv.{DataManager.Instance.statusData[passiveData.statusType].statusValue.ToString()}";
     }
 
 }

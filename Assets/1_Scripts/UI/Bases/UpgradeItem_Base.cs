@@ -13,17 +13,17 @@ public class UpgradeItem_Base : MonoBehaviour
 
     public UpgradeData upgradeData;
 
-    bool isConsumable => GameManager.Instance.coin - upgradeData.upgradeCost >= 0;
+    bool isConsumable => DataManager.Instance.coin - upgradeData.upgradeCost >= 0;
     
     //
     public void OnClick_Upgarde()
     {
         if(isConsumable)
         {
-            GameManager.Instance.statusData[upgradeData.statusType].statusValue += 1;
-            GameManager.Instance.statusData[StatusType.Wood].statusValue -= upgradeData.upgradeCost;
+            DataManager.Instance.statusData[upgradeData.statusType].statusValue += 1;
+            DataManager.Instance.statusData[StatusType.Wood].statusValue -= upgradeData.upgradeCost;
             MessageManager.Instance.ViewMessage(MessageType.NOMAL, "success");
-            Debug.Log($"now Beaver Speed is : {GameManager.Instance.fixMoveSpeed}");
+            Debug.Log($"now Beaver Speed is : {DataManager.Instance.fixMoveSpeed}");
             Refresh();
             StatusManager.Instance.SetDirty();
         }

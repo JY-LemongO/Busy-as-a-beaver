@@ -42,7 +42,7 @@ public class DB_Stage : ScriptableObjectData
             newData.needWood = float.Parse(keyValues[nameof(newData.needWood)]);
             
 
-            GameManager.Instance.stageData.Add(newData.model, newData);
+            DataManager.Instance.stageData.Add(newData.model, newData);
         }
     }
 }

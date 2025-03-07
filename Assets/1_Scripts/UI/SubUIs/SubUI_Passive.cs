@@ -19,7 +19,7 @@ public class SubUI_Passive : SubUI_Base
 
         for(int i = 0; i < itemList.Count; i++)
         {
-            itemList[i].passiveData = GameManager.Instance.passiveData[$"Passive_{i+1:D3}"];
+            itemList[i].passiveData = DataManager.Instance.passiveData[$"Passive_{i+1:D3}"];
             itemList[i].Initialize();
         }
     }
