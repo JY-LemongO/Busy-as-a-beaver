@@ -18,7 +18,10 @@ public class Level : MonoBehaviour
     }
 
     public void SpawnDam()
-        => DamManager.Instance.SpawnDam(_damSpawnPoint);
+    {
+        DamManager.Instance.SpawnDam(_damSpawnPoint);
+        endPos = _damSpawnPoint.position;
+    }
 
     private void OnBuiltDam()
     {

@@ -21,6 +21,7 @@ public class Player : Beaver
     public Resource_Tree targetTree;
     public bool isInteraction = false;
 
+    public Scanner scanner;
     #region GJY
     public GameObject log;
     public BeaverHouse house;
@@ -58,15 +59,6 @@ public class Player : Beaver
         {
             Animator.SetBool("Swim", true);
 
-        }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        while (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
-        {
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, -0.7f, gameObject.transform.position.z);
-            gameObject.transform.rotation = Quaternion.Euler(-33.0f, gameObject.transform.rotation.y, transform.rotation.z);
         }
     }
 

@@ -4657,6 +4657,7 @@ GameObject:
   - component: {fileID: 8806954587551353937}
   - component: {fileID: 5894052242531914023}
   - component: {fileID: 1061973619307766129}
+  - component: {fileID: 20248965365356976}
   m_Layer: 8
   m_Name: Dam
   m_TagString: Untagged
@@ -4726,6 +4727,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.33, y: 8.13, z: 2.19}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!208 &20248965365356976
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9081263968116446256}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &9101354032008999121
 GameObject:
   m_ObjectHideFlags: 0
