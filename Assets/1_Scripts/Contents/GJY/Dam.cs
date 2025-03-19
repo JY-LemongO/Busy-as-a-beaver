@@ -1,39 +1,62 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Dam : MonoBehaviour
 {
+    public event Action DamChanged;
+
     [SerializeField] List<GameObject> _damProgressList;
     [SerializeField] private int _needLogCount;
     public GameObject moveToDamPosition;
 
     public int NeedLogCount { get; private set; }
-    private int _currentLogCount;
 
-    private void Awake()
+    private int m_CurrentLogCount;
+
+    public int CurrentLogCount
+    {
+        get => m_CurrentLogCount;
+        set
+        {
+            m_CurrentLogCount = Mathf.Clamp(value, 0, NeedLogCount);
+            DamChanged?.Invoke();
+            StatusManager.Instance.SetDirty();
+        }
+    }
+
+    private void OnEnable()
     {
         if (DamManager.Instance.Dam == null)
         {
             DamManager.Instance.SetDam(this);
             SetupDam(100);
-        }            
+        }
     }
 
     public void SetupDam(int logCount)
-    {        
+    {
         NeedLogCount = logCount;
-        _currentLogCount = 0;
+        CurrentLogCount = 0;
+
+        foreach (var logProgress in _damProgressList)
+            logProgress.SetActive(false);
     }
 
     public void BuildDam()
     {
-        _currentLogCount++;
+        CurrentLogCount++;
 
-        //int step = Mathf.FloorToInt(5 * (_currentLogCount - 1) / (NeedLogCount - 1)) + 1;
-        //if (step <= _damProgressList.Count && !_damProgressList[step - 1].activeSelf)
-        //    _damProgressList[step - 1].SetActive(true);
+        int activeCount = (CurrentLogCount / (NeedLogCount / _damProgressList.Count)) - 1;
 
-        if (_currentLogCount == NeedLogCount)
+        if (activeCount == -1)
+            return;
+        if (!_damProgressList[activeCount].activeSelf)
+        {
+            _damProgressList[activeCount].SetActive(true);
+        }
+
+        if (CurrentLogCount == NeedLogCount)
         {
             // To Do - Stage Clear            
             DamManager.Instance.BuildDamComplete();

@@ -13,7 +13,7 @@ public class UpgradeItem_Base : MonoBehaviour
 
     public UpgradeData upgradeData;
 
-    bool isConsumable => DataManager.Instance.coin - upgradeData.upgradeCost >= 0;
+    bool isConsumable => DataManager.Instance.coin - (upgradeData.upgradeCost * 10 + upgradeData.upgradeCost * DataManager.Instance.statusData[upgradeData.statusType].statusValue) / 10 >= 0;
     
     //
     public void OnClick_Upgarde()
@@ -21,9 +21,8 @@ public class UpgradeItem_Base : MonoBehaviour
         if(isConsumable)
         {
             DataManager.Instance.statusData[upgradeData.statusType].statusValue += 1;
-            DataManager.Instance.statusData[StatusType.Wood].statusValue -= upgradeData.upgradeCost;
+            DataManager.Instance.statusData[StatusType.Wood].statusValue -= (upgradeData.upgradeCost * 10 + upgradeData.upgradeCost * DataManager.Instance.statusData[upgradeData.statusType].statusValue) / 10;
             MessageManager.Instance.ViewMessage(MessageType.NOMAL, "success");
-            Debug.Log($"now Beaver Speed is : {DataManager.Instance.fixMoveSpeed}");
             Refresh();
             StatusManager.Instance.SetDirty();
         }
@@ -43,7 +42,7 @@ public class UpgradeItem_Base : MonoBehaviour
         string upgradeValue = $"{upgradeData.incriseValue}{GetUpgradeUnit(upgradeData.incriseType)}";
         upgradeDescription.text = string.Format(upgradeData.upgradeDescription, upgradeValue);
 
-        upgradeCost.text = upgradeData.upgradeCost.ToString();
+        upgradeCost.text = ((int)(upgradeData.upgradeCost * 10 + upgradeData.upgradeCost * DataManager.Instance.statusData[upgradeData.statusType].statusValue) / 10).ToString();
 
     }
     public void Refresh()
@@ -53,6 +52,7 @@ public class UpgradeItem_Base : MonoBehaviour
 
         string upgradeValue = $"{upgradeData.incriseValue}{GetUpgradeUnit(upgradeData.incriseType)}";
         upgradeDescription.text = string.Format(upgradeData.upgradeDescription, upgradeValue);
+        upgradeCost.text = ((int)(upgradeData.upgradeCost * 10 + upgradeData.upgradeCost * DataManager.Instance.statusData[upgradeData.statusType].statusValue) / 10).ToString();
     }
 
     private string GetUpgradeUnit(IncriseType type)

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6269646934065390315}
   - component: {fileID: 1837991996837406457}
   - component: {fileID: 7531257722675439042}
-  - component: {fileID: 4860971967420594596}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -92,37 +91,6 @@ TerrainCollider:
   serializedVersion: 2
   m_TerrainData: {fileID: 15600000, guid: 1eee122a192fdc548bdc1ac35b61fea4, type: 2}
   m_EnableTreeColliders: 1
---- !u!114 &4860971967420594596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785686385279270914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_GenerateLinks: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 67734fb03cd19b84d8cd9227c22995b6, type: 2}
-  m_BuildHeightMesh: 0
 --- !u!1 &1079256515929951527
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,6 +206,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8723401530826312803}
   - component: {fileID: 7090964492402301531}
+  - component: {fileID: 8464895765219454361}
+  - component: {fileID: 2756342752853445718}
+  - component: {fileID: 8648427508593027459}
   m_Layer: 0
   m_Name: NewLv
   m_TagString: Untagged
@@ -262,14 +233,14 @@ Transform:
   - {fileID: 5195552323317049257}
   - {fileID: 7144157140738938780}
   - {fileID: 3664985925160351882}
-  - {fileID: 6477319055810730317}
+  - {fileID: 364170949342110681}
   - {fileID: 1081190658523725397}
   - {fileID: 2009042567412730473}
   - {fileID: 9094051043841767153}
   - {fileID: 926359097185420190}
   - {fileID: 5696055308492551684}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7090964492402301531
 MonoBehaviour:
@@ -288,6 +259,50 @@ MonoBehaviour:
   _riseTime: 0
   startPos: {x: 0, y: 0, z: 0}
   endPos: {x: 0, y: 0, z: 0}
+--- !u!114 &8464895765219454361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958615997556340047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7fcaaf8ea070734eb1d6ded30a56ce3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayGridGizmos: 1
+  unwalkableMask:
+    serializedVersion: 2
+    m_Bits: 384
+  gridWorldSize: {x: 60, y: 60}
+  nodeRadius: 0.2
+  walkableRegions: []
+  obstacleProximityPenalty: 5
+--- !u!114 &2756342752853445718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958615997556340047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e024ba4f9959949438a321b1bc865441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8648427508593027459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958615997556340047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06e53be2c15cc3340bae6945d159a75d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7290925215139865484
 GameObject:
   m_ObjectHideFlags: 0
@@ -897,7 +912,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90f27c71333471c44bfdf4d5bfed7f57, type: 3}
---- !u!4 &6477319055810730317 stripped
+--- !u!4 &364170949342110681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6695098720364149397, guid: 90f27c71333471c44bfdf4d5bfed7f57,
     type: 3}

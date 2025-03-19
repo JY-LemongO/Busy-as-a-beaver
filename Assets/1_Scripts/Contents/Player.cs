@@ -13,15 +13,17 @@ public class Player : Beaver
     public PlayerStateMachine StateMachine { get; private set; }
     public Rigidbody Rigidbody { get; private set; }
 
-    public NavMeshAgent Agent { get; private set; }
+    [field: Header("Component")]
+    public Unit unit { get; private set; }
+    public Scanner scanner { get; private set; }
+
 
     [SerializeField] private float _needDistance;
-    [SerializeField] private float _moveSpeed => DataManager.Instance.fixMoveSpeed;
 
     public Resource_Tree targetTree;
     public bool isInteraction = false;
 
-    public Scanner scanner;
+    
     #region GJY
     public GameObject log;
     public BeaverHouse house;
@@ -37,7 +39,10 @@ public class Player : Beaver
     {
         AnimationData.Initialize();
 
-        SetComponents();
+        Animator = GetComponentInChildren<Animator>();
+        Rigidbody = GetComponent<Rigidbody>();
+        scanner = GetComponent<Scanner>();
+        unit = GetComponent<Unit>();
 
         StateMachine = new PlayerStateMachine(this);
     }
@@ -80,10 +85,6 @@ public class Player : Beaver
 
     }
 
-    private void SetComponents()
-    {
-        Animator = GetComponentInChildren<Animator>();
-        Rigidbody = GetComponent<Rigidbody>();
-        Agent = GetComponent<NavMeshAgent>();
-    }
 }
+
+

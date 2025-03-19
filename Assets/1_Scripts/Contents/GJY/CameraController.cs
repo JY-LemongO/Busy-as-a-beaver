@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    Camera _camera;
+
     [Header("Centering")]
     [Header("화면 중앙으로 자동 돌아가기")]
     [SerializeField] private bool _isReturnCenter;
@@ -22,8 +24,11 @@ public class CameraController : MonoBehaviour
     [Header("Option")]
     [Header("화면 제어 감도")]
     [Range(0f, 10f)]
-    [SerializeField] private float _sensitivity;    
-    
+    [SerializeField] private float _sensitivity;
+
+    [Header("Zoom :: x = max, y = min")]
+    [SerializeField] private Vector2 Zoom;
+
     private Coroutine _coroutine;
 
     private Vector3 _centerPosition;
@@ -34,6 +39,7 @@ public class CameraController : MonoBehaviour
 
     private void Awake()
     {
+        _camera = GetComponent<Camera>();
         SetCenter(transform.position);
     }
 
@@ -42,7 +48,7 @@ public class CameraController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             _isControlling = true;
-            _prevMousePosition = Input.mousePosition;            
+            _prevMousePosition = Input.mousePosition;
         }
         else if (Input.GetMouseButton(0))
         {
@@ -55,13 +61,14 @@ public class CameraController : MonoBehaviour
             _isControlling = false;
             MoveToCenter();
         }
+        HandleZoom();
     }
 
     private void LateUpdate()
     {
         if (_isControlling)
             MoveCamera();
-    }    
+    }
 
     public void SetCenter(Vector3 center)
         => _centerPosition = center;
@@ -70,14 +77,14 @@ public class CameraController : MonoBehaviour
     {
         _borderHorizon = borderHorizon;
         _borderVertical = borderVertical;
-    }        
+    }
 
     private void MoveCamera()
-    {        
+    {
         float moveX = -_swipeDir.x * _sensitivity;
         float moveY = -_swipeDir.y * _sensitivity;
 
-        Vector3 moveVect = new Vector3(moveX, 0, moveY) + transform.position;        
+        Vector3 moveVect = new Vector3(moveX, 0, moveY) + transform.position;
 
         Vector3 nextPosition = Vector3.Lerp(transform.position, moveVect, swipeDelta * Time.deltaTime);
         nextPosition.x = Mathf.Clamp(nextPosition.x, _borderHorizon.x, _borderHorizon.y);
@@ -91,10 +98,15 @@ public class CameraController : MonoBehaviour
         if (_isReturnCenter)
         {
             if (!_forcedReturn)
+            {
                 DoAutoReturn();
+
+            }
             else
+            {
                 DoForcedCentering();
-        }            
+            }
+        }
     }
 
     private void DoForcedCentering()
@@ -132,9 +144,29 @@ public class CameraController : MonoBehaviour
             percent = current / _returnTime;
 
             transform.position = Vector3.Lerp(startPosition, _centerPosition, _curve.Evaluate(percent));
+            WideCam();
             yield return null;
         }
 
+
         _coroutine = null;
+    }
+
+    private void WideCam()
+    {
+        _camera.orthographicSize = 20;
+    }
+
+    void HandleZoom()
+    {
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0 && _camera.orthographicSize > Zoom.y)
+        {
+            _camera.orthographicSize--;
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0 && _camera.orthographicSize < Zoom.x)
+        {
+            _camera.orthographicSize++;
+        }
     }
 }

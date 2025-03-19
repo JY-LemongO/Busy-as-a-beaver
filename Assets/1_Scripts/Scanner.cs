@@ -17,17 +17,17 @@ public class Scanner : MonoBehaviour
         }
     }
 
-    public Vector3 Scan()
+    public Transform Scan()
     {
         targets = Physics.OverlapSphere(transform.position, scanRange, 1 << targetLayer);
 
         if (targets.Length == 0)
         {
             Debug.LogWarning("탐지된 타겟이 없습니다.");
-            return Vector3.zero;
+            return null;
         }
 
-        return GetNearest().transform.position;
+        return GetNearest().transform;
     }
 
     Transform GetNearest()

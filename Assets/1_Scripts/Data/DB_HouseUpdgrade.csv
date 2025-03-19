@@ -1,0 +1,11 @@
+model,index,beaver,cost,null
+House_001,1,1,0,null
+House_002,2,2,100,null
+House_003,3,3,300,null
+House_004,4,4,700,null
+House_005,5,5,1500,null
+House_006,6,6,3100,null
+House_007,7,7,6300,null
+House_008,8,8,12700,null
+House_009,9,9,25500,null
+House_010,-1,-1,-1,null

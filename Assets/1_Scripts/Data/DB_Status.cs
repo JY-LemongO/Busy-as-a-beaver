@@ -45,7 +45,6 @@ public class DB_Status : ScriptableObjectData
             newData.type = Enum.Parse<StatusType>(keyValues[nameof(newData.type)]);
             newData.statusValue = int.Parse(keyValues[nameof(newData.statusValue)]);
             newData.valueType = Enum.Parse<IncriseType>(keyValues[nameof(newData.valueType)]);
-            
 
             DataManager.Instance.statusData.Add(newData.type, newData);
         }

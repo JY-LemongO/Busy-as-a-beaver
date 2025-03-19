@@ -592,3 +592,4 @@ MonoBehaviour:
   _damProgressList: []
   _needLogCount: 0
   moveToDamPosition: {fileID: 0}
+  m_Present: {fileID: 0}

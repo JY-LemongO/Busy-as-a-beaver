@@ -2,9 +2,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using AYellowpaper.SerializedCollections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// 접근방법 : GameManager.Instance.변수명
+/// 필요한 데이터는 var에 정리해주세요!
+/// 
+/// 
 public class GameManager : MonoSingleton<GameManager>
 {
     //scriptable Object
@@ -13,13 +19,15 @@ public class GameManager : MonoSingleton<GameManager>
     //GameObject
     [SerializeField] public Canvas_SubUI SubUI;
 
+    [SerializeField] private int Stage;
+
     private void Update() {
         if(LoadingSceneManager.GetNowSceneName() == "MainScene" && GameObject.Find("Canvas_SubUI").GetComponent<Canvas_SubUI>() != null)
             SubUI = GameObject.Find("Canvas_SubUI").GetComponent<Canvas_SubUI>();
     }
+
     public int GetCurrentStage()
     {
-        //TODO 임시값 1임
         return 1;
     }
     #region public Method

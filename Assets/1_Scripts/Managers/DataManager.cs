@@ -67,19 +67,10 @@ public class DataManager : MonoSingleton<DataManager>
     [SerializedDictionary("model", "data")]
     public SerializedDictionary<string, StageData> stageData = new SerializedDictionary<string, StageData>();
 
-    private void Start()
-    {
-        if (!isInitialize)
-        {
-            foreach (var data in DataSO.Values)
-            {
-                data.SetDictionaryData();
-            }
-            isInitialize = true;
-        }
-    }
+    [SerializedDictionary("model", "data")]
+    public SerializedDictionary<string, HouseData> houseData = new SerializedDictionary<string, HouseData>();
 
-    //private void OnEnable()
+    //private void Start()
     //{
     //    if (!isInitialize)
     //    {
@@ -89,9 +80,20 @@ public class DataManager : MonoSingleton<DataManager>
     //        }
     //        isInitialize = true;
     //    }
-
-    //    Debug.Log($"{GetStageData(4).model}");
     //}
+
+    private void OnEnable()
+    {
+        if (!isInitialize)
+        {
+            foreach (var data in DataSO.Values)
+            {
+                data.SetDictionaryData();
+            }
+            Debug.Log("초기화");
+            isInitialize = true;
+        }
+    }
 
     public int GetValue(ValueTypes type)
     {
@@ -124,9 +126,8 @@ public class DataManager : MonoSingleton<DataManager>
         }
         else
         {
-            // stageData에 해당 키가 없을 경우 기본값을 반환하거나, 예외를 던지거나, null을 반환할 수 있습니다.
             Debug.LogWarning($"Stage data for key {key} not found.");
-            return null; // 또는 적절한 기본값을 반환할 수도 있음.
+            return null;
         }
     }
 }

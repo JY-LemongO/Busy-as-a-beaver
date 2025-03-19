@@ -45,9 +45,9 @@ public class DB_Upgrade : ScriptableObjectData
             newData.incriseValue = int.Parse(keyValues[nameof(newData.incriseValue)]);
             newData.incriseType = Enum.Parse<IncriseType>(keyValues[nameof(newData.incriseType)]);
             newData.upgradeCost = int.Parse(keyValues[nameof(newData.upgradeCost)]);
-            
 
             DataManager.Instance.upgradeData.Add(newData.model, newData);
         }
     }
 }
+

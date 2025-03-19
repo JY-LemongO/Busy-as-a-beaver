@@ -16,18 +16,19 @@ public class StatusManager : MonoSingleton<StatusManager>
     public void SetDirty() => isDirty = true;
 
 
-    private void Update() {
-        if(isDirty)
-        {   
+    private void Update()
+    {
+        if (isDirty)
+        {
             isDirty = false;
             SaveData();
         }
     }
 
     private void SaveData()
-    {   
+    {
         string filePath = "Assets/1_Scripts/Data/DB_Status";
-        StreamWriter sw = new StreamWriter(filePath+".csv");
+        StreamWriter sw = new StreamWriter(filePath + ".csv");
 
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.Clear();
@@ -37,7 +38,7 @@ public class StatusManager : MonoSingleton<StatusManager>
         stringBuilder.AppendLine(keys);
 
         //values 
-        foreach(var data in DataManager.Instance.statusData.Values)
+        foreach (var data in DataManager.Instance.statusData.Values)
         {
             string values = string.Empty;
             values += $"{data.model},{data.index},{data.statusName},{data.type},{data.statusValue},{data.valueType},null";
@@ -55,7 +56,7 @@ public class StatusManager : MonoSingleton<StatusManager>
 
     public void Reset()
     {
-        foreach(var item in DataManager.Instance.statusData.Values)
+        foreach (var item in DataManager.Instance.statusData.Values)
         {
             switch (item.type)
             {
@@ -80,7 +81,11 @@ public class StatusManager : MonoSingleton<StatusManager>
                         DataManager.Instance.statusData[item.type].statusValue = 4;
                     }
                     break;
-
+                case StatusType.House_Main:
+                    {
+                        DataManager.Instance.statusData[item.type].statusValue = 1;
+                    }
+                    break;
                 //
                 case StatusType.Wood:
                 case StatusType.Diamond:
@@ -98,10 +103,14 @@ public class StatusManager : MonoSingleton<StatusManager>
                 case StatusType.Item_Apple:
                 case StatusType.Item_Banana:
                 case StatusType.Item_Peach:
+                case StatusType.House_Sub1:
+                case StatusType.House_Sub2:
+                case StatusType.House_Sub3:
                     {
                         DataManager.Instance.statusData[item.type].statusValue = 0;
-                    }   
+                    }
                     break;
+
                 default:
                     break;
             }

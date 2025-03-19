@@ -16,7 +16,7 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
     private int _buildableBHCount;
     private int _currentBHCount;
 
-    private const string BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/BeaverHouse";
+    private const string BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/House_Main";
     private const string PV_BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/PV_BeaverHouse";    
 
     public void BuildBeaverHouse(BHSpawnPoint spawnPoint)
@@ -32,7 +32,7 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
         _beaverHouseDict[spawnPoint] = beaverHouse;
         _currentBHCount++;
 
-        BeaverManager.Instance.SpawnBeaver(spawnPosition, beaverHouse);
+        //BeaverManager.Instance.SpawnBeaver(spawnPosition, beaverHouse);
         OnBeaverHouseBuilt?.Invoke(beaverHouse);
 
         ExitPreviewBH();

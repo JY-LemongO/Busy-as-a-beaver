@@ -16,19 +16,19 @@ public class LevelController : MonoBehaviour
         StageManager.Instance.OnStageClear += SetLevel;
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-            DamManager.Instance.BuildDamComplete();
-        if (Input.GetKeyDown(KeyCode.P))
-            SoundManager.Instance.PlaySFX(SoundKey.Button_Click);
-        if (Input.GetKeyDown(KeyCode.O))
-            SoundManager.Instance.PlaySFX(SoundKey.Coin_Reward);
-        if (Input.GetKeyDown(KeyCode.I))
-            SoundManager.Instance.PlaySFX(SoundKey.SoundEffect);
-        if (Input.GetKeyDown(KeyCode.U))
-            SoundManager.Instance.PlaySFX(SoundKey.error);
-    }
+    //private void Update()
+    //{
+    //    if(Input.GetKeyDown(KeyCode.Space))
+    //        DamManager.Instance.BuildDamComplete();
+    //    if (Input.GetKeyDown(KeyCode.P))
+    //        SoundManager.Instance.PlaySFX(SoundKey.Button_Click);
+    //    if (Input.GetKeyDown(KeyCode.O))
+    //        SoundManager.Instance.PlaySFX(SoundKey.Coin_Reward);
+    //    if (Input.GetKeyDown(KeyCode.I))
+    //        SoundManager.Instance.PlaySFX(SoundKey.SoundEffect);
+    //    if (Input.GetKeyDown(KeyCode.U))
+    //        SoundManager.Instance.PlaySFX(SoundKey.error);
+    //}
 
     public void SetLevel(int level)
     {

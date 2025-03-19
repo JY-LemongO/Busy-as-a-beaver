@@ -42,7 +42,7 @@ public class PlayerBaseState : IState
 
         if (_stateMachine.Player.targetTree != null)
             return;
-        
+
         if (TryGetTargetTree())
         {
             MoveToTargetTree();
@@ -70,8 +70,16 @@ public class PlayerBaseState : IState
 
     public void MoveToTargetTree()
     {
-        Transform targetTrensform = _stateMachine.Player.targetTree.gameObject.transform;
-        _stateMachine.Player.Agent.SetDestination(targetTrensform.position);
+        if (_stateMachine.Player.targetTree == null)
+        {
+            Debug.LogError("targetTree is not assigned in Player!");
+        }
+        else
+        {
+            Transform target = _stateMachine.Player.targetTree.gameObject.transform;
+            _stateMachine.Player.unit.target = target;
+        }
+
     }
 
     public bool ReachTheTarget()
@@ -83,7 +91,7 @@ public class PlayerBaseState : IState
 
         if (Physics.Raycast(ray, out hit, 1f, layerMask, QueryTriggerInteraction.Collide))
         {
-            if(hit.collider != null)
+            if (hit.collider != null)
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Resource"))
                 {
@@ -98,7 +106,8 @@ public class PlayerBaseState : IState
     public void MoveToDam()
     {
         _stateMachine.Player.scanner.SetLayer("Dam");
-        _stateMachine.Player.Agent.SetDestination(_stateMachine.Player.scanner.Scan());
+        Transform target = _stateMachine.Player.scanner.Scan();
+        _stateMachine.Player.unit.target = target;
     }
 
     #region GJY
@@ -111,7 +120,7 @@ public class PlayerBaseState : IState
         _stateMachine.Player.log.transform.localRotation = Quaternion.identity;
 
         _stateMachine.Player._isMovingToDam = true;
-        _stateMachine.Player._isLogging = false;        
+        _stateMachine.Player._isLogging = false;
     }
     #endregion
 
@@ -124,4 +133,5 @@ public class PlayerBaseState : IState
     {
         _stateMachine.Player.Animator.SetBool(animationHash, false);
     }
+
 }

@@ -30,6 +30,8 @@ public enum SubUIType
     Enemy = 5,
     Item = 6,
     Stage = 7,
+    //BH = BeaverHouse
+    BHInfo = 8,
 }
 
 public enum IncriseType
@@ -48,7 +50,7 @@ public enum DataType
     DB_Enemy = 4,
     DB_Item = 5,
     DB_Stage = 6,
-    
+    DB_House = 7,
 }
 
 public enum StatusType
@@ -81,6 +83,13 @@ public enum StatusType
     Item_Apple = 301,
     Item_Banana = 302,
     Item_Peach = 303,
+
+    //House
+    House_Main = 401,
+    House_Sub1 = 402,
+    House_Sub2 = 403,
+    House_Sub3 = 404,
+
 }
 
 public enum MessageType
