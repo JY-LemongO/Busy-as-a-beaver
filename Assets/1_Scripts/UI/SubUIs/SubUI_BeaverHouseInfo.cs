@@ -1,38 +1,108 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SubUI_BeaverHouseInfo : SubUI_Base
 {
     [Header("Model")]
-    [SerializeField] BeaverHouse beaverHouse;
+    [SerializeField] private HouseManager houseManager;
+    private BeaverHouse CurrentHouse => houseManager.currentHouse;
+
     [Header("View")]
-    [SerializeField] Image[] BeaverImg;
+    [SerializeField] private Button upgradeButton;
+    [SerializeField] private Image closeImage;
+    [SerializeField] private TextMeshProUGUI houseLevelText;
+    [SerializeField] private TextMeshProUGUI costText;
+    [SerializeField] private Image[] beaverImages;
 
-    public BeaverHouse_Base upgradeHouse;
+    private bool IsUpgradeAffordable => DataManager.Instance.coin >= CurrentHouse.houseData.cost;
 
-
-    public override void Initialize()
+    private void OnEnable()
     {
-        beaverHouse = upgradeHouse.beaverHouse;
+        CurrentHouse.OnDataChanged += Initialize;
+    }
 
-        var houseKey = $"House_{beaverHouse.CurrentHouseLv:D3}";
+    private void OnDisable()
+    {
+        CurrentHouse.OnDataChanged -= Initialize;
+    }
 
-        Debug.Log(houseKey);
-        if (!DataManager.Instance.houseData.ContainsKey(houseKey))
+    public void OnClick_Upgrade()
+    {
+        if (IsUpgradeAffordable)
         {
-            Debug.LogError($"House data for {houseKey} is missing in houseData.");
-            return;
+            PerformUpgrade();
         }
+        else
+        {
+            MessageManager.Instance.ViewMessage(MessageType.NOMAL, "자원이 부족합니다.");
+        }
+    }
 
-        upgradeHouse.Initialize(DataManager.Instance.houseData[houseKey]);
+    private void PerformUpgrade()
+    {
+        var statusType = Enum.Parse<StatusType>(CurrentHouse.gameObject.name);
+        DataManager.Instance.statusData[StatusType.Wood].statusValue -= CurrentHouse.houseData.cost;
+        Debug.Log(DataManager.Instance.statusData[StatusType.Wood].statusValue);
+        DataManager.Instance.statusData[CurrentHouse.statusType].statusValue++;
+
+        MessageManager.Instance.ViewMessage(MessageType.NOMAL, "Succes!");
+        CurrentHouse.InitData();
+        StatusManager.Instance.SetDirty();
+    }
+
+    public void Initialize(BeaverHouse beaverHouse)
+    {
+        UpdateBeaverImages(beaverHouse);
+        SetHouseInfo(beaverHouse);
+
+        if (beaverHouse.CurrentHouseLv == 6)
+        {
+            DisableUpgradeButton();
+        }
+        else
+        {
+            EnableUpgradeButton();
+        }
+    }
+
+    private void UpdateBeaverImages(BeaverHouse beaverHouse)
+    {
+        for (int i = 0; i < beaverImages.Length; i++)
+        {
+            if (i < beaverHouse.CurrentHouseLv)
+            {
+                beaverImages[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                beaverImages[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void SetHouseInfo(BeaverHouse beaverHouse)
+    {
+        houseLevelText.text = beaverHouse.CurrentHouseLv == 6 ? "Lv. MAX" : $"Lv.{beaverHouse.CurrentHouseLv}";
+        costText.text = beaverHouse.CurrentHouseLv == 6 ? "MAX" : beaverHouse.houseData.cost.ToString();
+    }
+
+    private void DisableUpgradeButton()
+    {
+        upgradeButton.interactable = false;
+        closeImage.gameObject.SetActive(true);
+    }
+
+    private void EnableUpgradeButton()
+    {
+        upgradeButton.interactable = true;
+        closeImage.gameObject.SetActive(false);
     }
 
     public void Click()
     {
-        Initialize();
         gameObject.SetActive(true);
+        Initialize(CurrentHouse);
     }
 }

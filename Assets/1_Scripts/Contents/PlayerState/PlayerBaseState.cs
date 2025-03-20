@@ -72,12 +72,13 @@ public class PlayerBaseState : IState
     {
         if (_stateMachine.Player.targetTree == null)
         {
-            Debug.LogError("targetTree is not assigned in Player!");
+            MoveToHome();
+            Debug.Log("targetTree is not assigned in Player!");
         }
         else
         {
             Transform target = _stateMachine.Player.targetTree.gameObject.transform;
-            _stateMachine.Player.unit.target = target;
+            _stateMachine.Player.unit.SetTarget(target);
         }
 
     }
@@ -107,8 +108,15 @@ public class PlayerBaseState : IState
     {
         _stateMachine.Player.scanner.SetLayer("Dam");
         Transform target = _stateMachine.Player.scanner.Scan();
-        _stateMachine.Player.unit.target = target;
+        _stateMachine.Player.unit.SetTarget(target);
     }
+
+    public void MoveToHome()
+    {
+        Transform target = _stateMachine.Player.house.transform;
+        _stateMachine.Player.unit.SetTarget(target);
+    }
+
 
     #region GJY
     private void OnGetLog()

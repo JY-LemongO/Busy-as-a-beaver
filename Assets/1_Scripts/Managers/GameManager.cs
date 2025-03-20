@@ -19,10 +19,10 @@ public class GameManager : MonoSingleton<GameManager>
     //GameObject
     [SerializeField] public Canvas_SubUI SubUI;
 
-    [SerializeField] private int Stage;
+    public BeaverHouse currentHouse;
 
     private void Update() {
-        if(LoadingSceneManager.GetNowSceneName() == "MainScene" && GameObject.Find("Canvas_SubUI").GetComponent<Canvas_SubUI>() != null)
+        if(SceneManager.GetActiveScene().name == "MainScene" && GameObject.Find("Canvas_SubUI").GetComponent<Canvas_SubUI>() != null)
             SubUI = GameObject.Find("Canvas_SubUI").GetComponent<Canvas_SubUI>();
     }
 

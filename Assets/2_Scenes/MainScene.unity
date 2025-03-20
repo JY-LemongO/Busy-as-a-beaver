@@ -1425,16 +1425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02dd8ce357427f64380da6aec5287328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  houseData:
-    model: 
-    index: 0
-    beaver: 0
-    cost: 0
-  houseManager: {fileID: 1786841502}
-  button: {fileID: 1372882476}
-  closeImage: {fileID: 1450762304}
-  houseLv: {fileID: 1436807007}
-  cost: {fileID: 1832749015}
 --- !u!1 &835553007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1858,6 +1848,78 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943901956}
   m_CullTransparentMesh: 1
+--- !u!114 &1246013042 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5779087332780958712, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013712079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1246013043 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3528666365798556411, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013712079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1246013044 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2799375380658541697, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013712079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1246013045 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3036360454614486460, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013712079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1246013046 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2084971068783269048, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013712079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1246013047 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2761984434530315663, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013712079}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1372882476 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 811246817606498849, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
@@ -2269,16 +2331,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 812772039}
+      objectReference: {fileID: 2013712084}
     - target: {fileID: 811246817606498849, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClick_Upgarde
+      value: OnClick_Upgrade
       objectReference: {fileID: 0}
     - target: {fileID: 811246817606498849, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BeaverHouse_Base, Assembly-CSharp
+      value: SubUI_BeaverHouseInfo, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 811246817606498849, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
         type: 3}
@@ -2647,14 +2709,164 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
         type: 3}
+      propertyPath: cost
+      value: 
+      objectReference: {fileID: 1832749015}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: button
+      value: 
+      objectReference: {fileID: 1372882476}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: houseLv
+      value: 
+      objectReference: {fileID: 1436807007}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: costText
+      value: 
+      objectReference: {fileID: 1832749015}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
         type: 3}
+      propertyPath: base_House
+      value: 
+      objectReference: {fileID: 812772039}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: closeImage
+      value: 
+      objectReference: {fileID: 1450762304}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: houseManager
+      value: 
+      objectReference: {fileID: 1786841502}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
       propertyPath: upgradeHouse
       value: 
       objectReference: {fileID: 812772039}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: upgradeButton
+      value: 
+      objectReference: {fileID: 1372882476}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: houseLevelText
+      value: 
+      objectReference: {fileID: 1436807007}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: BeaverImg.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImg.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: BeaverImg.Array.data[0]
+      value: 
+      objectReference: {fileID: 1246013047}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: BeaverImg.Array.data[1]
+      value: 
+      objectReference: {fileID: 1246013046}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: BeaverImg.Array.data[2]
+      value: 
+      objectReference: {fileID: 1246013045}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: BeaverImg.Array.data[3]
+      value: 
+      objectReference: {fileID: 1246013044}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: BeaverImg.Array.data[4]
+      value: 
+      objectReference: {fileID: 1246013043}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: BeaverImg.Array.data[5]
+      value: 
+      objectReference: {fileID: 1246013042}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImages.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImg.Array.data[0]
+      value: 
+      objectReference: {fileID: 1246013047}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImg.Array.data[1]
+      value: 
+      objectReference: {fileID: 1246013046}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImg.Array.data[2]
+      value: 
+      objectReference: {fileID: 1246013045}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImg.Array.data[3]
+      value: 
+      objectReference: {fileID: 1246013044}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImg.Array.data[4]
+      value: 
+      objectReference: {fileID: 1246013043}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImg.Array.data[5]
+      value: 
+      objectReference: {fileID: 1246013042}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 1246013047}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImages.Array.data[1]
+      value: 
+      objectReference: {fileID: 1246013046}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImages.Array.data[2]
+      value: 
+      objectReference: {fileID: 1246013045}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImages.Array.data[3]
+      value: 
+      objectReference: {fileID: 1246013044}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImages.Array.data[4]
+      value: 
+      objectReference: {fileID: 1246013043}
+    - target: {fileID: 6585127670351791374, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
+        type: 3}
+      propertyPath: beaverImages.Array.data[5]
+      value: 
+      objectReference: {fileID: 1246013042}
     - target: {fileID: 6697593507634801408, guid: ba1ecb8bcfe83444486460fcfc2a4ccc,
         type: 3}
       propertyPath: subUI_Wraps._serializedList.Array.size

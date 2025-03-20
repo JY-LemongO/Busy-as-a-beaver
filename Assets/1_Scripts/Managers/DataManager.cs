@@ -70,18 +70,6 @@ public class DataManager : MonoSingleton<DataManager>
     [SerializedDictionary("model", "data")]
     public SerializedDictionary<string, HouseData> houseData = new SerializedDictionary<string, HouseData>();
 
-    //private void Start()
-    //{
-    //    if (!isInitialize)
-    //    {
-    //        foreach (var data in DataSO.Values)
-    //        {
-    //            data.SetDictionaryData();
-    //        }
-    //        isInitialize = true;
-    //    }
-    //}
-
     private void OnEnable()
     {
         if (!isInitialize)

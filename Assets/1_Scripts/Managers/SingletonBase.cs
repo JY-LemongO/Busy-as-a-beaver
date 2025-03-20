@@ -15,10 +15,9 @@ public abstract class SingletonBase<T> : MonoBehaviour where T : SingletonBase<T
     private static void Init()
     {
         _isInitialized = true;
-        GameObject go = GameObject.Find($"@{typeof(T).Name}");
+        GameObject go = GameObject.Find($"{typeof(T).Name}");
         if (go == null)
-            go = new GameObject($"@{typeof(T).Name}", typeof(T));
-
+            go = new GameObject($"{typeof(T).Name}", typeof(T));
         _instance = go.GetComponent<T>();
         _instance.InitChild();
 

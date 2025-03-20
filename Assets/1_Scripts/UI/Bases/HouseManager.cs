@@ -1,66 +1,69 @@
+using System.Linq;
 using UnityEngine;
 
 public class HouseManager : MonoBehaviour
 {
-    public BeaverHouse[] house;
+    public BeaverHouse[] houses;
     public BeaverHouse currentHouse;
-
     public SubUI_BeaverHouseInfo houseInfo;
 
     private void OnEnable()
     {
-        house = FindObjectsOfType<BeaverHouse>();
-
-        if (house.Length > 0)
-        {
-            Debug.Log($"{house.Length}개의 BeaverHouse 오브젝트가 씬에 있습니다.");
-
-            foreach (var beaverHouse in house)
-            {
-                beaverHouse.ClickHouse += House_Changed;
-            }
-        }
-        else
-        {
-            Debug.LogWarning("씬에 BeaverHouse 오브젝트가 없습니다.");
-        }
+        InitializeHouses();
     }
 
     private void OnDisable()
     {
-        foreach (var beaverHouse in house)
-        {
-            beaverHouse.ClickHouse -= House_Changed;
-        }
+        UnsubscribeFromHouseClickEvents();
     }
 
-    private void House_Changed()
+    private void InitializeHouses()
     {
-        if (currentHouse == null)
+        houses = FindObjectsOfType<BeaverHouse>();
+        Debug.Log($"찾은 BeaverHouse 개수: {houses.Length}");
+
+        if (houses.Length > 0)
         {
-            currentHouse = GetClickedHouse();
-        }
-        if (currentHouse != null)
-        {
-            Debug.Log($"현재 선택된 BeaverHouse: {currentHouse.gameObject.name}");
-            houseInfo.Click();
+            SubscribeToHouseClickEvents();
         }
         else
         {
-            Debug.LogError("클릭된 BeaverHouse를 찾을 수 없습니다.");
+            Debug.LogWarning("BeaverHouse가 없습니다!");
         }
     }
 
-    private BeaverHouse GetClickedHouse()
+    private void SubscribeToHouseClickEvents()
     {
-        foreach (var beaverHouse in house)
+        foreach (var beaverHouse in houses)
         {
-            if (beaverHouse.gameObject.activeInHierarchy)
-            {
-                return beaverHouse;
-            }
+            beaverHouse.OnHouseClick += ChangeCurrentHouse;
         }
+    }
 
-        return null;
+    private void UnsubscribeFromHouseClickEvents()
+    {
+        foreach (var beaverHouse in houses)
+        {
+            beaverHouse.OnHouseClick -= ChangeCurrentHouse;
+        }
+    }
+
+    private void ChangeCurrentHouse(BeaverHouse beaverHouse)
+    {
+        currentHouse = beaverHouse;
+
+        if (currentHouse == null)
+            return;
+
+        houseInfo.Click();
+    }
+
+    public void AddHouse(BeaverHouse newHouse)
+    {
+        if (!houses.Contains(newHouse))
+        {
+            houses = houses.Concat(new[] { newHouse }).ToArray();
+            newHouse.OnHouseClick += ChangeCurrentHouse;
+        }
     }
 }

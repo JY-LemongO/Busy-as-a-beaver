@@ -7,6 +7,6 @@ public class SceneController : MonoBehaviour
 {
     public void OnClick_StartButton()
     {
-        LoadingSceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainScene");
     }
 }

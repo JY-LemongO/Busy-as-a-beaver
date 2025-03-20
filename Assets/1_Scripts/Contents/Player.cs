@@ -32,8 +32,8 @@ public class Player : Beaver
     public bool _isLogging = false;
     #endregion
 
-    public override void SetHouse(BeaverHouse house)
-        => this.house = house;
+    public override void SetHouse(GameObject obj)
+        => this.house = obj.GetComponentInParent<BeaverHouse>();
 
     private void Awake()
     {
