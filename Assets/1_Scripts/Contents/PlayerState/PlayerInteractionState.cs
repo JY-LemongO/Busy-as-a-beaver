@@ -12,13 +12,14 @@ public class PlayerInteractionState : PlayerBaseState
     public override void Enter()
     {
         base.Enter();
+        _stateMachine.Player.target.GetComponent<Resource_Tree>().LogTree();
         StartAnimation(_stateMachine.Player.AnimationData.InteracrtionParameterHash);
-        _stateMachine.Player.targetTree.LogTree();
     }
 
     public override void Exit()
     {
         base.Exit();
+        
         _stateMachine.Player.isInteraction = false;
         StopAnimation(_stateMachine.Player.AnimationData.InteracrtionParameterHash);
     }
@@ -30,6 +31,11 @@ public class PlayerInteractionState : PlayerBaseState
 
     public override void Update()
     {
-
+        if (!_stateMachine.Player.target.GetComponent<Resource_Tree>().IsLogging)
+        {
+            _stateMachine.Player.log.SetActive(true);
+            _stateMachine.Player._isMovingToDam = true;
+            _stateMachine.ChangeState(_stateMachine.IdleState);
+        }
     }
 }

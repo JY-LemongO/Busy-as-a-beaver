@@ -28,8 +28,7 @@ public class PlayerBuildingState : PlayerBaseState
     public void BuildDam()
     {
         DamManager.Instance.Dam.BuildDam();
-        PoolManager.Instance.Return(_stateMachine.Player.log);
-
+        _stateMachine.Player.log.SetActive(false);
         _stateMachine.Player._isMovingToDam = false;
     }
 
@@ -45,7 +44,6 @@ public class PlayerBuildingState : PlayerBaseState
         if (_delayTime < _timer)
         {
             _timer = 0f;
-            _stateMachine.Player.targetTree = null;
             _stateMachine.ChangeState(_stateMachine.IdleState);
         }
     }

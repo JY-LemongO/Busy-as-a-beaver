@@ -1,19 +1,24 @@
+using System;
 using UnityEngine;
 
 public enum BHSpawnType
 {
-    Normal,
-    Main,    
+    Main = 1,
+    Sub1,
+    Sub2,
+    Sub3,
 }
 
 public class BHSpawnPoint : MonoBehaviour
 {
-    [SerializeField] private BHSpawnType spawnerType;
+    public BHSpawnType spawnerType;
 
     private void Awake()
     {
-        BuildingSystem.Instance.RegistBHSpawnPoint(this);
-        if(spawnerType == BHSpawnType.Main)
-            BuildingSystem.Instance.BuildBeaverHouse(this);
+        //BuildingSystem.Instance.RegistBHSpawnPoint(this);
+        //if (DataManager.Instance.statusData[(StatusType)(400 + (int)spawnerType)].statusValue > 0)
+        //{
+        //    BuildingSystem.Instance.Build(this);
+        //}
     }
 }

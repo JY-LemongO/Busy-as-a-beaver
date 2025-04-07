@@ -4705,7 +4705,7 @@ MonoBehaviour:
   - {fileID: 8156072237428450966}
   _needLogCount: 10
   moveToDamPosition: {fileID: 0}
-  m_Present: {fileID: 0}
+  statusType: 501
 --- !u!65 &3807660911389376472
 BoxCollider:
   m_ObjectHideFlags: 0

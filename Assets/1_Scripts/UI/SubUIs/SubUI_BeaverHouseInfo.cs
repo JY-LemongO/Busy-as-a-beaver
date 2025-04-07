@@ -6,8 +6,7 @@ using TMPro;
 public class SubUI_BeaverHouseInfo : SubUI_Base
 {
     [Header("Model")]
-    [SerializeField] private HouseManager houseManager;
-    private BeaverHouse CurrentHouse => houseManager.currentHouse;
+    private BeaverHouse CurrentHouse;
 
     [Header("View")]
     [SerializeField] private Button upgradeButton;
@@ -33,6 +32,7 @@ public class SubUI_BeaverHouseInfo : SubUI_Base
         if (IsUpgradeAffordable)
         {
             PerformUpgrade();
+            Initialize(CurrentHouse);
         }
         else
         {
@@ -54,8 +54,8 @@ public class SubUI_BeaverHouseInfo : SubUI_Base
 
     public void Initialize(BeaverHouse beaverHouse)
     {
-        UpdateBeaverImages(beaverHouse);
         SetHouseInfo(beaverHouse);
+        UpdateBeaverImages(beaverHouse);
 
         if (beaverHouse.CurrentHouseLv == 6)
         {
@@ -100,9 +100,14 @@ public class SubUI_BeaverHouseInfo : SubUI_Base
         closeImage.gameObject.SetActive(false);
     }
 
-    public void Click()
+    public void Click(BeaverHouse beaverHouse)
     {
         gameObject.SetActive(true);
         Initialize(CurrentHouse);
+    }
+
+    public void GetCurrentHouse(BeaverHouse beaverHouse)
+    {
+        CurrentHouse = beaverHouse;
     }
 }

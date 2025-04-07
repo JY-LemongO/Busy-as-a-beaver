@@ -8,21 +8,28 @@ public class BeaverHouse : MonoBehaviour, ITouchable
     public Action<BeaverHouse> OnDataChanged;
 
     public GameObject[] beaver;
-    public StatusType statusType => Enum.Parse<StatusType>(gameObject.name);
+    public StatusType statusType;
+    public GameObject preview;
 
     private bool isActive = true;
 
     [Header("Data")]
     public HouseData houseData;
-    private string Key => $"House_{(DataManager.Instance.statusData[statusType].statusValue) + 1:D3}";
+    private string Key;
 
     private void OnEnable()
     {
         InitData();
+        HouseManager.Instance.AddHouse(this);
+
+        BuildingSystem.Instance.OnPVChanged += HandlePVChanged;
     }
 
     public void InitData()
     {
+        Key = $"House_{(DataManager.Instance.statusData[statusType].statusValue) + 1:D3}";
+        Debug.Log(statusType);
+
         if (IsHouseDataAvailable())
         {
             houseData = DataManager.Instance.houseData[Key];
@@ -41,7 +48,7 @@ public class BeaverHouse : MonoBehaviour, ITouchable
         return DataManager.Instance.houseData.ContainsKey(Key);
     }
 
-    private void UpdateHouseActivity()
+    public void UpdateHouseActivity()
     {
         isActive = DataManager.Instance.statusData[statusType].statusValue != 0;
         gameObject.SetActive(isActive);
@@ -58,6 +65,10 @@ public class BeaverHouse : MonoBehaviour, ITouchable
             StatusManager.Instance.SetDirty();
         }
     }
+    private void HandlePVChanged(bool newValue)
+    {
+        AlreadyBuild(newValue);
+    }
 
     public void Interact()
     {
@@ -66,7 +77,7 @@ public class BeaverHouse : MonoBehaviour, ITouchable
 
     public void SetBeaver()
     {
-        for (int i = 0; i < CurrentHouseLv - 1; i++)
+        for (int i = 0; i < CurrentHouseLv; i++)
         {
             ActivateBeaver(i);
         }
@@ -77,6 +88,29 @@ public class BeaverHouse : MonoBehaviour, ITouchable
         if (!beaver[index].activeSelf)
         {
             beaver[index].SetActive(true);
+            beaver[index].GetComponent<Player>().house = this;
         }
+    }
+
+    private void AlreadyBuild(bool newValue)
+    {
+        if (preview == null)
+            return;
+        if (newValue && CurrentHouseLv == 0)
+        {
+            preview.SetActive(true);
+        }
+        else
+        {
+            preview.SetActive(false);
+        }
+    }
+
+    public void Build()
+    {
+        CurrentHouseLv++;
+        preview.SetActive(false);
+        DataManager.Instance.statusData[StatusType.Wood].statusValue -= 1000;
+        InitData();
     }
 }

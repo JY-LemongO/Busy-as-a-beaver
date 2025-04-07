@@ -10,6 +10,7 @@ public class Resource_Tree : MonoBehaviour
     public event Action OnTreeDestroyed;
     public event Action<float> OnLogging;
 
+    [SerializeField]private ParticleSystem coinParticle;
     public bool IsDestroyed { get; private set; }
     public bool IsTargeted {  get; private set; }
     public bool IsLogging { get; private set; }
@@ -18,7 +19,11 @@ public class Resource_Tree : MonoBehaviour
 
     public void Setup()
     {
-        // To Do - 나무 스테이터스 넣기
+        coinParticle = transform.parent.Find("Coin_Particle").GetComponentInChildren<ParticleSystem>();
+
+        if (coinParticle != null)
+            coinParticle.Stop();
+
         IsDestroyed = false;
     }
 
@@ -39,8 +44,11 @@ public class Resource_Tree : MonoBehaviour
     }    
 
     private void DestroyTree()
-    {        
-        TreeManager.Instance.DestroyTree(this, _workedBeaver);        
+    {
+        if (coinParticle != null)
+            coinParticle.Play();
+
+        TreeManager.Instance.DestroyTree(this, _workedBeaver);
         OnTreeDestroyed?.Invoke();
         OnTreeDestroyed = null;
         IsLogging = false;

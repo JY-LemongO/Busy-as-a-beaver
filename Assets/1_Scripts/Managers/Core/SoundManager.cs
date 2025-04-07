@@ -12,33 +12,40 @@ public enum SoundKey
     Upgrade_Sound,
 }
 
-public class SoundManager : SingletonBase<SoundManager>
+public class SoundManager : MonoSingleton<SoundManager>
 {
-    private const string SOUND_CLIP_PATH = "Sound/";
-    private const int SOURCE_COUNT = 10;
+    [SerializeField][Range(0f, 1f)] private float soundEffectVolume;
+    [SerializeField][Range(0f, 1f)] private float soundEffectPitchVariance;
+    [SerializeField][Range(0f, 1f)] private float musicVolume;
 
-    public List<AudioSource> _sfxSources = new List<AudioSource>();    
+    private AudioSource musicAudioSource;
+    public AudioClip musicClip;
 
-    private int _currentIndex;
-
-    public void PlaySFX(SoundKey sfxType)
+    private void Awake()
     {
-        string key = SOUND_CLIP_PATH + sfxType.ToString();
-        AudioClip clip = ResourceManager.Instance.Load<AudioClip>(key);
-
-        _sfxSources[_currentIndex].PlayOneShot(clip);
-        _currentIndex++;
-
-        if(_currentIndex == SOURCE_COUNT)
-            _currentIndex = 0;
+        musicAudioSource = GetComponent<AudioSource>();
+        musicAudioSource.volume = musicVolume;
+        musicAudioSource.loop = true;
     }
 
-    protected override void InitChild()
+    private void Start()
     {
-        for(int i = 0; i < SOURCE_COUNT; i++)
-        {
-            AudioSource soruce = transform.AddComponent<AudioSource>();
-            _sfxSources.Add(soruce);
-        }
+        ChangeBackGroundMusic(musicClip);
+    }
+
+    public void ChangeBackGroundMusic(AudioClip music)
+    {
+        musicAudioSource.Stop();
+        musicAudioSource.clip = music;
+        musicAudioSource.Play();
+    }
+
+    string PREFAB_PATH = "Prefabs/Sound/Sound";
+    public void PlayClip(AudioClip clip)
+    {
+        GameObject obj = ResourceManager.Instance.Instantiate(PREFAB_PATH);
+        obj.SetActive(true);
+        SoundSource soundSource = obj.GetComponent<SoundSource>();
+        soundSource.Play(clip, soundEffectVolume, soundEffectPitchVariance);
     }
 }

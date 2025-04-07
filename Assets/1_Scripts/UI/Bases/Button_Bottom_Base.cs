@@ -9,7 +9,8 @@ public class Button_Bottom_Base : MonoBehaviour
     public SubUIType subUIType;
     public Image iconImg;
 
-    private void OnEnable() {
+    private void OnEnable()
+    {
         Initialize();
     }
 

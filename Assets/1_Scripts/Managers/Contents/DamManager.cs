@@ -13,7 +13,7 @@ public class DamManager : SingletonBase<DamManager>
     {
         GameObject go = ResourceManager.Instance.Instantiate(DAM_PREFAB_PATH);
         Dam = go.GetComponent<Dam>();
-        Dam.SetupDam((int)DataManager.Instance.GetStageData(GameManager.Instance.GetCurrentStage()).needWood); // 임시
+        Dam.SetupDam((int)DataManager.Instance.GetStageData(GameManager.Instance.GetCurrentStage()).needWood);
         Dam.transform.position = spawnPoint.position;
         Dam.transform.rotation = spawnPoint.rotation;
     }

@@ -1,15 +1,16 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class HouseManager : MonoBehaviour
+public class HouseManager : SingletonBase<HouseManager>
 {
-    public BeaverHouse[] houses;
+    public List<BeaverHouse> houses = new List<BeaverHouse>();
     public BeaverHouse currentHouse;
-    public SubUI_BeaverHouseInfo houseInfo;
+    public GameObject houseInfo;
 
     private void OnEnable()
     {
-        InitializeHouses();
+        //InitializeHouses();
     }
 
     private void OnDisable()
@@ -17,20 +18,21 @@ public class HouseManager : MonoBehaviour
         UnsubscribeFromHouseClickEvents();
     }
 
-    private void InitializeHouses()
-    {
-        houses = FindObjectsOfType<BeaverHouse>();
-        Debug.Log($"찾은 BeaverHouse 개수: {houses.Length}");
+    //private void InitializeHouses()
+    //{
+    //    houses = FindObjectsOfType<BeaverHouse>().ToList();
 
-        if (houses.Length > 0)
-        {
-            SubscribeToHouseClickEvents();
-        }
-        else
-        {
-            Debug.LogWarning("BeaverHouse가 없습니다!");
-        }
-    }
+    //    Debug.Log($"찾은 BeaverHouse 개수: {houses.Count}");
+
+    //    if (houses.Count > 0)
+    //    {
+    //        SubscribeToHouseClickEvents();
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("BeaverHouse가 없습니다!");
+    //    }
+    //}
 
     private void SubscribeToHouseClickEvents()
     {
@@ -50,20 +52,31 @@ public class HouseManager : MonoBehaviour
 
     private void ChangeCurrentHouse(BeaverHouse beaverHouse)
     {
+        if (beaverHouse == null)
+            return;
+
         currentHouse = beaverHouse;
+        houseInfo.GetComponent<SubUI_BeaverHouseInfo>().GetCurrentHouse(beaverHouse);
+        houseInfo.GetComponent<SubUI_BeaverHouseInfo>().Click(beaverHouse);
 
         if (currentHouse == null)
             return;
 
-        houseInfo.Click();
+        if (houseInfo == null)
+        {
+            Debug.Log("인포가 널");
+            return;
+        }
     }
 
     public void AddHouse(BeaverHouse newHouse)
     {
-        if (!houses.Contains(newHouse))
-        {
-            houses = houses.Concat(new[] { newHouse }).ToArray();
-            newHouse.OnHouseClick += ChangeCurrentHouse;
-        }
+        houses.Add(newHouse);
+        newHouse.OnHouseClick += ChangeCurrentHouse;
+    }
+
+    protected override void InitChild()
+    {
+
     }
 }

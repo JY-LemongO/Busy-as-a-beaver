@@ -2,24 +2,15 @@ using UnityEngine;
 
 public class Scanner : MonoBehaviour
 {
-    public float scanRange;
     public Collider[] targets;
 
     private int targetLayer;
 
-    public void SetLayer(string targetLayerName)
+    public Transform Scan(string targetLayerName)
     {
-        targetLayer = LayerMask.NameToLayer(targetLayerName);
+        targetLayer = LayerMask.NameToLayer(targetLayerName); 
 
-        if (targetLayer == -1)
-        {
-            Debug.LogError("타겟 레이어를 찾을 수 없습니다: " + targetLayerName);
-        }
-    }
-
-    public Transform Scan()
-    {
-        targets = Physics.OverlapSphere(transform.position, scanRange, 1 << targetLayer);
+        targets = Physics.OverlapSphere(transform.position, int.MaxValue, 1 << targetLayer);
 
         if (targets.Length == 0)
         {
@@ -58,3 +49,4 @@ public class Scanner : MonoBehaviour
         return result;
     }
 }
+

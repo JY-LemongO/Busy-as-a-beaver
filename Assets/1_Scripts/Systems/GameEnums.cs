@@ -32,6 +32,7 @@ public enum SubUIType
     Stage = 7,
     //BH = BeaverHouse
     BHInfo = 8,
+    Build = 9
 }
 
 public enum IncriseType
@@ -89,7 +90,8 @@ public enum StatusType
     House_Sub1 = 402,
     House_Sub2 = 403,
     House_Sub3 = 404,
-
+    //Dam
+    CurrentWood = 501,
 }
 
 public enum MessageType

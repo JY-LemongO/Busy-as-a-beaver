@@ -20,7 +20,7 @@ public class LoadingSceneManager : MonoBehaviour
         op.allowSceneActivation = false;
 
         //yield return StartCoroutine(LoadResources(op));  
-        //yield return StartCoroutine(SetupData(op));      
+        yield return StartCoroutine(SetupData(op));      
         //yield return StartCoroutine(CheckPlayerInfo(op));
         //yield return StartCoroutine(AdditionalSetup(op));
 

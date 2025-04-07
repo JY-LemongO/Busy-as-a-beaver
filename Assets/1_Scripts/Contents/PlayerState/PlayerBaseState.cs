@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Unity.Services.Analytics.Internal;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.InputSystem;
 using static UnityEngine.GraphicsBuffer;
 
@@ -34,98 +35,57 @@ public class PlayerBaseState : IState
 
     public virtual void PhysicsUpdate()
     {
-        if (_stateMachine.Player._isMovingToDam)
-        {
-            MoveToDam();
-            _stateMachine.ChangeState(_stateMachine.WalkState);
-        }
 
-        if (_stateMachine.Player.targetTree != null)
-            return;
-
-        if (TryGetTargetTree())
-        {
-            MoveToTargetTree();
-            _stateMachine.ChangeState(_stateMachine.WalkState);
-        }
     }
 
     public virtual void Update()
     {
-
     }
 
     public bool TryGetTargetTree()
     {
-        _stateMachine.Player.targetTree = TreeManager.Instance.GetClosestTree(_stateMachine.Player.transform);
+        if (TreeManager.Instance.GetClosestTree(_stateMachine.Player.transform) != null)
+            _stateMachine.Player.target = TreeManager.Instance.GetClosestTree(_stateMachine.Player.transform).gameObject;
+        else
+            _stateMachine.Player.target = null;
 
-        if (_stateMachine.Player.targetTree != null)
+        if (_stateMachine.Player.target != null)
         {
-            _stateMachine.Player.targetTree.SetBeaver(_stateMachine.Player as Beaver);
-            _stateMachine.Player.targetTree.OnTreeDestroyed += OnGetLog;
+            _stateMachine.Player.target.GetComponent<Resource_Tree>().SetBeaver(_stateMachine.Player as Beaver);
+            _stateMachine.Player.target.GetComponent<Resource_Tree>().OnTreeDestroyed += OnGetLog;
             return true;
         }
         return false;
     }
 
-    public void MoveToTargetTree()
+    public bool ReachTheTarget(string targetLayerName)
     {
-        if (_stateMachine.Player.targetTree == null)
-        {
-            MoveToHome();
-            Debug.Log("targetTree is not assigned in Player!");
-        }
-        else
-        {
-            Transform target = _stateMachine.Player.targetTree.gameObject.transform;
-            _stateMachine.Player.unit.SetTarget(target);
-        }
+        int targetLayer = LayerMask.NameToLayer(targetLayerName);
 
-    }
-
-    public bool ReachTheTarget()
-    {
         Ray ray = new Ray(_stateMachine.Player.transform.position + Vector3.up * 0.5f, _stateMachine.Player.transform.forward);
+
         RaycastHit hit;
 
-        int layerMask = 1 << LayerMask.NameToLayer("Resource") | 1 << LayerMask.NameToLayer("Dam");
-
-        if (Physics.Raycast(ray, out hit, 1f, layerMask, QueryTriggerInteraction.Collide))
+        if (Physics.Raycast(ray, out hit, 1f, 1 << targetLayer, QueryTriggerInteraction.Collide))
         {
-            if (hit.collider != null)
+            if (hit.collider.gameObject.layer == targetLayer)
             {
-                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Resource"))
-                {
-                    _stateMachine.Player.isInteraction = true;
-                }
                 return true;
             }
         }
         return false;
     }
-
-    public void MoveToDam()
+    
+    public void ResetTarget()
     {
-        _stateMachine.Player.scanner.SetLayer("Dam");
-        Transform target = _stateMachine.Player.scanner.Scan();
-        _stateMachine.Player.unit.SetTarget(target);
+        _stateMachine.Player.target = null;
+        _stateMachine.Player.unit.target = null;
     }
-
-    public void MoveToHome()
-    {
-        Transform target = _stateMachine.Player.house.transform;
-        _stateMachine.Player.unit.SetTarget(target);
-    }
-
 
     #region GJY
     private void OnGetLog()
     {
-        _stateMachine.Player.targetTree.OnTreeDestroyed -= OnGetLog;
-
-        _stateMachine.Player.log = ResourceManager.Instance.Instantiate("Prefabs/Tree/Log", _stateMachine.Player.transform);
-        _stateMachine.Player.log.transform.localPosition = Vector3.zero;
-        _stateMachine.Player.log.transform.localRotation = Quaternion.identity;
+        _stateMachine.Player.target.GetComponent<Resource_Tree>().OnTreeDestroyed -= OnGetLog;
 
         _stateMachine.Player._isMovingToDam = true;
         _stateMachine.Player._isLogging = false;

@@ -3,10 +3,16 @@ using UnityEngine;
 public class PV_BeaverHouse : MonoBehaviour, ITouchable
 {
     public BHSpawnPoint SpawnPoint { get; private set; }
+    public Canvas popupUI;
 
     private void Awake()
     {
         BuildingSystem.Instance.OnExitPreviewMode += OnExitPVMode;
+    }
+
+    private void OnEnable()
+    {
+        popupUI.gameObject.SetActive(false);
     }
 
     public void Setup(BHSpawnPoint spawnPoint)
@@ -22,6 +28,6 @@ public class PV_BeaverHouse : MonoBehaviour, ITouchable
 
     public void Interact()
     {
-        BuildingSystem.Instance.BuildBeaverHouse(SpawnPoint);
+        popupUI.gameObject.SetActive(true);
     }
 }

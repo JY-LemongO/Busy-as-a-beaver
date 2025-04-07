@@ -10,17 +10,18 @@ public class Dam : MonoBehaviour
     [SerializeField] private int _needLogCount;
     public GameObject moveToDamPosition;
 
+    public StatusType statusType;
     public int NeedLogCount { get; private set; }
-
-    private int m_CurrentLogCount;
 
     public int CurrentLogCount
     {
-        get => m_CurrentLogCount;
+        get => DataManager.Instance.statusData[statusType].statusValue;
         set
         {
-            m_CurrentLogCount = Mathf.Clamp(value, 0, NeedLogCount);
+            int clampedValue = Mathf.Clamp(value, 0, NeedLogCount);
+            DataManager.Instance.statusData[statusType].statusValue = clampedValue;
             DamChanged?.Invoke();
+            
             StatusManager.Instance.SetDirty();
         }
     }
@@ -30,14 +31,13 @@ public class Dam : MonoBehaviour
         if (DamManager.Instance.Dam == null)
         {
             DamManager.Instance.SetDam(this);
-            SetupDam(100);
         }
     }
 
     public void SetupDam(int logCount)
     {
         NeedLogCount = logCount;
-        CurrentLogCount = 0;
+        CurrentLogCount = DataManager.Instance.statusData[statusType].statusValue;
 
         foreach (var logProgress in _damProgressList)
             logProgress.SetActive(false);

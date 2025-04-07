@@ -7,71 +7,46 @@ public class BuildingSystem : SingletonBase<BuildingSystem>
     #region Events
     public event Action<BeaverHouse> OnBeaverHouseBuilt;
     public event Action<BeaverHouse> OnBeaverHouseDestroyed;
+    public event Action<bool> OnPVChanged;
     public event Action OnExitPreviewMode;
     #endregion
 
     private Dictionary<BHSpawnPoint, BeaverHouse> _beaverHouseDict = new();
     public bool IsPVMode { get; private set; } = false;
 
+    StatusType statusType;
+
     private int _buildableBHCount;
     private int _currentBHCount;
 
-    private const string BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/House_Main";
-    private const string PV_BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/PV_BeaverHouse";    
+    private const string BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/House";
+    private const string PV_BEAVER_HOUSE_PREFAB_PATH = "Prefabs/Building/PV_BeaverHouse";
 
-    public void BuildBeaverHouse(BHSpawnPoint spawnPoint)
+    //public void Build(BHSpawnPoint spawnPoint)
+    //{
+    //    BeaverHouse beaverHouse = HouseManager.Instance.currentHouse;
+    //    beaverHouse.InitData();
+    //    beaverHouse.gameObject.SetActive(true);
+    //    HouseManager.Instance.AddHouse(beaverHouse);
+    //}
+
+    private bool _isPV;
+
+    public bool isPV
     {
-        if (_beaverHouseDict.ContainsKey(spawnPoint) && _beaverHouseDict[spawnPoint] != null)
+        get => _isPV;
+        set
         {
-            Debug.LogError($"[BuildingSystem] 현재 스폰포인트에 이미 비버집이 건설 되어 있습니다.");
-            return;
+            if (_isPV != value)
+            {
+                _isPV = value;
+                OnPVChanged?.Invoke(_isPV);
+            }
         }
-        Vector3 spawnPosition = spawnPoint.transform.position;
-        BeaverHouse beaverHouse = Util.SpawnGameObjectAndSetPosition<BeaverHouse>(BEAVER_HOUSE_PREFAB_PATH, spawnPosition, parent: spawnPoint.transform);
-
-        _beaverHouseDict[spawnPoint] = beaverHouse;
-        _currentBHCount++;
-
-        //BeaverManager.Instance.SpawnBeaver(spawnPosition, beaverHouse);
-        OnBeaverHouseBuilt?.Invoke(beaverHouse);
-
-        ExitPreviewBH();
     }
-
-    public void DestroyBeaverHouse(BHSpawnPoint spawnPoint)
-    {
-        if (!_beaverHouseDict.ContainsKey(spawnPoint) || _beaverHouseDict[spawnPoint] == null)
-        {
-            Debug.LogError($"[BuildingSystem] 현재 스폰포인트에 비버집이 건설 되어있지 않습니다.");
-            return;
-        }
-        PoolManager.Instance.Return(_beaverHouseDict[spawnPoint].gameObject);
-        OnBeaverHouseDestroyed?.Invoke(_beaverHouseDict[spawnPoint]);
-        _beaverHouseDict[spawnPoint] = null;
-
-        _currentBHCount--;
-    }
-
     public void EnterBHPreviewMode()
     {
-        if (IsPVMode)
-            return;
-
-        IsPVMode = true;
-        foreach (var spawnPoint in _beaverHouseDict.Keys)
-        {
-            if (_beaverHouseDict[spawnPoint] != null)
-                continue;
-
-            PV_BeaverHouse pvBeaverHouse = Util.SpawnGameObjectAndSetPosition<PV_BeaverHouse>(PV_BEAVER_HOUSE_PREFAB_PATH, spawnPoint.transform.position);
-            pvBeaverHouse.Setup(spawnPoint);
-        }
-    }
-
-    public void ExitPreviewBH()
-    {
-        IsPVMode = false;
-        OnExitPreviewMode?.Invoke();
+        isPV = !isPV;
     }
 
     public void RegistBHSpawnPoint(BHSpawnPoint spawnPoint)

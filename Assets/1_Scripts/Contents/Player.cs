@@ -17,23 +17,20 @@ public class Player : Beaver
     public Unit unit { get; private set; }
     public Scanner scanner { get; private set; }
 
-
     [SerializeField] private float _needDistance;
 
-    public Resource_Tree targetTree;
+    public GameObject target;
     public bool isInteraction = false;
-
     
-    #region GJY
     public GameObject log;
     public BeaverHouse house;
 
     public bool _isMovingToDam = false;
     public bool _isLogging = false;
-    #endregion
+    public bool _isResting = true;
 
-    public override void SetHouse(GameObject obj)
-        => this.house = obj.GetComponentInParent<BeaverHouse>();
+    //public override void SetHouse(GameObject obj)
+    //    => this.house = obj.GetComponentInParent<BeaverHouse>();
 
     private void Awake()
     {
@@ -63,7 +60,6 @@ public class Player : Beaver
         if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
             Animator.SetBool("Swim", true);
-
         }
     }
 
@@ -72,6 +68,22 @@ public class Player : Beaver
         if (collision.gameObject.layer == LayerMask.NameToLayer("Water"))
         {
             Animator.SetBool("Swim", false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == house.gameObject)
+        {
+            _isResting = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject == house.gameObject)
+        {
+            _isResting = false;
         }
     }
 

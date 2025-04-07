@@ -22,12 +22,10 @@ public class Unit : MonoBehaviour
 
         if (target != null)
         {
-            // 기존에 실행 중인 경로 갱신 코루틴을 중지
             if (updatePathCoroutine != null)
             {
                 StopCoroutine(updatePathCoroutine);
             }
-            // 새로운 경로 갱신 코루틴 시작
             updatePathCoroutine = StartCoroutine(UpdatePath());
         }
     }
@@ -58,11 +56,18 @@ public class Unit : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(minPathUpdateTime);
-            //print(((target.position - targetPosOld).sqrMagnitude) + "    " + sqrMoveThreshold);
-            if ((target.position - targetPosOld).sqrMagnitude > sqrMoveThreshold)
+            if (target == null)
             {
-                PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
-                targetPosOld = target.position;
+                Debug.Log("TargetNull");
+                StopCoroutine(UpdatePath());
+            }
+            else 
+            {
+                if ((target.position - targetPosOld).sqrMagnitude > sqrMoveThreshold)
+                {
+                    PathRequestManager.RequestPath(new PathRequest(transform.position, target.position, OnPathFound));
+                    targetPosOld = target.position;
+                }
             }
         }
     }
